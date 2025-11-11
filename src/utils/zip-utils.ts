@@ -14,6 +14,9 @@ export async function generateZip(inputPath: string, outputPath: string): Promis
     const output = createWriteStream(outputPath);
     const archive = archiver('zip', {
       zlib: { level: 9 }, // Maximum compression
+
+      // deterministic output
+      statConcurrency: 1,
     });
 
     output.on('close', () => {
@@ -34,7 +37,10 @@ export async function generateZip(inputPath: string, outputPath: string): Promis
     archive.pipe(output);
 
     // Add the directory contents to the archive
-    archive.directory(inputPath, false);
+    archive.directory(inputPath, false, {
+      // deterministic output
+      date: new Date('2020-02-02T02:02:02.020Z'),
+    });
 
     // Finalize the archive
     archive.finalize();
