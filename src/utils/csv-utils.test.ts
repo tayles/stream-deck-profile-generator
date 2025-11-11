@@ -124,7 +124,7 @@ Ctrl+C,Edit`;
       const csv = `Hotkey,Label,Page
 Ctrl+C,Copy`;
 
-      expect(() => parseCsv(csv)).toThrow('Expected 3 columns');
+      expect(() => parseCsv(csv)).toThrow('Invalid Record Length');
     });
 
     test('handles empty optional fields', () => {

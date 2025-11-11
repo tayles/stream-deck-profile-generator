@@ -1,3 +1,4 @@
+import { parse } from 'csv-parse/sync';
 import { generateId } from './hotkey-utils';
 import type { HotkeyDescriptor } from "../types/types";
 
@@ -15,15 +16,34 @@ export interface CsvRow {
  * Expected headers: Id, Hotkey, Label, Page, Color
  */
 export function parseCsv(csv: string): CsvRow[] {
-  const lines = csv.trim().split('\n').filter(line => line.trim());
-  if (lines.length === 0) {
+  if (!csv.trim()) {
     throw new Error('CSV file is empty');
   }
 
-  // Parse header row
-  const headerLine = lines[0]!;
-  const headers = headerLine.split(',').map(h => h.trim().toLowerCase());
+  let records: any[];
   
+  try {
+    records = parse(csv, {
+      columns: (header: string[]) => {
+        // Normalize headers to lowercase
+        return header.map(h => h.trim().toLowerCase());
+      },
+      skip_empty_lines: true,
+      trim: true,
+      relax_quotes: true,
+    });
+  } catch (error) {
+    throw new Error(`Failed to parse CSV: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  if (records.length === 0) {
+    throw new Error('CSV file is empty');
+  }
+
+  // Get headers from first record
+  const firstRecord = records[0];
+  const headers = Object.keys(firstRecord);
+
   // Validate required headers
   if (!headers.includes('hotkey')) {
     throw new Error('CSV must have a "Hotkey" column');
@@ -34,87 +54,38 @@ export function parseCsv(csv: string): CsvRow[] {
 
   const rows: CsvRow[] = [];
   
-  // Parse data rows
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i]!.trim();
-    if (!line) continue;
+  // Process each record
+  for (let i = 0; i < records.length; i++) {
+    const record = records[i];
     
-    const values = parseCsvLine(line);
-    if (values.length !== headers.length) {
-      throw new Error(`Line ${i + 1}: Expected ${headers.length} columns, got ${values.length}`);
-    }
-
     const row: CsvRow = {
-      hotkey: '',
-      label: '',
+      hotkey: record.hotkey?.trim() || '',
+      label: record.label?.trim() || '',
     };
 
-    for (let j = 0; j < headers.length; j++) {
-      const header = headers[j]!;
-      const value = values[j]!.trim();
-      
-      switch (header) {
-        case 'id':
-          if (value) row.id = value;
-          break;
-        case 'hotkey':
-          row.hotkey = value;
-          break;
-        case 'label':
-          row.label = value;
-          break;
-        case 'page':
-          if (value) row.page = value;
-          break;
-        case 'color':
-          if (value) row.color = value;
-          break;
-      }
+    // Add optional fields if present and not empty
+    if (record.id?.trim()) {
+      row.id = record.id.trim();
+    }
+    if (record.page?.trim()) {
+      row.page = record.page.trim();
+    }
+    if (record.color?.trim()) {
+      row.color = record.color.trim();
     }
 
     // Validate required fields
     if (!row.hotkey) {
-      throw new Error(`Line ${i + 1}: Hotkey is required`);
+      throw new Error(`Line ${i + 2}: Hotkey is required`);
     }
     if (!row.label) {
-      throw new Error(`Line ${i + 1}: Label is required`);
+      throw new Error(`Line ${i + 2}: Label is required`);
     }
 
     rows.push(row);
   }
 
   return rows;
-}
-
-/**
- * Parse a CSV line handling quoted values with commas
- */
-function parseCsvLine(line: string): string[] {
-  const values: string[] = [];
-  let current = '';
-  let inQuotes = false;
-
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i]!;
-    
-    if (char === '"') {
-      // Handle escaped quotes
-      if (inQuotes && line[i + 1] === '"') {
-        current += '"';
-        i++;
-      } else {
-        inQuotes = !inQuotes;
-      }
-    } else if (char === ',' && !inQuotes) {
-      values.push(current);
-      current = '';
-    } else {
-      current += char;
-    }
-  }
-  
-  values.push(current);
-  return values;
 }
 
 /**

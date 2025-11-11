@@ -178,7 +178,7 @@ Ctrl+V,Paste,#00FF00`;
         outputPath: outputFile,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow('CSV file contains no data rows');
+      await expect(generateStreamDeckProfile(options)).rejects.toThrow('CSV file is empty');
     });
 
     test('throws error for invalid device ID', async () => {
