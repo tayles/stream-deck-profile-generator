@@ -14,16 +14,14 @@ Create a CSV file with the following columns:
 
 If any of these optional columns are omitted, sensible defaults will be used:
 
-- `Page`: Pages will be created as needed to fit all buttons
+- `Page`: Pages will be created as needed to fit all buttons (including space for navigation buttons)
 - `Id`: A unique ID will be generated based on the label
 - `Color`: Default button color will be used
 
 Run the generator with your CSV file:
 
 ```shell
-bun run generate \
-  --input hotkeys.csv \
-  --output MyProfile.streamDeckProfile
+bun run generate --input hotkeys.csv
 ```
 
 All available options:
@@ -31,29 +29,31 @@ All available options:
 ```shell
 bun run generate \
   --input hotkeys.csv \
-  --output MyProfile.streamDeckProfile
-  --device mk
-  --button-style basic
-  --label-style both
-  --label-position middle
-  --bg-color black
-  --text-color white
-  --font-size 14
+  --output MyProfile.streamDeckProfile \
+  --device mk \
+  --button-style basic \
+  --label-style both \
+  --label-position middle \
+  --bg-color black \
+  --text-color white \
+  --font-size 14 \
   --icons-dir ~/path/to/icons
 ```
 
 ## CLI Options
 
-- `--input <path>`: Path to the input CSV file _(required)_
-- `--output <path>`: Path to the output `.streamDeckProfile` file _(defaults to `<input-filename>.streamDeckProfile`)_
-- `--device <deviceId>`: Stream Deck device ID (e.g., `mk`, `xl`, `mini`) _(defaults to `mk`)_
-- `--button-style <style>`: Button style (e.g., `basic`, `border`, `rainbow`, `fill`) _(defaults to `basic`)_
-- `--label-style <style>`: Label style (e.g., `label`, `hotkey`, `both`, `none`) _(defaults to `both`)_
-- `--label-position <position>`: Label vertical position (e.g., `top`, `middle`, `bottom`) _(defaults to `middle`)_
-- `--bg-color <color>`: Default button background color (e.g., `red`, `#FF0000`) _(defaults to `black`)_
-- `--text-color <color>`: Default button text color (e.g., `white`, `#FFFFFF`) _(defaults to `white`)_
-- `--font-size <size>`: Default button font size (e.g., `14`, `9`) _(defaults to `14`)_
-- `--icons-dir <path>`: Path to a directory containing PNG, GIF, JPG or WEBP icons. Matches on the id _(optional)_
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--input <path>` | Path to the input CSV file | _(required)_ |
+| `--output <path>` | Path to the output `.streamDeckProfile` file | `<input-filename>.streamDeckProfile` |
+| `--device <type>` | Stream Deck device ID (e.g., `mk`, `xl`, `mini`) | `mk` |
+| `--button-style <style>` | Button style (e.g., `basic`, `border`, `rainbow`, `fill`) | `basic` |
+| `--label-style <style>` | Label style (e.g., `label`, `hotkey`, `both`, `none`) | `both` |
+| `--label-position <position>` | Label vertical position (e.g., `top`, `middle`, `bottom`) | `middle` |
+| `--bg-color <color>` | Default button background color (e.g., `red`, `#FF0000`) | `black` |
+| `--text-color <color>` | Default button text color (e.g., `white`, `#FFFFFF`) | `white` |
+| `--font-size <size>` | Default button font size | `14` |
+| `--icons-dir <path>` | Path to a directory containing PNG, GIF, JPG or WEBP icons. Matches on the hotkey id | _(optional)_ |
 
 ## Button Styles
 

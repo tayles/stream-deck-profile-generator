@@ -18,7 +18,7 @@ Optional:
                               (defaults to <input-filename>.streamDeckProfile)
   --profile-name <name>       Name of the profile
   --app-path <path>           Path to the application to switch to for this profile
-  --device <deviceId>         Stream Deck device ID: ${Object.keys(DEVICES).join(', ')}
+  --device <type>             Stream Deck model: ${Object.keys(DEVICES).join(', ')}
                               (default: mk)
   --button-style <style>      Button style: ${BUTTON_STYLES.join(', ')}
                               (default: basic)
