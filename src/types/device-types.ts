@@ -38,4 +38,4 @@ export const DEVICES = {
 } as const;
 
 export type DeviceId = keyof typeof DEVICES;
-export type Device = typeof DEVICES[DeviceId];
+export type Device = (typeof DEVICES)[DeviceId];

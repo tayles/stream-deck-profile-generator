@@ -224,10 +224,10 @@ export function generateHotkey(hotkey: string): Hotkey {
   // Strategy: Replace + with | only when it's between non-plus characters
   // This preserves standalone + as a key
   let normalized = hotkey.trim();
-  
+
   // Split by spaces first
   const spaceParts = normalized.split(/\s+/);
-  
+
   // Then process each part to handle + as delimiter
   const parts: string[] = [];
   for (const spacePart of spaceParts) {
@@ -242,13 +242,13 @@ export function generateHotkey(hotkey: string): Hotkey {
       parts.push(spacePart);
     }
   }
-  
+
   const modifiers: string[] = [];
   let key: string | null = null;
 
   for (const part of parts) {
     if (!part) continue; // Skip empty parts
-    
+
     // Check for modifiers first (case-insensitive)
     const upperPart = part.toUpperCase();
     const normalizedModifier = MODIFIER_MAPPINGS[upperPart as keyof typeof MODIFIER_MAPPINGS];

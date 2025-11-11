@@ -1,24 +1,28 @@
 import { generateId } from './hotkey-utils';
-import type { HotkeyDescriptor } from "../types/types";
+import type { HotkeyDescriptor } from '../types/types';
 import type { CsvRow } from './csv-utils';
 
 /**
  * Group by pages and auto-generate pages based on the number of rows and columns. Named pages are first.
- * 
+ *
  * Reserves space for navigation buttons in the bottom right corner:
  * - 2+ pages: reserves 1 space for Next button (last position on each page)
  * - 3+ pages: reserves 2 spaces for Previous and Next buttons (last 2 positions on each page)
- * 
+ *
  * Named pages are also split across multiple pages if they exceed the effective page size.
  */
-export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<string, HotkeyDescriptor[]> {
+export function groupByPage(
+  data: CsvRow[],
+  rows: number,
+  cols: number,
+): Record<string, HotkeyDescriptor[]> {
   const totalPageSize = rows * cols;
   const pages: Record<string, HotkeyDescriptor[]> = {};
-  
+
   // First, group explicitly named pages
   const namedRows: Record<string, CsvRow[]> = {};
   const unnamedRows: CsvRow[] = [];
-  
+
   for (const row of data) {
     if (row.page) {
       if (!namedRows[row.page]) {
@@ -38,7 +42,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
   }
   const estimatedUnnamedPages = Math.ceil(unnamedRows.length / totalPageSize);
   const estimatedTotalPages = estimatedNamedPages + estimatedUnnamedPages;
-  
+
   // Determine effective page size based on total pages
   let effectivePageSize = totalPageSize;
   if (estimatedTotalPages >= 3) {
@@ -46,7 +50,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
   } else if (estimatedTotalPages >= 2) {
     effectivePageSize = totalPageSize - 1;
   }
-  
+
   // Recalculate actual total pages with effective page size
   let actualNamedPages = 0;
   for (const pageRows of Object.values(namedRows)) {
@@ -54,7 +58,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
   }
   const actualUnnamedPages = Math.ceil(unnamedRows.length / effectivePageSize);
   const actualTotalPages = actualNamedPages + actualUnnamedPages;
-  
+
   // Adjust effective page size based on actual total page count
   if (actualTotalPages >= 3) {
     effectivePageSize = totalPageSize - 2;
@@ -82,7 +86,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
       for (let i = 0; i < pageRows.length; i += effectivePageSize) {
         const subPageRows = pageRows.slice(i, i + effectivePageSize);
         const subPageName = `${pageName} ${subPageNum}`;
-        
+
         pages[subPageName] = subPageRows.map(row => ({
           id: row.id || generateId(row.label),
           label: row.label,
@@ -90,7 +94,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
           color: row.color,
           index: globalIndex++,
         }));
-        
+
         subPageNum++;
       }
     }
@@ -101,7 +105,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
   for (let i = 0; i < unnamedRows.length; i += effectivePageSize) {
     const pageRows = unnamedRows.slice(i, i + effectivePageSize);
     const pageName = `Page ${pageNum}`;
-    
+
     pages[pageName] = pageRows.map(row => ({
       id: row.id || generateId(row.label),
       label: row.label,
@@ -109,7 +113,7 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
       color: row.color,
       index: globalIndex++,
     }));
-    
+
     pageNum++;
   }
 

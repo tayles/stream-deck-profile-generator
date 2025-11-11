@@ -152,7 +152,6 @@ export const MODIFIER_FLAGS = {
   cmd: 8,
 };
 
-
 export function formatHotkeyCommand(hotkey: string): string {
   return hotkey
     .replace(/\bControl\b/gi, '⌃')

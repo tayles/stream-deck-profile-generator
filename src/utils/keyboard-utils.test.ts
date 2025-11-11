@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import { formatHotkeyCommand } from './keyboard-utils';
 
 describe('keyboard-utils', () => {
-describe('formatHotkeyCommand', () => {
+  describe('formatHotkeyCommand', () => {
     test('replaces Control with ⌃', () => {
       const result = formatHotkeyCommand('Control+C');
       expect(result).toBe('⌃+C');

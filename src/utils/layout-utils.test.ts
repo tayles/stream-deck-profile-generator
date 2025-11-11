@@ -11,7 +11,7 @@ describe('layout-utils', () => {
       ];
 
       const result = groupByPage(data, 3, 5);
-      
+
       expect(Object.keys(result)).toEqual(['Edit', 'Search']);
       expect(result.Edit).toHaveLength(2);
       expect(result.Search).toHaveLength(1);
@@ -24,7 +24,7 @@ describe('layout-utils', () => {
       ];
 
       const result = groupByPage(data, 3, 5);
-      
+
       expect(Object.keys(result)).toEqual(['Page 1']);
       expect(result['Page 1']).toHaveLength(2);
     });
@@ -36,7 +36,7 @@ describe('layout-utils', () => {
       }));
 
       const result = groupByPage(data, 3, 5); // 15 per page normally, but reserves space for navigation
-      
+
       // With 20 items and 2+ pages, reserves 1 space per page for Next button
       // So 14 items per page: Page 1 has 14, Page 2 has 6
       expect(Object.keys(result)).toEqual(['Page 1', 'Page 2']);
@@ -52,7 +52,7 @@ describe('layout-utils', () => {
       ];
 
       const result = groupByPage(data, 3, 5);
-      
+
       const pageNames = Object.keys(result);
       expect(pageNames[0]).toBe('Edit');
       expect(pageNames[1]).toBe('Page 1');
@@ -65,19 +65,17 @@ describe('layout-utils', () => {
       ];
 
       const result = groupByPage(data, 3, 5);
-      
+
       const hotkeys = result['Page 1']!;
       expect(hotkeys[0]!.id).toBe('copy');
       expect(hotkeys[1]!.id).toBe('custom-paste');
     });
 
     test('preserves color in hotkey descriptors', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy', color: 'red' },
-      ];
+      const data = [{ hotkey: 'Ctrl+C', label: 'Copy', color: 'red' }];
 
       const result = groupByPage(data, 3, 5);
-      
+
       expect(result['Page 1']![0]!.color).toBe('red');
     });
 
@@ -89,7 +87,7 @@ describe('layout-utils', () => {
       ];
 
       const result = groupByPage(data, 3, 5);
-      
+
       expect(result['Page A']![0]!.index).toBe(0);
       expect(result['Page A']![1]!.index).toBe(1);
       expect(result['Page B']![0]!.index).toBe(2);
@@ -108,7 +106,7 @@ describe('layout-utils', () => {
       }));
 
       const result = groupByPage(data, 3, 5); // 15 slots total
-      
+
       // Should create 2 pages with 14 items per page (15 - 1 for Next button)
       expect(Object.keys(result)).toEqual(['Page 1', 'Page 2']);
       expect(result['Page 1']).toHaveLength(14);
@@ -123,7 +121,7 @@ describe('layout-utils', () => {
       }));
 
       const result = groupByPage(data, 3, 5); // 15 slots total
-      
+
       // Should create pages with 13 items per page (15 - 2 for navigation buttons)
       expect(Object.keys(result)).toEqual(['Page 1', 'Page 2', 'Page 3']);
       expect(result['Page 1']).toHaveLength(13);
@@ -138,7 +136,7 @@ describe('layout-utils', () => {
       }));
 
       const result = groupByPage(data, 3, 5); // 15 slots total
-      
+
       // Single page should use full capacity
       expect(Object.keys(result)).toEqual(['Page 1']);
       expect(result['Page 1']).toHaveLength(10);

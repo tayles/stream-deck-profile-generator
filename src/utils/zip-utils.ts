@@ -23,11 +23,11 @@ export async function generateZip(inputPath: string, outputPath: string): Promis
       resolve();
     });
 
-    archive.on('error', (err) => {
+    archive.on('error', err => {
       reject(err);
     });
 
-    archive.on('warning', (err) => {
+    archive.on('warning', err => {
       if (err.code !== 'ENOENT') {
         reject(err);
       }

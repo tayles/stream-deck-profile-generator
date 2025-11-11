@@ -136,7 +136,13 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   mkdirSync(profilesDir, { recursive: true });
 
   // Write root manifest
-  const rootManifest = generateRootManifest(profileName, pageUuids, pinnedPageUuid, opts.deviceId!, opts.appPath);
+  const rootManifest = generateRootManifest(
+    profileName,
+    pageUuids,
+    pinnedPageUuid,
+    opts.deviceId!,
+    opts.appPath,
+  );
   writeFileSync(join(outerProfileDir, 'manifest.json'), JSON.stringify(rootManifest, null, 2));
 
   // Create each page directory and manifest

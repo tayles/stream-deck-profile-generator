@@ -33,7 +33,7 @@ describe('lib', () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy
 Ctrl+V,Paste`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -49,7 +49,7 @@ Ctrl+V,Paste`;
     test('uses default output path when not provided', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -64,11 +64,9 @@ Ctrl+C,Copy`;
 
     test('handles multiple pages', async () => {
       // Generate 20 rows to create multiple pages (15 per page for mk device)
-      const rows = Array.from({ length: 20 }, (_, i) => 
-        `Ctrl+${i},Action ${i}`
-      ).join('\n');
+      const rows = Array.from({ length: 20 }, (_, i) => `Ctrl+${i},Action ${i}`).join('\n');
       const csv = `Hotkey,Label\n${rows}`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -86,7 +84,7 @@ Ctrl+C,Copy`;
 Ctrl+C,Copy,Edit
 Ctrl+V,Paste,Edit
 Ctrl+F,Find,Search`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -102,7 +100,7 @@ Ctrl+F,Find,Search`;
     test('handles custom device ID', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -119,7 +117,7 @@ Ctrl+C,Copy`;
     test('handles button styles', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -137,7 +135,7 @@ Ctrl+C,Copy`;
       const csv = `Hotkey,Label,Color
 Ctrl+C,Copy,red
 Ctrl+V,Paste,#00FF00`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -184,7 +182,7 @@ Ctrl+V,Paste,#00FF00`;
     test('throws error for invalid device ID', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -199,7 +197,7 @@ Ctrl+C,Copy`;
     test('throws error for invalid font size', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -208,19 +206,21 @@ Ctrl+C,Copy`;
         fontSize: 100,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow('fontSize must be between 1 and 72');
+      await expect(generateStreamDeckProfile(options)).rejects.toThrow(
+        'fontSize must be between 1 and 72',
+      );
     });
 
     test('handles icons directory when provided', async () => {
       const iconsDir = join(testDir, 'icons');
       mkdirSync(iconsDir, { recursive: true });
-      
+
       // Create a test icon
-      writeFileSync(join(iconsDir, 'copy.png'), Buffer.from([0x89, 0x50, 0x4E, 0x47]));
+      writeFileSync(join(iconsDir, 'copy.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
 
       const csv = `Hotkey,Label,Id
 Ctrl+C,Copy,copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -237,7 +237,7 @@ Ctrl+C,Copy,copy`;
     test('throws error for non-existent icons directory', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {
@@ -252,7 +252,7 @@ Ctrl+C,Copy`;
     test('cleans up temporary directory after generation', async () => {
       const csv = `Hotkey,Label
 Ctrl+C,Copy`;
-      
+
       writeFileSync(inputFile, csv);
 
       const options: Options = {

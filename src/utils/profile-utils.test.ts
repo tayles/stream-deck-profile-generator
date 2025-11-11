@@ -238,13 +238,13 @@ describe('profile-utils', () => {
     test('handles Unicode arrow symbols', () => {
       const left = generateHotkey('⌘ ←');
       expect(left.VKeyCode).toBe(123);
-      
+
       const right = generateHotkey('⌘ →');
       expect(right.VKeyCode).toBe(124);
-      
+
       const up = generateHotkey('⌘ ↑');
       expect(up.VKeyCode).toBe(126);
-      
+
       const down = generateHotkey('⌘ ↓');
       expect(down.VKeyCode).toBe(125);
     });
@@ -253,15 +253,15 @@ describe('profile-utils', () => {
       const backspace = generateHotkey('⌘ ⌫');
       expect(backspace.VKeyCode).toBe(51);
       expect(backspace.QTKeyCode).toBe(16777219);
-      
+
       const tab = generateHotkey('⌘ ⇥');
       expect(tab.VKeyCode).toBe(48);
       expect(tab.QTKeyCode).toBe(16777217);
-      
+
       const enter = generateHotkey('⌘ ⏎');
       expect(enter.VKeyCode).toBe(36);
       expect(enter.QTKeyCode).toBe(16777220);
-      
+
       const capslock = generateHotkey('⇪');
       expect(capslock.VKeyCode).toBe(57);
       expect(capslock.QTKeyCode).toBe(16777252);
@@ -286,7 +286,7 @@ describe('profile-utils', () => {
       const withDelimiter = generateHotkey('Shift+A');
       expect(withDelimiter.KeyShift).toBe(true);
       expect(withDelimiter.VKeyCode).toBe(0); // A key
-      
+
       // Plus as actual key
       const plusKey = generateHotkey('Cmd +');
       expect(plusKey.KeyCmd).toBe(true);

@@ -9,7 +9,7 @@ import { generateStreamDeckProfile } from '../src/lib';
 
 /**
  * Google Chrome keyboard shortcuts for macOS
- * 
+ *
  * @see https://support.google.com/chrome/answer/157179
  */
 await generateStreamDeckProfile({
@@ -20,7 +20,7 @@ await generateStreamDeckProfile({
 
 /**
  * Google Chrome keyboard shortcuts for Windows
- * 
+ *
  * @see https://support.google.com/chrome/answer/157179
  */
 await generateStreamDeckProfile({
@@ -52,7 +52,7 @@ await generateStreamDeckProfile({
 
 /**
  * macOS keyboard shortcuts, grouped into multiple pages
- * 
+ *
  * @see https://support.apple.com/en-ca/102650
  */
 await generateStreamDeckProfile({

@@ -32,16 +32,16 @@ describe('zip-utils', () => {
       await generateZip(inputDir, outputFile);
 
       expect(existsSync(outputFile)).toBe(true);
-      
+
       // Check that it's a valid zip file (starts with PK signature)
       const buffer = readFileSync(outputFile);
       expect(buffer[0]).toBe(0x50); // P
-      expect(buffer[1]).toBe(0x4B); // K
+      expect(buffer[1]).toBe(0x4b); // K
     });
 
     test('creates output directory if it does not exist', async () => {
       const deepOutputFile = join(testDir, 'nested', 'folder', 'output.zip');
-      
+
       writeFileSync(join(inputDir, 'test.txt'), 'content');
       await generateZip(inputDir, deepOutputFile);
 
@@ -51,7 +51,7 @@ describe('zip-utils', () => {
     test('handles nested directories', async () => {
       const nestedDir = join(inputDir, 'nested');
       mkdirSync(nestedDir, { recursive: true });
-      
+
       writeFileSync(join(inputDir, 'root.txt'), 'root');
       writeFileSync(join(nestedDir, 'nested.txt'), 'nested');
 
@@ -68,7 +68,7 @@ describe('zip-utils', () => {
 
     test('creates archive even for non-existent input directory', async () => {
       const nonExistentDir = join(testDir, 'does-not-exist');
-      
+
       // archiver doesn't throw for non-existent directories, it creates empty archive
       await generateZip(nonExistentDir, outputFile);
       expect(existsSync(outputFile)).toBe(true);
@@ -76,7 +76,7 @@ describe('zip-utils', () => {
 
     test('overwrites existing output file', async () => {
       writeFileSync(join(inputDir, 'test.txt'), 'content');
-      
+
       // Create first zip
       await generateZip(inputDir, outputFile);
       const size1 = readFileSync(outputFile).length;

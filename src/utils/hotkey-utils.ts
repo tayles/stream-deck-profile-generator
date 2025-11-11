@@ -1,6 +1,6 @@
-import { createHash } from "node:crypto";
-import type { LabelStyle } from "../types/types";
-import { formatHotkeyCommand } from "./keyboard-utils";
+import { createHash } from 'node:crypto';
+import type { LabelStyle } from '../types/types';
+import { formatHotkeyCommand } from './keyboard-utils';
 
 export function generateUUID(seed: string): string {
   // Hash the seed string using SHA256 for a consistent and secure output
@@ -21,15 +21,15 @@ export function generateUUID(seed: string): string {
 }
 
 export function generateId(label: string): string {
-  return `${label.toLowerCase().replace(/\s+/g, "-")}`;
+  return `${label.toLowerCase().replace(/\s+/g, '-')}`;
 }
 
 export function generateLabel(label: string, hotkey: string, labelStyle: LabelStyle): string {
-  const formattedLabel = label.replaceAll(/\s+/g, "\n").trim();
-  
+  const formattedLabel = label.replaceAll(/\s+/g, '\n').trim();
+
   // Replace modifier key names with Unicode symbols
   const formattedHotkey = formatHotkeyCommand(hotkey);
-  
+
   switch (labelStyle) {
     case 'none':
       return '';

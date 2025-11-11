@@ -6,11 +6,11 @@ import { createCanvas } from 'canvas';
 export async function generateImage(color: string): Promise<Buffer> {
   const canvas = createCanvas(144, 144);
   const ctx = canvas.getContext('2d');
-  
+
   // Parse and apply the color
   ctx.fillStyle = color;
   ctx.fillRect(0, 0, 144, 144);
-  
+
   // Convert to PNG buffer
   return canvas.toBuffer('image/png');
 }

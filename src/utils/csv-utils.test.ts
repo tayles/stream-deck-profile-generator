@@ -9,7 +9,7 @@ Ctrl+C,Copy,Edit,copy,red
 Ctrl+V,Paste,Edit,paste,blue`;
 
       const result = parseCsv(csv);
-      
+
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         hotkey: 'Ctrl+C',
@@ -33,7 +33,7 @@ Ctrl+C,Copy
 Ctrl+V,Paste`;
 
       const result = parseCsv(csv);
-      
+
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         hotkey: 'Ctrl+C',
@@ -46,7 +46,7 @@ Ctrl+V,Paste`;
 Ctrl+C,Copy,Edit`;
 
       const result = parseCsv(csv);
-      
+
       expect(result).toHaveLength(1);
       expect(result[0]!.hotkey).toBe('Ctrl+C');
     });
@@ -56,7 +56,7 @@ Ctrl+C,Copy,Edit`;
 Copy,Ctrl+C,red`;
 
       const result = parseCsv(csv);
-      
+
       expect(result[0]).toEqual({
         hotkey: 'Ctrl+C',
         label: 'Copy',
@@ -69,7 +69,7 @@ Copy,Ctrl+C,red`;
 Ctrl+C,"Copy, Paste"`;
 
       const result = parseCsv(csv);
-      
+
       expect(result[0]!.label).toBe('Copy, Paste');
     });
 
@@ -78,7 +78,7 @@ Ctrl+C,"Copy, Paste"`;
 Ctrl+C,"Say ""Hello""" `;
 
       const result = parseCsv(csv);
-      
+
       expect(result[0]!.label).toBe('Say "Hello"');
     });
 
@@ -91,7 +91,7 @@ Ctrl+V,Paste
 `;
 
       const result = parseCsv(csv);
-      
+
       expect(result).toHaveLength(2);
     });
 
@@ -132,7 +132,7 @@ Ctrl+C,Copy`;
 Ctrl+C,Copy,,,`;
 
       const result = parseCsv(csv);
-      
+
       expect(result[0]).toEqual({
         hotkey: 'Ctrl+C',
         label: 'Copy',

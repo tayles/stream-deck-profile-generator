@@ -42,18 +42,18 @@ bun run generate \
 
 ## CLI Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--input <path>` | Path to the input CSV file | _(required)_ |
-| `--output <path>` | Path to the output `.streamDeckProfile` file | `<input-filename>.streamDeckProfile` |
-| `--device <type>` | Stream Deck device ID (e.g., `mk`, `xl`, `mini`) | `mk` |
-| `--button-style <style>` | Button style (e.g., `basic`, `border`, `rainbow`, `fill`) | `basic` |
-| `--label-style <style>` | Label style (e.g., `label`, `hotkey`, `both`, `none`) | `both` |
-| `--label-position <position>` | Label vertical position (e.g., `top`, `middle`, `bottom`) | `middle` |
-| `--bg-color <color>` | Default button background color (e.g., `red`, `#FF0000`) | `black` |
-| `--text-color <color>` | Default button text color (e.g., `white`, `#FFFFFF`) | `white` |
-| `--font-size <size>` | Default button font size | `14` |
-| `--icons-dir <path>` | Path to a directory containing PNG, GIF, JPG or WEBP icons. Matches on the hotkey id | _(optional)_ |
+| Option                        | Description                                                                          | Default                              |
+| ----------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------ |
+| `--input <path>`              | Path to the input CSV file                                                           | _(required)_                         |
+| `--output <path>`             | Path to the output `.streamDeckProfile` file                                         | `<input-filename>.streamDeckProfile` |
+| `--device <type>`             | Stream Deck device ID (e.g., `mk`, `xl`, `mini`)                                     | `mk`                                 |
+| `--button-style <style>`      | Button style (e.g., `basic`, `border`, `rainbow`, `fill`)                            | `basic`                              |
+| `--label-style <style>`       | Label style (e.g., `label`, `hotkey`, `both`, `none`)                                | `both`                               |
+| `--label-position <position>` | Label vertical position (e.g., `top`, `middle`, `bottom`)                            | `middle`                             |
+| `--bg-color <color>`          | Default button background color (e.g., `red`, `#FF0000`)                             | `black`                              |
+| `--text-color <color>`        | Default button text color (e.g., `white`, `#FFFFFF`)                                 | `white`                              |
+| `--font-size <size>`          | Default button font size                                                             | `14`                                 |
+| `--icons-dir <path>`          | Path to a directory containing PNG, GIF, JPG or WEBP icons. Matches on the hotkey id | _(optional)_                         |
 
 ## Button Styles
 

@@ -19,7 +19,7 @@ export function parseCsv(csv: string): CsvRow[] {
   }
 
   let records: any[];
-  
+
   try {
     records = parse(csv, {
       columns: (header: string[]) => {
@@ -31,7 +31,9 @@ export function parseCsv(csv: string): CsvRow[] {
       relax_quotes: true,
     });
   } catch (error) {
-    throw new Error(`Failed to parse CSV: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(
+      `Failed to parse CSV: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   if (records.length === 0) {
@@ -51,11 +53,11 @@ export function parseCsv(csv: string): CsvRow[] {
   }
 
   const rows: CsvRow[] = [];
-  
+
   // Process each record
   for (let i = 0; i < records.length; i++) {
     const record = records[i];
-    
+
     const row: CsvRow = {
       hotkey: record.hotkey?.trim() || '',
       label: record.label?.trim() || '',
