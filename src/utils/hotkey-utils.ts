@@ -1,22 +1,6 @@
 import { createHash } from "node:crypto";
 import type { LabelStyle } from "../types/types";
 
-export function generateKeyModifiers(hotkey: string): number {
-  return 0;
-}
-
-export function generateNativeCode(hotkey: string): number {
-  return 0;
-}
-
-export function generateQTKeyCode(hotkey: string): number {
-  return 0;
-}
-
-export function generateVKeyCode(hotkey: string): number {
-  return 0;
-}
-
 export function generateUUID(seed: string): string {
   // Hash the seed string using SHA256 for a consistent and secure output
   const hash = createHash('sha256').update(seed).digest('hex');
