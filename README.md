@@ -1,6 +1,6 @@
 # Stream Deck Profile Generator
 
-Generate custom Stream Deck profiles for any application by importing a CSV of hotkey keyboard shortcuts.
+Generate custom Stream Deck profiles for any application by importing a CSV of hotkeys / keyboard shortcuts.
 
 ## Usage
 
