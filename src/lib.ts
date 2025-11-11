@@ -50,6 +50,8 @@ export function generateStreamDeckProfile(options: Options): void {
 
   // validate the inputs
 
+  // extract filename without extension from inputPath to use as profile name
+
   // check the file paths exist
 
   // empty the out/ dir

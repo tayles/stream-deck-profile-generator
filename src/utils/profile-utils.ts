@@ -4,15 +4,18 @@ import type { HotkeyDescriptor, LabelPosition, LabelStyle } from '../types/types
 import { generateLabel, generateUUID } from './hotkey-utils';
 
 export function generateProfileFolderId(profileId: string): string {
-  return ((profileId.replace(/-/g, '')+'000') // remove hyphens and pad length to be divisible by 5 bits
-    .match(/.{5}/g) || []) // split into groups of 5 digits, since JS can't represent integers larger than 53 bits
-    .map(s => parseInt(s, 16).toString(32).padStart(4, '0')) // convert to base32
-    .join('')
-    .substring(0, 26) // remove padding we added earlier
-    .toUpperCase()
-    .replace(/V/g, 'W')
-    .replace(/U/g, 'V')
-    +'Z' // all folder ids end in this suffix
+  return (
+    (
+      (profileId.replace(/-/g, '') + '000') // remove hyphens and pad length to be divisible by 5 bits
+        .match(/.{5}/g) || []
+    ) // split into groups of 5 digits, since JS can't represent integers larger than 53 bits
+      .map(s => parseInt(s, 16).toString(32).padStart(4, '0')) // convert to base32
+      .join('')
+      .substring(0, 26) // remove padding we added earlier
+      .toUpperCase()
+      .replace(/V/g, 'W')
+      .replace(/U/g, 'V') + 'Z'
+  ); // all folder ids end in this suffix
 }
 
 export function generatePageId(): string {
@@ -104,7 +107,12 @@ export function generatePinnedPageManifest(): PageManifest {
   };
 }
 
-export function generateActionFromHotkeyDescriptor(hotkey: HotkeyDescriptor, fontSize: number = 14, labelStyle: LabelStyle = 'both', labelPosition: LabelPosition = 'middle'): Action {
+export function generateActionFromHotkeyDescriptor(
+  hotkey: HotkeyDescriptor,
+  fontSize: number = 14,
+  labelStyle: LabelStyle = 'both',
+  labelPosition: LabelPosition = 'middle',
+): Action {
   const hotkeys = generateHotkeys(hotkey.hotkey);
   return {
     ActionID: hotkey.id,
@@ -139,7 +147,21 @@ export function generateActionFromHotkeyDescriptor(hotkey: HotkeyDescriptor, fon
 }
 
 export function generateHotkeys(hotkey: string): Hotkey[] {
-  return [];
+  const chars = hotkey.split(/\s+/).map(s => s.trim());
+  return chars.map(char => generateHotkey(char));
+}
+
+export function generateHotkey(char: string): Hotkey {
+  return {
+    KeyCmd: true,
+    KeyCtrl: false,
+    KeyModifiers: 8,
+    KeyOption: false,
+    KeyShift: false,
+    NativeCode: 27,
+    QTKeyCode: 45,
+    VKeyCode: 189,
+  };
 }
 
 export function generateCoordinates(row: number, column: number): string {
