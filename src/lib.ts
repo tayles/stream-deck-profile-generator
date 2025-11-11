@@ -8,17 +8,19 @@ export interface Options {
   buttonStyle?: ButtonStyle;
   labelStyle?: LabelStyle;
   labelPosition?: LabelPosition;
-  color?: string;
+  bgColor?: string;
+  textColor?: string;
   fontSize?: number;
-  iconDir?: string;
+  iconsDir?: string;
 }
 
-export const DEFAULT_OPTIONS: Omit<Options, 'inputPath' | 'outputPath' | 'iconDir'> = {
+export const DEFAULT_OPTIONS: Omit<Options, 'inputPath' | 'outputPath' | 'iconsDir'> = {
   deviceId: 'mk',
   buttonStyle: 'basic',
   labelStyle: 'both',
   labelPosition: 'middle',
-  color: 'black',
+  bgColor: 'black',
+  textColor: 'white',
   fontSize: 14,
 };
 
@@ -64,9 +66,13 @@ export function generateStreamDeckProfile(options: Options): void {
 
   // write the manifest.json files
 
-  // copy the button images from button-styles/, one for each button
+  // create an image for each hotkey
+  // if iconDir is provided, see if an icon exists for the hotkey and use that
+  // if not, if the color is provided for the hotkey, generate a colored image using generateImage()
+  // otherwise, copy the relevant button style image from button-styles/
 
   // zip the profile folder into a .streamDeckProfile file
+  // if no outputPath is provided, use <input-filename>.streamDeckProfile and the same dir as inputPath
 
   // done
 }

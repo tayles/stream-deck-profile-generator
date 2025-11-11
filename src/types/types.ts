@@ -6,7 +6,7 @@ export interface HotkeyDescriptor {
   index: number;
 }
 
-export const BUTTON_STYLES = ['basic', 'border', 'rainbow'] as const;
+export const BUTTON_STYLES = ['basic', 'border', 'rainbow', 'fill'] as const;
 export type ButtonStyle = typeof BUTTON_STYLES[number];
 
 export const LABEL_STYLES = ['none', 'label', 'hotkey', 'both'] as const;

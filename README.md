@@ -33,10 +33,13 @@ bun run generate \
   --input hotkeys.csv \
   --output MyProfile.streamDeckProfile
   --device mk
-  --style border
-  --color red
+  --button-style basic
+  --label-style both
+  --label-position middle
+  --bg-color black
+  --text-color white
   --font-size 14
-  --icon-dir ~/path/to/icons
+  --icons-dir ~/path/to/icons
 ```
 
 ## CLI Options
@@ -44,18 +47,22 @@ bun run generate \
 - `--input <path>`: Path to the input CSV file _(required)_
 - `--output <path>`: Path to the output `.streamDeckProfile` file _(defaults to `<input-filename>.streamDeckProfile`)_
 - `--device <deviceId>`: Stream Deck device ID (e.g., `mk`, `xl`, `mini`) _(defaults to `mk`)_
-- `--style <style>`: Button style (e.g., `border`, `fill`, `icon`) _(defaults to `border`)_
-- `--color <color>`: Default button color (e.g., `red`, `#FF0000`) _(defaults to `black`)_
+- `--button-style <style>`: Button style (e.g., `basic`, `border`, `rainbow`, `fill`) _(defaults to `basic`)_
+- `--label-style <style>`: Label style (e.g., `label`, `hotkey`, `both`, `none`) _(defaults to `both`)_
+- `--label-position <position>`: Label vertical position (e.g., `top`, `middle`, `bottom`) _(defaults to `middle`)_
+- `--bg-color <color>`: Default button background color (e.g., `red`, `#FF0000`) _(defaults to `black`)_
+- `--text-color <color>`: Default button text color (e.g., `white`, `#FFFFFF`) _(defaults to `white`)_
 - `--font-size <size>`: Default button font size (e.g., `14`, `9`) _(defaults to `14`)_
-- `--icon-dir <path>`: Path to a directory containing PNG icons. Matches on the id _(optional)_
+- `--icons-dir <path>`: Path to a directory containing PNG, GIF, JPG or WEBP icons. Matches on the id _(optional)_
 
 ## Button Styles
 
 Button styles are defined in [button-styles/](button-styles/):
 
-- `basic`: Button with a filled background color
+- `basic`: Button with a filled dark background color
 - `border`: Button with a border around the label
 - `rainbow`: Button with a rainbow border
+- `fill`: Button with a filled background color (defined by `--bg-color`)
 
 ## Development
 
