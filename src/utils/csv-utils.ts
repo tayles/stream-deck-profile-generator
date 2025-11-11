@@ -1,6 +1,4 @@
 import { parse } from 'csv-parse/sync';
-import { generateId } from './hotkey-utils';
-import type { HotkeyDescriptor } from "../types/types";
 
 export interface CsvRow {
   id?: string;
@@ -86,58 +84,4 @@ export function parseCsv(csv: string): CsvRow[] {
   }
 
   return rows;
-}
-
-/**
- * Group by pages and auto-generate pages based on the number of rows and columns. Named pages are first.
- */
-export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<string, HotkeyDescriptor[]> {
-  const pageSize = rows * cols;
-  const pages: Record<string, HotkeyDescriptor[]> = {};
-  
-  // First, group explicitly named pages
-  const namedRows: Record<string, CsvRow[]> = {};
-  const unnamedRows: CsvRow[] = [];
-  
-  for (const row of data) {
-    if (row.page) {
-      if (!namedRows[row.page]) {
-        namedRows[row.page] = [];
-      }
-      namedRows[row.page]!.push(row);
-    } else {
-      unnamedRows.push(row);
-    }
-  }
-
-  // Process named pages
-  let globalIndex = 0;
-  for (const [pageName, pageRows] of Object.entries(namedRows)) {
-    pages[pageName] = pageRows.map(row => ({
-      id: row.id || generateId(row.label),
-      label: row.label,
-      hotkey: row.hotkey,
-      color: row.color,
-      index: globalIndex++,
-    }));
-  }
-
-  // Auto-generate pages for unnamed rows
-  let pageNum = 1;
-  for (let i = 0; i < unnamedRows.length; i += pageSize) {
-    const pageRows = unnamedRows.slice(i, i + pageSize);
-    const pageName = `Page ${pageNum}`;
-    
-    pages[pageName] = pageRows.map(row => ({
-      id: row.id || generateId(row.label),
-      label: row.label,
-      hotkey: row.hotkey,
-      color: row.color,
-      index: globalIndex++,
-    }));
-    
-    pageNum++;
-  }
-
-  return pages;
 }

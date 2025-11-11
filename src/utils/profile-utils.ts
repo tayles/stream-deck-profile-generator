@@ -216,6 +216,8 @@ export function generateRootManifest(
 export function generatePageManifest(
   name: string,
   hotkeys: HotkeyDescriptor[],
+  rows: number = 3,
+  cols: number = 5,
   fontSize: number = 14,
   textColor: string = '#ffffff',
   labelStyle: LabelStyle = 'both',
@@ -230,7 +232,7 @@ export function generatePageManifest(
       labelStyle,
       labelPosition,
     );
-    const coords = generateCoordinates(Math.floor(index / 3), index % 3);
+    const coords = generateCoordinates(Math.floor(index / cols), index % cols);
     actions[coords] = action;
   });
 
@@ -246,40 +248,57 @@ export function generatePageManifest(
   };
 }
 
-export function generatePinnedPageManifest(): PageManifest {
+/**
+ * Display navigation buttons in the bottom right corner
+ */
+export function generatePinnedPageManifest(
+  showPrevious: boolean = true,
+  showNext: boolean = true,
+  rows: number = 3,
+  cols: number = 5,
+): PageManifest {
+  const actions: { [key: string]: Action } = {};
+  if (showPrevious) {
+    const prevButtonCoords = generateCoordinates(rows - 1, cols - 2);
+
+    actions[prevButtonCoords] = {
+      ActionID: generateUUID('previous-page'),
+      LinkedTitle: true,
+      Name: 'Previous Page',
+      Plugin: {
+        Name: 'Pages',
+        UUID: 'com.elgato.streamdeck.page',
+        Version: '1.0',
+      },
+      Settings: {},
+      State: 0,
+      States: [{}],
+      UUID: 'com.elgato.streamdeck.page.previous',
+    };
+  }
+  if (showNext) {
+    const nextButtonCoords = generateCoordinates(rows - 1, cols - 1);
+
+    actions[nextButtonCoords] = {
+      ActionID: generateUUID('next-page'),
+      LinkedTitle: true,
+      Name: 'Next Page',
+      Plugin: {
+        Name: 'Pages',
+        UUID: 'com.elgato.streamdeck.page',
+        Version: '1.0',
+      },
+      Settings: {},
+      State: 0,
+      States: [{}],
+      UUID: 'com.elgato.streamdeck.page.next',
+    };
+  }
+
   return {
     Controllers: [
       {
-        Actions: {
-          '4,0': {
-            ActionID: generateUUID('previous-page'),
-            LinkedTitle: true,
-            Name: 'Previous Page',
-            Plugin: {
-              Name: 'Pages',
-              UUID: 'com.elgato.streamdeck.page',
-              Version: '1.0',
-            },
-            Settings: {},
-            State: 0,
-            States: [{}],
-            UUID: 'com.elgato.streamdeck.page.previous',
-          },
-          '4,2': {
-            ActionID: generateUUID('next-page'),
-            LinkedTitle: true,
-            Name: 'Next Page',
-            Plugin: {
-              Name: 'Pages',
-              UUID: 'com.elgato.streamdeck.page',
-              Version: '1.0',
-            },
-            Settings: {},
-            State: 0,
-            States: [{}],
-            UUID: 'com.elgato.streamdeck.page.next',
-          },
-        },
+        Actions: actions,
         Type: 'Keypad',
       },
     ],
@@ -400,5 +419,5 @@ export function generateHotkey(hotkey: string): Hotkey {
 }
 
 export function generateCoordinates(row: number, column: number): string {
-  return `${row},${column}`;
+  return `${column},${row}`;
 }

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { parseCsv, groupByPage } from './csv-utils';
+import { parseCsv } from './csv-utils';
 
 describe('csv-utils', () => {
   describe('parseCsv', () => {
@@ -137,103 +137,6 @@ Ctrl+C,Copy,,,`;
         hotkey: 'Ctrl+C',
         label: 'Copy',
       });
-    });
-  });
-
-  describe('groupByPage', () => {
-    test('groups by named pages', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy', page: 'Edit' },
-        { hotkey: 'Ctrl+V', label: 'Paste', page: 'Edit' },
-        { hotkey: 'Ctrl+F', label: 'Find', page: 'Search' },
-      ];
-
-      const result = groupByPage(data, 3, 5);
-      
-      expect(Object.keys(result)).toEqual(['Edit', 'Search']);
-      expect(result.Edit).toHaveLength(2);
-      expect(result.Search).toHaveLength(1);
-    });
-
-    test('auto-generates pages for unnamed rows', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy' },
-        { hotkey: 'Ctrl+V', label: 'Paste' },
-      ];
-
-      const result = groupByPage(data, 3, 5);
-      
-      expect(Object.keys(result)).toEqual(['Page 1']);
-      expect(result['Page 1']).toHaveLength(2);
-    });
-
-    test('splits unnamed rows into multiple pages based on size', () => {
-      const data = Array.from({ length: 20 }, (_, i) => ({
-        hotkey: `Ctrl+${i}`,
-        label: `Action ${i}`,
-      }));
-
-      const result = groupByPage(data, 3, 5); // 15 per page
-      
-      expect(Object.keys(result)).toEqual(['Page 1', 'Page 2']);
-      expect(result['Page 1']).toHaveLength(15);
-      expect(result['Page 2']).toHaveLength(5);
-    });
-
-    test('places named pages before auto-generated pages', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy', page: 'Edit' },
-        { hotkey: 'Ctrl+F', label: 'Find' },
-        { hotkey: 'Ctrl+V', label: 'Paste' },
-      ];
-
-      const result = groupByPage(data, 3, 5);
-      
-      const pageNames = Object.keys(result);
-      expect(pageNames[0]).toBe('Edit');
-      expect(pageNames[1]).toBe('Page 1');
-    });
-
-    test('generates IDs for hotkeys without explicit IDs', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy' },
-        { hotkey: 'Ctrl+V', label: 'Paste', id: 'custom-paste' },
-      ];
-
-      const result = groupByPage(data, 3, 5);
-      
-      const hotkeys = result['Page 1']!;
-      expect(hotkeys[0]!.id).toBe('copy');
-      expect(hotkeys[1]!.id).toBe('custom-paste');
-    });
-
-    test('preserves color in hotkey descriptors', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy', color: 'red' },
-      ];
-
-      const result = groupByPage(data, 3, 5);
-      
-      expect(result['Page 1']![0]!.color).toBe('red');
-    });
-
-    test('assigns sequential indices across all pages', () => {
-      const data = [
-        { hotkey: 'Ctrl+C', label: 'Copy', page: 'Page A' },
-        { hotkey: 'Ctrl+V', label: 'Paste', page: 'Page A' },
-        { hotkey: 'Ctrl+F', label: 'Find', page: 'Page B' },
-      ];
-
-      const result = groupByPage(data, 3, 5);
-      
-      expect(result['Page A']![0]!.index).toBe(0);
-      expect(result['Page A']![1]!.index).toBe(1);
-      expect(result['Page B']![0]!.index).toBe(2);
-    });
-
-    test('handles empty data', () => {
-      const result = groupByPage([], 3, 5);
-      expect(Object.keys(result)).toHaveLength(0);
     });
   });
 });

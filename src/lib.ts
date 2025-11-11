@@ -1,15 +1,8 @@
-import {
-  existsSync,
-  readFileSync,
-  rmSync,
-  mkdirSync,
-  writeFileSync,
-  copyFileSync,
-} from 'node:fs';
+import { existsSync, readFileSync, rmSync, mkdirSync, writeFileSync, copyFileSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
-import { parseCsv, groupByPage } from './utils/csv-utils';
+import { parseCsv } from './utils/csv-utils';
 import { generateImage } from './utils/image-utils';
 import { generateZip } from './utils/zip-utils';
 import { generateUUID } from './utils/hotkey-utils';
@@ -19,6 +12,7 @@ import {
   generatePinnedPageManifest,
   generateRootManifest,
 } from './utils/profile-utils';
+import { groupByPage } from './utils/layout-utils';
 
 export interface Options {
   inputPath: string;
@@ -156,6 +150,8 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
     const pageManifest = generatePageManifest(
       pageName,
       hotkeys,
+      device.rows,
+      device.columns,
       opts.fontSize,
       opts.textColor,
       opts.labelStyle,
@@ -181,7 +177,17 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   const pinnedImagesDir = join(pinnedPageDir, 'Images');
   mkdirSync(pinnedImagesDir, { recursive: true });
 
-  const pinnedPageManifest = generatePinnedPageManifest();
+  // Show prev button only if more than 2 pages
+  const showPrevButton = pageUuids.length > 2;
+  // Show next button only if more than 1 page
+  const showNextButton = pageUuids.length > 1;
+
+  const pinnedPageManifest = generatePinnedPageManifest(
+    showPrevButton,
+    showNextButton,
+    device.rows,
+    device.columns,
+  );
   writeFileSync(join(pinnedPageDir, 'manifest.json'), JSON.stringify(pinnedPageManifest, null, 2));
 
   // Determine output path
