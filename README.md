@@ -30,6 +30,8 @@ All available options:
 bun run generate \
   --input hotkeys.csv \
   --output MyProfile.streamDeckProfile \
+  --profile-name "My Custom Profile" \
+  --app-path '/Applications/YourApp.app' \
   --device mk \
   --button-style basic \
   --label-style both \
@@ -46,6 +48,8 @@ bun run generate \
 | ----------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------ |
 | `--input <path>`              | Path to the input CSV file                                                           | _(required)_                         |
 | `--output <path>`             | Path to the output `.streamDeckProfile` file                                         | `<input-filename>.streamDeckProfile` |
+| `--profile-name <name>`       | Name of the profile                                                                  | `<input-filename>`                   |
+| `--app-path <path>`           | Path to the application to switch to for this profile                                | _(optional)_                         |
 | `--device <type>`             | Stream Deck device ID (e.g., `mk`, `xl`, `mini`)                                     | `mk`                                 |
 | `--button-style <style>`      | Button style (e.g., `basic`, `border`, `rainbow`, `fill`)                            | `basic`                              |
 | `--label-style <style>`       | Label style (e.g., `label`, `hotkey`, `both`, `none`)                                | `both`                               |
