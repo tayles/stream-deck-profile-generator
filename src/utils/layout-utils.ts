@@ -8,6 +8,8 @@ import type { CsvRow } from './csv-utils';
  * Reserves space for navigation buttons in the bottom right corner:
  * - 2+ pages: reserves 1 space for Next button (last position on each page)
  * - 3+ pages: reserves 2 spaces for Previous and Next buttons (last 2 positions on each page)
+ * 
+ * Named pages are also split across multiple pages if they exceed the effective page size.
  */
 export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<string, HotkeyDescriptor[]> {
   const totalPageSize = rows * cols;
@@ -28,44 +30,70 @@ export function groupByPage(data: CsvRow[], rows: number, cols: number): Record<
     }
   }
 
-  // Calculate how many pages we'll need for unnamed rows
-  // We need to reserve space for navigation buttons
+  // Calculate total number of pages needed (both named and unnamed)
+  // First pass: estimate without navigation buttons
+  let estimatedNamedPages = 0;
+  for (const pageRows of Object.values(namedRows)) {
+    estimatedNamedPages += Math.ceil(pageRows.length / totalPageSize);
+  }
+  const estimatedUnnamedPages = Math.ceil(unnamedRows.length / totalPageSize);
+  const estimatedTotalPages = estimatedNamedPages + estimatedUnnamedPages;
+  
+  // Determine effective page size based on total pages
   let effectivePageSize = totalPageSize;
-  
-  // First pass: estimate number of pages without navigation buttons
-  const estimatedPages = Math.ceil(unnamedRows.length / totalPageSize);
-  
-  if (estimatedPages >= 2) {
-    // Reserve 1 space for Next button
+  if (estimatedTotalPages >= 3) {
+    effectivePageSize = totalPageSize - 2;
+  } else if (estimatedTotalPages >= 2) {
     effectivePageSize = totalPageSize - 1;
   }
-  if (estimatedPages >= 3) {
-    // Reserve 2 spaces for Previous and Next buttons
-    effectivePageSize = totalPageSize - 2;
+  
+  // Recalculate actual total pages with effective page size
+  let actualNamedPages = 0;
+  for (const pageRows of Object.values(namedRows)) {
+    actualNamedPages += Math.ceil(pageRows.length / effectivePageSize);
   }
+  const actualUnnamedPages = Math.ceil(unnamedRows.length / effectivePageSize);
+  const actualTotalPages = actualNamedPages + actualUnnamedPages;
   
-  // Recalculate actual number of pages with reduced page size
-  const actualPages = Math.ceil(unnamedRows.length / effectivePageSize);
-  
-  // Adjust effective page size based on actual page count
-  if (actualPages >= 3) {
+  // Adjust effective page size based on actual total page count
+  if (actualTotalPages >= 3) {
     effectivePageSize = totalPageSize - 2;
-  } else if (actualPages >= 2) {
+  } else if (actualTotalPages >= 2) {
     effectivePageSize = totalPageSize - 1;
   } else {
     effectivePageSize = totalPageSize;
   }
 
-  // Process named pages
+  // Process named pages with effective page size (split if necessary)
   let globalIndex = 0;
   for (const [pageName, pageRows] of Object.entries(namedRows)) {
-    pages[pageName] = pageRows.map(row => ({
-      id: row.id || generateId(row.label),
-      label: row.label,
-      hotkey: row.hotkey,
-      color: row.color,
-      index: globalIndex++,
-    }));
+    // If the named page fits in one page
+    if (pageRows.length <= effectivePageSize) {
+      pages[pageName] = pageRows.map(row => ({
+        id: row.id || generateId(row.label),
+        label: row.label,
+        hotkey: row.hotkey,
+        color: row.color,
+        index: globalIndex++,
+      }));
+    } else {
+      // Split named page across multiple pages
+      let subPageNum = 1;
+      for (let i = 0; i < pageRows.length; i += effectivePageSize) {
+        const subPageRows = pageRows.slice(i, i + effectivePageSize);
+        const subPageName = `${pageName} ${subPageNum}`;
+        
+        pages[subPageName] = subPageRows.map(row => ({
+          id: row.id || generateId(row.label),
+          label: row.label,
+          hotkey: row.hotkey,
+          color: row.color,
+          index: globalIndex++,
+        }));
+        
+        subPageNum++;
+      }
+    }
   }
 
   // Auto-generate pages for unnamed rows with reserved navigation button space
