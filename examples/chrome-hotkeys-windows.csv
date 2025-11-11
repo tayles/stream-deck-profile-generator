@@ -1,0 +1,24 @@
+Hotkey,Label
+Ctrl T,New Tab
+Ctrl N,New Window
+Ctrl Shift N,New Incognito Window
+Ctrl W,Close Tab
+Ctrl Shift T,Reopen Closed Tab
+Ctrl Shift Tab,Previous Tab
+Ctrl Tab,Next Tab
+Ctrl R,Reload Page
+Ctrl Shift R,Hard Reload Page
+Ctrl J,Open Downloads
+Ctrl +,Zoom In
+Ctrl -,Zoom Out
+Ctrl 0,Reset Zoom
+Ctrl I,Focus Address Bar
+Ctrl F,Find on Page
+Ctrl Shift B,Toggle Bookmarks Bar
+Ctrl D,Bookmark Page
+Ctrl P,Print Page
+Ctrl S,Save Page
+Ctrl Shift I,Open Developer Tools
+Ctrl Shift J,Open JavaScript Console
+Ctrl Shift C,Inspect Element
+Ctrl U,View Page Source
