@@ -1,45 +1,35 @@
 /**
  * This script generates profiles for all CSV files in the examples/ directory.
- * 
- * Usage: 
+ *
+ * Usage:
  *   bun generate:examples
  */
 
-import { readdirSync, statSync } from 'node:fs';
-import { join, extname } from 'node:path';
-import { generateStreamDeckProfile, type Options } from '../src/lib';
+import { generateStreamDeckProfile } from '../src/lib';
 
-async function generateExamples() {
-  const examplesDir = join(process.cwd(), 'examples');
-  const files = readdirSync(examplesDir);
+await generateStreamDeckProfile({
+  inputPath: 'examples/chrome-hotkeys-macos.csv',
+  profileName: 'Chrome Hotkeys (macOS)',
+  appPath: '/Applications/Google Chrome.app',
+});
 
-  for (const file of files) {
-    const filePath = join(examplesDir, file);
-    const stats = statSync(filePath);
+await generateStreamDeckProfile({
+  inputPath: 'examples/chrome-hotkeys-windows.csv',
+  profileName: 'Chrome Hotkeys (Windows)',
+  appPath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+});
 
-    if (stats.isFile() && extname(file) === '.csv') {
-      const outputFileName = file.replace(/\.csv$/i, '.streamDeckProfile');
-      const outputPath = join(examplesDir, outputFileName);
+await generateStreamDeckProfile({
+  inputPath: 'examples/rainbow-virtual-keyboard.csv',
+  profileName: 'Rainbow Virtual Keyboard',
+  fontSize: 24,
+  labelStyle: 'label',
+});
 
-      const options: Options = {
-        inputPath: filePath,
-        outputPath: outputPath,
-        // buttonStyle: 'basic',
-        // labelStyle: 'both',
-        // labelPosition: 'middle',
-        // bgColor: 'limegreen',
-        // textColor: 'white',
-        // fontSize: 12,
-      };
-
-      console.log(`Generating profile for ${file}...`);
-      await generateStreamDeckProfile(options);
-      console.log(`Generated: ${outputFileName}`);
-    }
-  }
-}
-
-generateExamples().catch((error) => {
-  console.error('Error generating examples:', error);
-  process.exit(1);
+await generateStreamDeckProfile({
+  inputPath: 'examples/single-hotkey.csv',
+  profileName: 'Single Hotkey',
+  fontSize: 24,
+  labelStyle: 'label',
+  buttonStyle: 'rainbow',
 });

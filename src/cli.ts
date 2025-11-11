@@ -16,6 +16,8 @@ Required Options:
 Optional:
   --output <path>             Path to the output .streamDeckProfile file
                               (defaults to <input-filename>.streamDeckProfile)
+  --profile-name <name>       Name of the profile
+  --app-path <path>           Path to the application to switch to for this profile
   --device <deviceId>         Stream Deck device ID: ${Object.keys(DEVICES).join(', ')}
                               (default: mk)
   --button-style <style>      Button style: ${BUTTON_STYLES.join(', ')}
@@ -36,6 +38,7 @@ Optional:
 Examples:
   bun run generate --input hotkeys.csv
   bun run generate --input hotkeys.csv --output MyProfile.streamDeckProfile
+  bun run generate --input hotkeys.csv --profile-name 'My Custom Profile' --app-path '/Applications/SomeApp.app'
   bun run generate --input hotkeys.csv --device xl --button-style rainbow
   bun run generate --input hotkeys.csv --icons-dir ./icons --bg-color blue
 `;
@@ -47,6 +50,8 @@ async function main() {
       options: {
         input: { type: 'string' },
         output: { type: 'string' },
+        'profile-name': { type: 'string' },
+        'app-path': { type: 'string' },
         device: { type: 'string' },
         'button-style': { type: 'string' },
         'label-style': { type: 'string' },
@@ -80,6 +85,14 @@ async function main() {
 
     if (values.output) {
       options.outputPath = values.output;
+    }
+
+    if (values['profile-name']) {
+      options.profileName = values['profile-name'];
+    }
+
+    if (values['app-path']) {
+      options.appPath = values['app-path'];
     }
 
     if (values.device) {

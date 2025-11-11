@@ -25,6 +25,8 @@ export interface Options {
   textColor?: string;
   fontSize?: number;
   iconsDir?: string;
+  profileName?: string;
+  appPath?: string;
 }
 
 export const DEFAULT_OPTIONS: Omit<Options, 'inputPath' | 'outputPath' | 'iconsDir'> = {
@@ -70,7 +72,8 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   validateOptions(opts);
 
   // Extract filename without extension from inputPath to use as profile name
-  const profileName = basename(opts.inputPath, extname(opts.inputPath));
+  const baseName = basename(opts.inputPath, extname(opts.inputPath));
+  const profileName = opts.profileName || baseName;
 
   // Check file paths exist
   if (!existsSync(opts.inputPath)) {
@@ -105,7 +108,7 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   const pageFolderIds: string[] = [];
 
   for (const pageName of pageNames) {
-    const pageUuid = generateUUID(`${profileName}-${pageName}`);
+    const pageUuid = generateUUID(pageName);
     const pageFolderId = generateProfileFolderId(pageUuid);
     pageUuids.push(pageUuid);
     pageFolderIds.push(pageFolderId);
@@ -133,7 +136,7 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   mkdirSync(profilesDir, { recursive: true });
 
   // Write root manifest
-  const rootManifest = generateRootManifest(profileName, pageUuids, pinnedPageUuid, opts.deviceId!);
+  const rootManifest = generateRootManifest(profileName, pageUuids, pinnedPageUuid, opts.deviceId!, opts.appPath);
   writeFileSync(join(outerProfileDir, 'manifest.json'), JSON.stringify(rootManifest, null, 2));
 
   // Create each page directory and manifest
@@ -192,7 +195,7 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
 
   // Determine output path
   const outputPath =
-    opts.outputPath || join(dirname(opts.inputPath), `${profileName}.streamDeckProfile`);
+    opts.outputPath || join(dirname(opts.inputPath), `${baseName}.streamDeckProfile`);
 
   // Zip the profile folder
   await generateZip(tempDir, outputPath);
