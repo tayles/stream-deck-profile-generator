@@ -17,7 +17,7 @@ export interface PageManifest {
   Controllers: {
     Actions: {
       [key: string]: Action;
-    };
+    } | null;
     Type: string;
   }[];
   Icon: string;

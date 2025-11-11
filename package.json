@@ -3,8 +3,10 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "generate": "bun run src/index.ts",
-    "generate:example": "bun run src/index.ts --input examples/chrome-hotkeys.csv --output examples/chrome-hotkeys.streamDeckProfile"
+    "generate": "bun run src/cli.ts",
+    "generate:example": "bun run src/cli.ts --input examples/chrome-hotkeys.csv --output examples/chrome-hotkeys.streamDeckProfile",
+    "inspect:example": "unzip -l examples/chrome-hotkeys.streamDeckProfile",
+    "generate:examples": "bun run scripts/generate-examples.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -13,6 +15,9 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@types/archiver": "^7.0.0",
+    "@types/node": "^24.10.0",
+    "archiver": "^7.0.1",
     "canvas": "^3.2.0",
     "commander": "^14.0.2"
   }
