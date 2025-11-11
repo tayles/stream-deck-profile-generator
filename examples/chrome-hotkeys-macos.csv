@@ -1,20 +1,20 @@
 Hotkey,Label
 ⌘ T,New Tab
 ⌘ N,New Window
-⌘ ⇧ N,New Incognito Window
+⇧ ⌘ N,New Incognito Window
 ⌘ W,Close Tab
-⌘ ⇧ T,Reopen Closed Tab
+⇧ ⌘ T,Reopen Closed Tab
 ⌘ ⌥ ←,Previous Tab
 ⌘ ⌥ →,Next Tab
 ⌘ R,Reload Page
-⌘ ⇧ R,Hard Reload Page
-⌘ ⇧ L,Open Downloads
+⇧ ⌘ R,Hard Reload Page
+⇧ ⌘ L,Open Downloads
 ⌘ +,Zoom In
 ⌘ -,Zoom Out
 ⌘ 0,Reset Zoom
 ⌘ L,Focus Address Bar
 ⌘ F,Find on Page
-⌘ ⇧ B,Toggle Bookmarks Bar
+⇧ ⌘ B,Toggle Bookmarks Bar
 ⌘ D,Bookmark Page
 ⌘ P,Print Page
 ⌘ S,Save Page
