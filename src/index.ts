@@ -1,1 +1,1 @@
-console.log("Hello world");
+export { generateStreamDeckProfile, type Options } from './lib';

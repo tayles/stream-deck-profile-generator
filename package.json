@@ -2,6 +2,10 @@
   "name": "stream-deck-profile-generator",
   "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "generate": "bun run src/index.ts",
+    "generate:example": "bun run src/index.ts --input examples/chrome-hotkeys.csv --output examples/chrome-hotkeys.streamDeckProfile"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
