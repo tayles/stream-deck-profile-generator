@@ -1,0 +1,108 @@
+Hotkey,Label,Page,Color
+⌘ X,Cut,General,#FF6B6B
+⌘ C,Copy,General,#FF6B6B
+⌘ V,Paste,General,#FF6B6B
+⌘ Z,Undo,General,#FF6B6B
+⇧ ⌘ Z,Redo,General,#FF6B6B
+⌘ A,Select All,General,#FF6B6B
+⌘ F,Find,General,#FF6B6B
+⌘ G,Find Next,General,#FF6B6B
+⇧ ⌘ G,Find Previous,General,#FF6B6B
+⌘ H,Hide App,General,#FF6B6B
+⌥ ⌘ H,Hide Others,General,#FF6B6B
+⌘ M,Minimize,General,#FF6B6B
+⌥ ⌘ M,Minimize All,General,#FF6B6B
+⌘ O,Open,General,#FF6B6B
+⌘ P,Print,General,#FF6B6B
+⌘ Q,Quit App,General,#FF6B6B
+⌘ S,Save,General,#FF6B6B
+⌘ T,New Tab,General,#FF6B6B
+⌘ W,Close Window,General,#FF6B6B
+⌥ ⌘ W,Close All,General,#FF6B6B
+⌥ ⌘ Esc,Force Quit,General,#FF6B6B
+⌘ Space,Spotlight,General,#FF6B6B
+⌃ ⌘ Space,Emoji,General,#FF6B6B
+⌃ ⌘ F,Fullscreen,General,#FF6B6B
+Space,Quick Look,General,#FF6B6B
+⌘ Tab,Switch App,General,#FF6B6B
+⌘ `,Switch Window,General,#FF6B6B
+⇧ ⌘ 5,Screenshot,General,#FF6B6B
+⇧ ⌘ N,New Folder,General,#FF6B6B
+"⌘ ,",Settings,General,#FF6B6B
+⌘ D,Duplicate,Finder,#4ECDC4
+⌘ E,Eject,Finder,#4ECDC4
+⌘ I,Get Info,Finder,#4ECDC4
+⇧ ⌘ C,Computer,Finder,#4ECDC4
+⇧ ⌘ D,Desktop,Finder,#4ECDC4
+⇧ ⌘ F,Recents,Finder,#4ECDC4
+⇧ ⌘ G,Go to Folder,Finder,#4ECDC4
+⇧ ⌘ H,Home,Finder,#4ECDC4
+⇧ ⌘ I,iCloud Drive,Finder,#4ECDC4
+⇧ ⌘ K,Network,Finder,#4ECDC4
+⌥ ⌘ L,Downloads,Finder,#4ECDC4
+⇧ ⌘ O,Documents,Finder,#4ECDC4
+⇧ ⌘ P,Preview Pane,Finder,#4ECDC4
+⇧ ⌘ R,AirDrop,Finder,#4ECDC4
+⇧ ⌘ T,Tab Bar,Finder,#4ECDC4
+⇧ ⌘ U,Utilities,Finder,#4ECDC4
+⌥ ⌘ D,Toggle Dock,Finder,#4ECDC4
+⌥ ⌘ P,Path Bar,Finder,#4ECDC4
+⌥ ⌘ S,Sidebar,Finder,#4ECDC4
+⌘ /,Status Bar,Finder,#4ECDC4
+⌘ J,View Options,Finder,#4ECDC4
+⌘ K,Connect Server,Finder,#4ECDC4
+⌥ ⌘ V,Move File,Finder,#4ECDC4
+⌘ Y,Quick Look,Finder,#4ECDC4
+⌘ 1,Icon View,Finder,#4ECDC4
+⌘ 2,List View,Finder,#4ECDC4
+⌘ 3,Column View,Finder,#4ECDC4
+⌘ 4,Gallery View,Finder,#4ECDC4
+⌘ [,Back,Finder,#4ECDC4
+⌘ ],Forward,Finder,#4ECDC4
+⌘ ↑,Parent Folder,Finder,#4ECDC4
+⌘ ↓,Open Item,Finder,#4ECDC4
+⌘ ⌫,Move to Trash,Finder,#4ECDC4
+⇧ ⌘ ⌫,Empty Trash,Finder,#4ECDC4
+⌘ B,Bold,Text Edit,#95E1D3
+⌘ I,Italic,Text Edit,#95E1D3
+⌘ U,Underline,Text Edit,#95E1D3
+⌘ K,Add Link,Text Edit,#95E1D3
+⌘ T,Fonts,Text Edit,#95E1D3
+⌃ ⌘ D,Dictionary,Text Edit,#95E1D3
+⇧ ⌘ :,Check Spelling,Text Edit,#95E1D3
+⌘ ;,Find Misspelled,Text Edit,#95E1D3
+⌥ ⌫,Delete Word,Text Edit,#95E1D3
+⌃ H,Delete Left,Text Edit,#95E1D3
+⌃ D,Delete Right,Text Edit,#95E1D3
+⌃ K,Delete Line,Text Edit,#95E1D3
+⌘ ↑,Doc Start,Text Edit,#95E1D3
+⌘ ↓,Doc End,Text Edit,#95E1D3
+⌘ ←,Line Start,Text Edit,#95E1D3
+⌘ →,Line End,Text Edit,#95E1D3
+⌥ ←,Word Start,Text Edit,#95E1D3
+⌥ →,Word End,Text Edit,#95E1D3
+⇧ ⌘ ↑,Select to Start,Text Edit,#95E1D3
+⇧ ⌘ ↓,Select to End,Text Edit,#95E1D3
+⌥ ⌘ C,Copy Style,Text Edit,#95E1D3
+⌥ ⌘ V,Paste Style,Text Edit,#95E1D3
+⌃ ⌥ ⌘ 8,Invert Colors,Accessibility,#FFB347
+"⌃ ⌥ ⌘ ,",Lower Contrast,Accessibility,#FFB347
+⌃ ⌥ ⌘ .,Higher Contrast,Accessibility,#FFB347
+⌥ ⌘ F5,Accessibility,Accessibility,#FFB347
+⌃ F2,Menu Bar,Accessibility,#FFB347
+⌃ F3,Focus Dock,Accessibility,#FFB347
+⌃ F4,Focus Window,Accessibility,#FFB347
+⌃ F5,Focus Toolbar,Accessibility,#FFB347
+⌃ F7,Tab Mode,Accessibility,#FFB347
+⌃ F8,Status Menu,Accessibility,#FFB347
+⌃ ⌘ Q,Lock Screen,System,#C77DFF
+⇧ ⌘ Q,Log Out,System,#C77DFF
+⌥ ⇧ ⌘ Q,Log Out Now,System,#C77DFF
+⌃ ↑,Mission Control,System,#C77DFF
+⌃ ↓,App Windows,System,#C77DFF
+Fn H,Show Desktop,System,#C77DFF
+Fn D,Dictation,System,#C77DFF
+Fn N,Notification,System,#C77DFF
+Fn C,Control Center,System,#C77DFF
+Fn A,Toggle Dock,System,#C77DFF
+Fn Fn,Emoji,System,#C77DFF
