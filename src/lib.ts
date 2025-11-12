@@ -8,6 +8,7 @@ import {
   readdirSync,
 } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
+import type { CanvasRenderingContext2D } from 'canvas';
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
 import { parseCsv } from './utils/csv-utils';
@@ -155,6 +156,9 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   // Build icons cache if icons directory exists
   const iconsCache = buildIconsCache(opts.iconsDir);
 
+  // Build image context cache for button styles
+  const imageCache = new Map<string, CanvasRenderingContext2D>();
+
   // Create each page directory and manifest
   for (let i = 0; i < pageNames.length; i++) {
     const pageName = pageNames[i]!;
@@ -187,6 +191,7 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
           imagePath,
           opts as Required<Omit<Options, 'outputPath' | 'iconsDir'>> & Pick<Options, 'iconsDir'>,
           iconsCache,
+          imageCache,
         );
       }),
     );
@@ -277,6 +282,7 @@ async function generateButtonImage(
   outputPath: string,
   options: Required<Omit<Options, 'outputPath' | 'iconsDir'>> & Pick<Options, 'iconsDir'>,
   iconsCache: Map<string, string> | null,
+  imageCache: Map<string, CanvasRenderingContext2D>,
 ): Promise<void> {
   // Check if custom icon exists in cache
   const iconPath = iconsCache?.get(hotkey.id);
@@ -285,14 +291,28 @@ async function generateButtonImage(
     return;
   }
 
-  // If color is provided, generate colored image
+  const cacheOrCall = (key: string, fn: () => CanvasRenderingContext2D) => {
+    let ctx = imageCache.get(key);
+    if (!ctx) {
+      ctx = fn();
+      imageCache.set(key, ctx);
+    }
+    return ctx;
+  };
+
+  // If color is provided, generate or use cached colored image
   if (hotkey.color) {
-    const ctx = generateImage('fill', DEFAULT_BUTTON_SIZE, hotkey.color);
+    const ctx = cacheOrCall(`fill-${hotkey.color}`, () =>
+      generateImage('fill', DEFAULT_BUTTON_SIZE, hotkey.color),
+    );
     saveImage(ctx, outputPath);
     return;
   }
 
-  // Otherwise, generate a button style image
-  const ctx = generateImage(options.buttonStyle, DEFAULT_BUTTON_SIZE);
+  // Otherwise, generate or use cached button style image
+  const ctx = cacheOrCall(`style-${options.buttonStyle}`, () =>
+    generateImage(options.buttonStyle, DEFAULT_BUTTON_SIZE),
+  );
+
   saveImage(ctx, outputPath);
 }
