@@ -1,28 +1,87 @@
 {
   "name": "stream-deck-profile-generator",
-  "module": "src/index.ts",
+  "version": "0.1.0",
+  "description": "Generate custom Stream Deck profiles for any application by importing a CSV of hotkeys / keyboard shortcuts",
+  "keywords": [
+    "stream deck",
+    "elgato",
+    "profile",
+    "generator",
+    "hotkeys",
+    "keyboard shortcuts",
+    "csv"
+  ],
+  "homepage": "https://github.com/tayles/stream-deck-profile-generator",
+  "bugs": {
+    "url": "https://github.com/tayles/stream-deck-profile-generator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tayles/stream-deck-profile-generator.git"
+  },
+  "license": "MIT",
+  "author": "tayles",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "stream-deck-profile-generator": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "bunup",
     "generate": "bun run src/cli.ts",
     "generate:example": "bun run src/cli.ts --input examples/chrome-hotkeys-macos.csv",
     "inspect:example": "unzip -l examples/chrome-hotkeys-macos.streamDeckProfile",
     "generate:examples": "bun run scripts/generate-examples.ts",
     "generate:button-styles": "bun run scripts/generate-button-styles.ts",
     "screencapture": "screencapture -R 382,200,480,340 ~/Downloads/screenshot.png",
-    "format": "bunx prettier --write ."
+    "lint": "bunx prettier --check .",
+    "lint:fix": "bunx prettier --write .",
+    "optimize-images": "bunx @343dev/optimizt diagrams/",
+    "prepare": "bun simple-git-hooks",
+    "preview-changelog": "bunx changelogithub --dry",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "test:watch": "bun test --watch",
+    "type-check": "tsc --noEmit"
   },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+  "simple-git-hooks": {
+    "pre-commit": "bun run lint && bun run type-check"
   },
   "dependencies": {
-    "@types/archiver": "^7.0.0",
-    "@types/node": "^24.10.0",
     "archiver": "^7.0.1",
     "canvas": "^3.2.0",
     "commander": "^14.0.2",
     "csv-parse": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/archiver": "^7.0.0",
+    "@types/node": "^24.10.1",
+    "@types/bun": "latest",
+    "bunup": "^0.15.14",
+    "simple-git-hooks": "^2.13.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "bun": ">=1.0.0"
   }
 }

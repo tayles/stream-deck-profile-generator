@@ -1,1 +1,1 @@
-export { generateStreamDeckProfile, type Options } from './lib';
+export { generateStreamDeckProfile } from './lib';

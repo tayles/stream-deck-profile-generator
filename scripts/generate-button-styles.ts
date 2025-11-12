@@ -152,7 +152,7 @@ function generateRainbowButton(ctx: CanvasRenderingContext2D, size: number) {
 
 // fill color button style
 const fillCtx = createCanvasBackground('#C24965', BUTTON_SIZE);
-saveImage(fillCtx, 'button-styles/fill.png');
+saveImage(fillCtx, 'button-styles/filled.png');
 
 // basic gradient button style
 const basicCtx = createCanvasBackground('black', BUTTON_SIZE);
