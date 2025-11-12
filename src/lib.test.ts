@@ -1,7 +1,7 @@
-import { describe, expect, test, beforeEach, afterEach } from 'bun:test';
-import { generateStreamDeckProfile, TMP_DIR, type Options } from './lib';
-import { mkdirSync, writeFileSync, existsSync, rmSync, readdirSync } from 'node:fs';
+import { afterEach, beforeEach, describe, expect, test } from 'bun:test';
+import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { generateStreamDeckProfile, TMP_DIR, type Options } from './lib';
 
 describe('lib', () => {
   const testDir = join(process.cwd(), '.test-lib-tmp');

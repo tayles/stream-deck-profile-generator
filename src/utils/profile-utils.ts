@@ -2,7 +2,7 @@ import { DEVICES, type DeviceId } from '../types/device-types';
 import type { Action, Hotkey, PageManifest, RootManifest } from '../types/manifest-types';
 import type { HotkeyDescriptor, LabelPosition, LabelStyle } from '../types/types';
 import { generateLabel, generateUUID } from './hotkey-utils';
-import { MODIFIER_MAPPINGS, KEY_MAPPINGS, MODIFIER_FLAGS } from './keyboard-utils';
+import { KEY_MAPPINGS, MODIFIER_FLAGS, MODIFIER_MAPPINGS } from './keyboard-utils';
 
 export function generateProfileFolderId(profileId: string): string {
   return (

@@ -1,6 +1,6 @@
-import { generateId } from './hotkey-utils';
 import type { HotkeyDescriptor } from '../types/types';
 import type { CsvRow } from './csv-utils';
+import { generateId } from './hotkey-utils';
 
 /**
  * Group by pages and auto-generate pages based on the number of rows and columns. Named pages are first.

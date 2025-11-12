@@ -1,27 +1,27 @@
+import type { CanvasRenderingContext2D } from 'canvas';
 import {
+  copyFileSync,
   existsSync,
+  mkdirSync,
+  readdirSync,
   readFileSync,
   rmSync,
-  mkdirSync,
   writeFileSync,
-  copyFileSync,
-  readdirSync,
 } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
-import type { CanvasRenderingContext2D } from 'canvas';
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
 import { parseCsv } from './utils/csv-utils';
-import { DEFAULT_BUTTON_SIZE, generateImage, saveImage } from './utils/image-utils';
-import { generateZip } from './utils/zip-utils';
 import { generateUUID } from './utils/hotkey-utils';
+import { DEFAULT_BUTTON_SIZE, generateImage, saveImage } from './utils/image-utils';
+import { groupByPage } from './utils/layout-utils';
 import {
-  generateProfileFolderId,
   generatePageManifest,
   generatePinnedPageManifest,
+  generateProfileFolderId,
   generateRootManifest,
 } from './utils/profile-utils';
-import { groupByPage } from './utils/layout-utils';
+import { generateZip } from './utils/zip-utils';
 export interface Options {
   inputPath: string;
   outputPath?: string;

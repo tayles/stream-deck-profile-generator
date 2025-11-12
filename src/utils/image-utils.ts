@@ -1,5 +1,5 @@
-import { writeFileSync } from 'node:fs';
 import { type CanvasRenderingContext2D, createCanvas } from 'canvas';
+import { writeFileSync } from 'node:fs';
 import type { ButtonStyle } from '../types/types';
 
 export const DEFAULT_BUTTON_SIZE = 144;

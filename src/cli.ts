@@ -3,7 +3,7 @@
 import { parseArgs } from 'node:util';
 import { generateStreamDeckProfile, type Options } from './lib';
 import { DEVICES, type DeviceId } from './types/device-types';
-import { BUTTON_STYLES, LABEL_STYLES, LABEL_POSITIONS } from './types/types';
+import { BUTTON_STYLES, LABEL_POSITIONS, LABEL_STYLES } from './types/types';
 
 const USAGE = `
 Usage: bun run generate [options]

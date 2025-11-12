@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { generateLabel, generateId, generateUUID } from './hotkey-utils';
+import { generateId, generateLabel, generateUUID } from './hotkey-utils';
 
 describe('hotkey-utils', () => {
   describe('generateLabel', () => {

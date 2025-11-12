@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { generateHotkeys, generateHotkey } from './profile-utils';
+import { generateHotkey, generateHotkeys } from './profile-utils';
 
 describe('profile-utils', () => {
   describe('generateHotkeys', () => {
