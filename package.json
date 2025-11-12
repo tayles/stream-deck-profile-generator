@@ -7,6 +7,7 @@
     "generate:example": "bun run src/cli.ts --input examples/chrome-hotkeys-macos.csv",
     "inspect:example": "unzip -l examples/chrome-hotkeys-macos.streamDeckProfile",
     "generate:examples": "bun run scripts/generate-examples.ts",
+    "generate:button-styles": "bun run scripts/generate-button-styles.ts",
     "format": "bunx prettier --write ."
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ export async function generateImage(color: string): Promise<Buffer> {
   const canvas = createCanvas(144, 144);
   const ctx = canvas.getContext('2d');
 
-  // Parse and apply the color
+  // Apply the background color
   ctx.fillStyle = color;
   ctx.fillRect(0, 0, 144, 144);
 

@@ -63,12 +63,12 @@ bun run generate \
 
 Button styles are defined in [button-styles/](button-styles/):
 
-| Preview                                | Style     | Description                                                     |
-| -------------------------------------- | --------- | --------------------------------------------------------------- |
-| ![basic](button-styles/basic.png)      | `basic`   | Button with a filled dark background color                      |
-| ![border](button-styles/border.png)    | `border`  | Button with a border around the label                           |
-| ![rainbow](button-styles/rainbow.webp) | `rainbow` | Button with a rainbow border                                    |
-| _single color_                         | `fill`    | Button with a filled background color (defined by `--bg-color`) |
+| Preview                               | Style     | Description                                                     |
+| ------------------------------------- | --------- | --------------------------------------------------------------- |
+| ![basic](button-styles/basic.png)     | `basic`   | Button with a dark gradient background color                    |
+| ![border](button-styles/border.png)   | `border`  | Button with a border around the label                           |
+| ![rainbow](button-styles/rainbow.png) | `rainbow` | Button with a rainbow border                                    |
+| ![fill](button-styles/fill.png)       | `fill`    | Button with a filled background color (defined by `--bg-color`) |
 
 ## Screenshots
 
@@ -97,4 +97,16 @@ To test:
 
 ```shell
 bun test
+```
+
+To regenerate example profiles:
+
+```shell
+bun run generate:examples
+```
+
+To generate button style images:
+
+```shell
+bun run generate:button-styles
 ```
