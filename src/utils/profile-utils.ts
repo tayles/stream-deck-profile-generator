@@ -189,7 +189,7 @@ export function generateActionFromHotkeyDescriptor(
         FontStyle: '',
         FontUnderline: false,
         Image: `Images/${hotkey.id}.png`,
-        OutlineThickness: 2,
+        OutlineThickness: 3,
         ShowTitle: labelStyle !== 'none',
         Title: generateLabel(hotkey.label, hotkey.hotkey, labelStyle),
         TitleAlignment: labelPosition,
