@@ -6,7 +6,7 @@ import { DEVICES, type DeviceId } from './types/device-types';
 import { BUTTON_STYLES, LABEL_POSITIONS, LABEL_STYLES } from './types/types';
 
 const USAGE = `
-Usage: bun run generate [options]
+Usage: stream-deck-profile-generator [options]
 
 Generate a Stream Deck profile from a CSV file.
 
@@ -36,11 +36,11 @@ Optional:
   --help, -h                  Show this help message
 
 Examples:
-  bun run generate --input hotkeys.csv
-  bun run generate --input hotkeys.csv --output MyProfile.streamDeckProfile
-  bun run generate --input hotkeys.csv --profile-name 'My Custom Profile' --app-path '/Applications/SomeApp.app'
-  bun run generate --input hotkeys.csv --device xl --button-style rainbow
-  bun run generate --input hotkeys.csv --icons-dir ./icons --bg-color blue
+  stream-deck-profile-generator --input hotkeys.csv
+  stream-deck-profile-generator --input hotkeys.csv --output MyProfile.streamDeckProfile
+  stream-deck-profile-generator --input hotkeys.csv --profile-name 'My Custom Profile' --app-path '/Applications/SomeApp.app'
+  stream-deck-profile-generator --input hotkeys.csv --device xl --button-style rainbow
+  stream-deck-profile-generator --input hotkeys.csv --icons-dir ./icons --bg-color blue
 `;
 
 async function main() {

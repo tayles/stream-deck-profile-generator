@@ -21,13 +21,13 @@ If any of these optional columns are omitted, sensible defaults will be used:
 Run the generator with your CSV file:
 
 ```shell
-bun run generate --input hotkeys.csv
+stream-deck-profile-generator --input hotkeys.csv
 ```
 
 Or specify any of the available options:
 
 ```shell
-bun run generate \
+stream-deck-profile-generator \
   --input hotkeys.csv \
   --output MyProfile.streamDeckProfile \
   --profile-name "My Custom Profile" \
@@ -84,7 +84,7 @@ Some example profiles are available in the [examples/](examples/) directory.
 ![Basic](docs/screenshots/chrome-hotkeys-macos-basic-preview.png)
 
 ```shell
-bun run generate --input examples/chrome-hotkeys-macos.csv --profile-name "Chrome Hotkeys (macOS)" --app-path "/Applications/Google Chrome.app"
+stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --profile-name "Chrome Hotkeys (macOS)" --app-path "/Applications/Google Chrome.app"
 ```
 
 #### Border Button Style
@@ -92,7 +92,7 @@ bun run generate --input examples/chrome-hotkeys-macos.csv --profile-name "Chrom
 ![Border](docs/screenshots/chrome-hotkeys-macos-border-preview.png)
 
 ```shell
-bun run generate --input examples/chrome-hotkeys-macos.csv --button-style border
+stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --button-style border
 ```
 
 #### Rainbow Button Style
@@ -100,7 +100,7 @@ bun run generate --input examples/chrome-hotkeys-macos.csv --button-style border
 ![Rainbow](docs/screenshots/chrome-hotkeys-macos-rainbow-preview.png)
 
 ```shell
-bun run generate --input examples/chrome-hotkeys-macos.csv --button-style rainbow
+stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --button-style rainbow
 ```
 
 #### Fill Button Style (Custom Colors)
@@ -108,7 +108,7 @@ bun run generate --input examples/chrome-hotkeys-macos.csv --button-style rainbo
 ![Fill](docs/screenshots/chrome-hotkeys-macos-fill-preview.png)
 
 ```shell
-bun run generate --input examples/chrome-hotkeys-macos.csv --bg-color purple --text-color yellow
+stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --bg-color purple --text-color yellow
 ```
 
 ### Chrome Hotkeys (Windows) with Icons
@@ -123,7 +123,7 @@ This example uses [Twemoji](https://github.com/twitter/twemoji) SVG icons from [
 ![Icons](docs/screenshots/chrome-hotkeys-windows-icons-preview.png)
 
 ```shell
-bun run generate --input examples/chrome-hotkeys-windows.csv --icons-dir ~/path/to/twemoji_svg/files --label-style label
+stream-deck-profile-generator --input examples/chrome-hotkeys-windows.csv --icons-dir ~/path/to/twemoji_svg/files --label-style label
 ```
 
 ### Navigation Buttons
@@ -136,7 +136,7 @@ If there are more than 2 pages, Previous/Next navigation buttons will be automat
 ![Navigation](docs/screenshots/macos-hotkeys-preview.png)
 
 ```shell
-bun run generate --input examples/macos-hotkeys.csv
+stream-deck-profile-generator --input examples/macos-hotkeys.csv
 ```
 
 ### Customising Individual Buttons
@@ -149,7 +149,7 @@ This includes a `Color` column to customise individual button colors:
 ![Fill](docs/screenshots/rainbow-virtual-keyboard-preview.png)
 
 ```shell
-bun run generate --input examples/rainbow-virtual-keyboard.csv --font-size 24 --label-style label
+stream-deck-profile-generator --input examples/rainbow-virtual-keyboard.csv --font-size 24 --label-style label
 ```
 
 ## Development
