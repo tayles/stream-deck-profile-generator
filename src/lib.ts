@@ -3,7 +3,7 @@ import { basename, dirname, extname, join, resolve } from 'node:path';
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
 import { parseCsv } from './utils/csv-utils';
-import { generateImage } from './utils/image-utils';
+import { DEFAULT_BUTTON_SIZE, generateImage, saveImage } from './utils/image-utils';
 import { generateZip } from './utils/zip-utils';
 import { generateUUID } from './utils/hotkey-utils';
 import {
@@ -13,7 +13,6 @@ import {
   generateRootManifest,
 } from './utils/profile-utils';
 import { groupByPage } from './utils/layout-utils';
-
 export interface Options {
   inputPath: string;
   outputPath?: string;
@@ -251,19 +250,12 @@ async function generateButtonImage(
 
   // If color is provided, generate colored image
   if (hotkey.color) {
-    const imageBuffer = await generateImage(hotkey.color);
-    writeFileSync(outputPath, imageBuffer);
+    const ctx = generateImage('fill', DEFAULT_BUTTON_SIZE, hotkey.color);
+    saveImage(ctx, outputPath);
     return;
   }
 
-  // Otherwise, copy button style image
-  const buttonStylePath = resolve(process.cwd(), 'button-styles', `${options.buttonStyle}.png`);
-
-  if (existsSync(buttonStylePath)) {
-    copyFileSync(buttonStylePath, outputPath);
-  } else {
-    // Generate default background color image
-    const imageBuffer = await generateImage(options.bgColor);
-    writeFileSync(outputPath, imageBuffer);
-  }
+  // Otherwise, generate a button style image
+  const ctx = generateImage(options.buttonStyle, DEFAULT_BUTTON_SIZE);
+  saveImage(ctx, outputPath);
 }
