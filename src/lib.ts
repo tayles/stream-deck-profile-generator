@@ -239,7 +239,7 @@ async function generateButtonImage(
 ): Promise<void> {
   // Check if custom icon exists in icons directory
   if (options.iconsDir) {
-    const iconExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp'];
+    const iconExtensions = ['.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp'];
     for (const ext of iconExtensions) {
       const iconPath = join(options.iconsDir, `${hotkey.id}${ext}`);
       if (existsSync(iconPath)) {

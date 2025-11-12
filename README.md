@@ -24,7 +24,7 @@ Run the generator with your CSV file:
 bun run generate --input hotkeys.csv
 ```
 
-All available options:
+Or specify any of the available options:
 
 ```shell
 bun run generate \
@@ -44,29 +44,40 @@ bun run generate \
 
 ## CLI Options
 
-| Option                        | Description                                                                          | Default                              |
-| ----------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------ |
-| `--input <path>`              | Path to the input CSV file                                                           | _(required)_                         |
-| `--output <path>`             | Path to the output `.streamDeckProfile` file                                         | `<input-filename>.streamDeckProfile` |
-| `--profile-name <name>`       | Name of the profile                                                                  | `<input-filename>`                   |
-| `--app-path <path>`           | Path to the application to switch to for this profile                                | _(optional)_                         |
-| `--device <type>`             | Stream Deck device ID (e.g., `mk`, `xl`, `mini`)                                     | `mk`                                 |
-| `--button-style <style>`      | Button style (e.g., `basic`, `border`, `rainbow`, `fill`)                            | `basic`                              |
-| `--label-style <style>`       | Label style (e.g., `label`, `hotkey`, `both`, `none`)                                | `both`                               |
-| `--label-position <position>` | Label vertical position (e.g., `top`, `middle`, `bottom`)                            | `middle`                             |
-| `--bg-color <color>`          | Default button background color (e.g., `red`, `#FF0000`)                             | `black`                              |
-| `--text-color <color>`        | Default button text color (e.g., `white`, `#FFFFFF`)                                 | `white`                              |
-| `--font-size <size>`          | Default button font size                                                             | `14`                                 |
-| `--icons-dir <path>`          | Path to a directory containing PNG, GIF, JPG or WEBP icons. Matches on the hotkey id | _(optional)_                         |
+| Option                        | Description                                                                               | Default                              |
+| ----------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------ |
+| `--input <path>`              | Path to the input CSV file                                                                | _(required)_                         |
+| `--output <path>`             | Path to the output `.streamDeckProfile` file                                              | `<input-filename>.streamDeckProfile` |
+| `--profile-name <name>`       | Name of the profile                                                                       | `<input-filename>`                   |
+| `--app-path <path>`           | Path to the application to switch to for this profile                                     | _(optional)_                         |
+| `--device <type>`             | Stream Deck model (e.g., `mk`, `xl`, `mini`)                                              | `mk`                                 |
+| `--button-style <style>`      | Button style (e.g., `basic`, `border`, `rainbow`, `fill`)                                 | `basic`                              |
+| `--label-style <style>`       | Label style (e.g., `label`, `hotkey`, `both`, `none`)                                     | `both`                               |
+| `--label-position <position>` | Label vertical position (e.g., `top`, `middle`, `bottom`)                                 | `middle`                             |
+| `--bg-color <color>`          | Default button background color (e.g., `red`, `#FF0000`)                                  | `black`                              |
+| `--text-color <color>`        | Default button text color (e.g., `white`, `#FFFFFF`)                                      | `white`                              |
+| `--font-size <size>`          | Default button font size                                                                  | `14`                                 |
+| `--icons-dir <path>`          | Path to a directory containing SVG, PNG, JPG, GIF or WEBP icons. Matches on the hotkey id | _(optional)_                         |
 
 ## Button Styles
 
 Button styles are defined in [button-styles/](button-styles/):
 
-- `basic`: Button with a filled dark background color
-- `border`: Button with a border around the label
-- `rainbow`: Button with a rainbow border
-- `fill`: Button with a filled background color (defined by `--bg-color`)
+| Preview                                | Style     | Description                                                     |
+| -------------------------------------- | --------- | --------------------------------------------------------------- |
+| ![basic](button-styles/basic.png)      | `basic`   | Button with a filled dark background color                      |
+| ![border](button-styles/border.png)    | `border`  | Button with a border around the label                           |
+| ![rainbow](button-styles/rainbow.webp) | `rainbow` | Button with a rainbow border                                    |
+| _single color_                         | `fill`    | Button with a filled background color (defined by `--bg-color`) |
+
+## Screenshots
+
+|                                                                                               |                                                                                                    |
+| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Basic**<br>![Basic](docs/screenshots/chrome-hotkeys-macos-basic-preview.png)                | **Border**<br>![Border](docs/screenshots/chrome-hotkeys-macos-border-preview.png)                  |
+| **Rainbow**<br>![Rainbow](docs/screenshots/chrome-hotkeys-macos-rainbow-preview.png)          | **Fill (Custom Colors)**<br>![Fill](docs/screenshots/chrome-hotkeys-macos-fill-preview.png)        |
+| **Icons**<br>![Icons](docs/screenshots/chrome-hotkeys-macos-icons-preview.png)                |                                                                                                    |
+| **Next/Prev Navigation Buttons**<br>![Navigation](docs/screenshots/macos-hotkeys-preview.png) | **Customise Individual Buttons**<br>![Fill](docs/screenshots/rainbow-virtual-keyboard-preview.png) |
 
 ## Development
 
