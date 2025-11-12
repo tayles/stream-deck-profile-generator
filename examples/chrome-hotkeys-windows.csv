@@ -1,24 +1,24 @@
-Hotkey,Label
-Ctrl T,New Tab
-Ctrl N,New Window
-Ctrl Shift N,New Incognito Window
-Ctrl W,Close Tab
-Ctrl Shift T,Reopen Closed Tab
-Ctrl Shift Tab,Previous Tab
-Ctrl Tab,Next Tab
-Ctrl R,Reload Page
-Ctrl Shift R,Hard Reload Page
-Ctrl J,Open Downloads
-Ctrl +,Zoom In
-Ctrl -,Zoom Out
-Ctrl 0,Reset Zoom
-Ctrl I,Focus Address Bar
-Ctrl F,Find on Page
-Ctrl Shift B,Toggle Bookmarks Bar
-Ctrl D,Bookmark Page
-Ctrl P,Print Page
-Ctrl S,Save Page
-Ctrl Shift I,Open Developer Tools
-Ctrl Shift J,Open JavaScript Console
-Ctrl Shift C,Inspect Element
-Ctrl U,View Page Source
+Hotkey,Label,Id
+Ctrl T,New Tab,2795
+Ctrl N,New Window,1f5a5
+Ctrl Shift N,New Incognito Window,1f575
+Ctrl W,Close Tab,274c
+Ctrl Shift T,Reopen Closed Tab,21a9
+Ctrl Shift Tab,Previous Tab,2b05
+Ctrl Tab,Next Tab,27a1
+Ctrl R,Reload Page,1f504
+Ctrl Shift R,Hard Reload Page,26a0
+Ctrl J,Open Downloads,1f4e6
+Ctrl +,Zoom In,1f50d
+Ctrl -,Zoom Out,1f50e
+Ctrl 0,Reset Zoom,1f3af
+Ctrl I,Focus Address Bar,1f310
+Ctrl F,Find on Page,1f50d
+Ctrl Shift B,Toggle Bookmarks Bar,1f516
+Ctrl D,Bookmark Page,1f4d1
+Ctrl P,Print Page,1f5a8
+Ctrl S,Save Page,1f4be
+Ctrl Shift I,Open Developer Tools,1f527
+Ctrl Shift J,Open JavaScript Console,1f4bb
+Ctrl Shift C,Inspect Element,1f50e
+Ctrl U,View Page Source,1f4c4
