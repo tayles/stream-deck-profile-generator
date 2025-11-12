@@ -1,3 +1,5 @@
+#!/usr/bin/env bun
+
 /**
  * This script generates profiles for all CSV files in the examples/ directory.
  *
