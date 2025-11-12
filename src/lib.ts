@@ -1,4 +1,12 @@
-import { existsSync, readFileSync, rmSync, mkdirSync, writeFileSync, copyFileSync } from 'node:fs';
+import {
+  existsSync,
+  readFileSync,
+  rmSync,
+  mkdirSync,
+  writeFileSync,
+  copyFileSync,
+  readdirSync,
+} from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
@@ -144,6 +152,9 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
   );
   writeFileSync(join(outerProfileDir, 'manifest.json'), JSON.stringify(rootManifest, null, 2));
 
+  // Build icons cache if icons directory exists
+  const iconsCache = buildIconsCache(opts.iconsDir);
+
   // Create each page directory and manifest
   for (let i = 0; i < pageNames.length; i++) {
     const pageName = pageNames[i]!;
@@ -175,6 +186,7 @@ export async function generateStreamDeckProfile(options: Options): Promise<void>
           hotkey,
           imagePath,
           opts as Required<Omit<Options, 'outputPath' | 'iconsDir'>> & Pick<Options, 'iconsDir'>,
+          iconsCache,
         );
       }),
     );
@@ -229,23 +241,48 @@ function validateOptions(options: Options): void {
 }
 
 /**
+ * Build a cache of icon files in the icons directory
+ * Returns a Map of icon ID to full file path
+ */
+function buildIconsCache(iconsDir?: string): Map<string, string> | null {
+  if (!iconsDir || !existsSync(iconsDir)) {
+    return null;
+  }
+
+  const cache = new Map<string, string>();
+  const iconExtensions = ['.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp'];
+
+  try {
+    const files = readdirSync(iconsDir);
+    for (const file of files) {
+      const ext = extname(file);
+      if (iconExtensions.includes(ext.toLowerCase())) {
+        const id = basename(file, ext);
+        cache.set(id, join(iconsDir, file));
+      }
+    }
+  } catch {
+    // If directory can't be read, return empty cache
+    console.warn(`Warning: Could not read icons directory: ${iconsDir}`);
+  }
+
+  return cache;
+}
+
+/**
  * Generate button image for a hotkey
  */
 async function generateButtonImage(
   hotkey: { id: string; label: string; color?: string },
   outputPath: string,
   options: Required<Omit<Options, 'outputPath' | 'iconsDir'>> & Pick<Options, 'iconsDir'>,
+  iconsCache: Map<string, string> | null,
 ): Promise<void> {
-  // Check if custom icon exists in icons directory
-  if (options.iconsDir) {
-    const iconExtensions = ['.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp'];
-    for (const ext of iconExtensions) {
-      const iconPath = join(options.iconsDir, `${hotkey.id}${ext}`);
-      if (existsSync(iconPath)) {
-        copyFileSync(iconPath, outputPath);
-        return;
-      }
-    }
+  // Check if custom icon exists in cache
+  const iconPath = iconsCache?.get(hotkey.id);
+  if (iconPath) {
+    copyFileSync(iconPath, outputPath);
+    return;
   }
 
   // If color is provided, generate colored image
