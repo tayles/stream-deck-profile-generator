@@ -259,13 +259,8 @@ async function generateButtonImage(
   // Otherwise, copy button style image
   const buttonStylePath = resolve(process.cwd(), 'button-styles', `${options.buttonStyle}.png`);
 
-  // Check for webp version if png doesn't exist
-  const alternativePath = resolve(process.cwd(), 'button-styles', `${options.buttonStyle}.webp`);
-
   if (existsSync(buttonStylePath)) {
     copyFileSync(buttonStylePath, outputPath);
-  } else if (existsSync(alternativePath)) {
-    copyFileSync(alternativePath, outputPath);
   } else {
     // Generate default background color image
     const imageBuffer = await generateImage(options.bgColor);

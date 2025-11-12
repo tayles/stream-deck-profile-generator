@@ -8,6 +8,7 @@
     "inspect:example": "unzip -l examples/chrome-hotkeys-macos.streamDeckProfile",
     "generate:examples": "bun run scripts/generate-examples.ts",
     "generate:button-styles": "bun run scripts/generate-button-styles.ts",
+    "screencapture": "screencapture -R 382,200,480,340 ~/Downloads/screenshot.png",
     "format": "bunx prettier --write ."
   },
   "devDependencies": {

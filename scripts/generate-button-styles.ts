@@ -5,8 +5,8 @@
  *   bun generate:button-styles
  */
 
-import { CanvasRenderingContext2D, createCanvas } from 'canvas';
-import { writeFileSync } from 'fs';
+import { writeFileSync } from 'node:fs';
+import { type CanvasRenderingContext2D, createCanvas } from 'canvas';
 
 const BUTTON_SIZE = 144;
 
@@ -24,20 +24,9 @@ function createCanvasBackground(
   return ctx;
 }
 
-async function saveImage(ctx: CanvasRenderingContext2D, filename: string) {
+function saveImage(ctx: CanvasRenderingContext2D, filename: string) {
   const imageData = ctx.canvas.toBuffer('image/png');
   writeFileSync(filename, imageData);
-}
-
-function generateFillButton(
-  ctx: CanvasRenderingContext2D,
-  size: number,
-  color: string,
-): CanvasRenderingContext2D {
-  ctx.fillStyle = color;
-  ctx.fillRect(0, 0, size, size);
-
-  return ctx;
 }
 
 function generateBasicGradientButton(

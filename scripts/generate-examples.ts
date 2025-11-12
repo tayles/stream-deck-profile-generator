@@ -19,14 +19,18 @@ await generateStreamDeckProfile({
 });
 
 /**
- * Google Chrome keyboard shortcuts for Windows
+ * Google Chrome keyboard shortcuts for Windows, using Twemoji icons
  *
  * @see https://support.google.com/chrome/answer/157179
+ * @see https://github.com/boywithkeyboard-archive/twemoji_svg
+ * @see https://github.com/twitter/twemoji
  */
 await generateStreamDeckProfile({
   inputPath: 'examples/chrome-hotkeys-windows.csv',
   profileName: 'Chrome Hotkeys (Windows)',
   appPath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  iconsDir: '../twemoji_svg/files',
+  labelStyle: 'label',
 });
 
 /**
@@ -47,7 +51,6 @@ await generateStreamDeckProfile({
   profileName: 'Single Hotkey',
   fontSize: 24,
   labelStyle: 'label',
-  buttonStyle: 'rainbow',
 });
 
 /**
@@ -58,5 +61,4 @@ await generateStreamDeckProfile({
 await generateStreamDeckProfile({
   inputPath: 'examples/macos-hotkeys.csv',
   profileName: 'macOS Hotkeys',
-  fontSize: 12,
 });
