@@ -46,7 +46,7 @@
     "inspect:example": "unzip -l examples/chrome-hotkeys-macos.streamDeckProfile",
     "generate:examples": "bun run scripts/generate-examples.ts",
     "generate:button-styles": "bun run scripts/generate-button-styles.ts",
-    "screencapture": "screencapture -R 382,200,480,340 ~/Downloads/screenshot.png",
+    "screencapture": "screencapture -R 382,200,480,340 docs/screenshots/screenshot.png",
     "lint": "bunx prettier --check .",
     "lint:fix": "bunx prettier --write .",
     "optimize-images": "bunx @343dev/optimizt diagrams/",
@@ -62,15 +62,15 @@
   },
   "dependencies": {
     "archiver": "^7.0.1",
-    "canvas": "^3.2.0",
-    "commander": "^14.0.2",
+    "canvas": "^3.2.1",
+    "commander": "^14.0.3",
     "csv-parse": "^6.1.0"
   },
   "devDependencies": {
     "@types/archiver": "^7.0.0",
     "@types/bun": "latest",
-    "@types/node": "^24.10.1",
-    "bunup": "^0.15.14",
+    "@types/node": "^25.3.2",
+    "bunup": "^0.16.31",
     "prettier-plugin-organize-imports": "^4.3.0",
     "simple-git-hooks": "^2.13.1"
   },
