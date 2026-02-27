@@ -78,7 +78,7 @@ Some example profiles are available in the [examples/](examples/) directory.
 ### Chrome Hotkeys (macOS)
 
 - Input: [chrome-hotkeys-macos.csv](examples/chrome-hotkeys-macos.csv)
-- Profile: [chrome-hotkeys-macos.streamDeckProfile](examples/chrome-hotkeys-macos.streamDeckProfile)
+- Generated Profile: [chrome-hotkeys-macos.streamDeckProfile](examples/chrome-hotkeys-macos.streamDeckProfile)
 
 #### Basic Button Style
 
@@ -115,7 +115,7 @@ stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --bg-col
 ### Chrome Hotkeys (Windows) with Icons
 
 - Input: [chrome-hotkeys-windows.csv](examples/chrome-hotkeys-windows.csv)
-- Profile: [chrome-hotkeys-windows.streamDeckProfile](examples/chrome-hotkeys-windows.streamDeckProfile)
+- Generated Profile: [chrome-hotkeys-windows.streamDeckProfile](examples/chrome-hotkeys-windows.streamDeckProfile)
 
 This includes an `Id` column to match against icon filenames in the `--icon-path` directory.
 
@@ -130,7 +130,7 @@ stream-deck-profile-generator --input examples/chrome-hotkeys-windows.csv --icon
 ### Navigation Buttons
 
 - Input: [macos-hotkeys.csv](examples/macos-hotkeys.csv)
-- Profile: [macos-hotkeys.streamDeckProfile](examples/macos-hotkeys.streamDeckProfile)
+- Generated Profile: [macos-hotkeys.streamDeckProfile](examples/macos-hotkeys.streamDeckProfile)
 
 If there are more than 2 pages, Previous/Next navigation buttons will be automatically added to each page in the bottom right corner. This example also demonstrates using a `Page` column to group buttons onto different pages:
 
@@ -143,7 +143,7 @@ stream-deck-profile-generator --input examples/macos-hotkeys.csv
 ### Customising Individual Buttons
 
 - Input: [rainbow-virtual-keyboard.csv](examples/rainbow-virtual-keyboard.csv)
-- Profile: [rainbow-virtual-keyboard.streamDeckProfile](examples/rainbow-virtual-keyboard.streamDeckProfile)
+- Generated Profile: [rainbow-virtual-keyboard.streamDeckProfile](examples/rainbow-virtual-keyboard.streamDeckProfile)
 
 This includes a `Color` column to customise individual button colors:
 
