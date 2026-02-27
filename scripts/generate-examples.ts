@@ -18,6 +18,11 @@ await generateStreamDeckProfile({
   inputPath: 'examples/chrome-hotkeys-macos.csv',
   profileName: 'Chrome Hotkeys (macOS)',
   appPath: '/Applications/Google Chrome.app',
+  buttonStyle: 'border',
+
+  // buttonStyle: 'fill',
+  // bgColor: 'purple',
+  // textColor: 'yellow',
 });
 
 /**

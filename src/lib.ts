@@ -1,19 +1,16 @@
 import type { CanvasRenderingContext2D } from 'canvas';
-import {
-  copyFileSync,
-  existsSync,
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
 import { parseCsv } from './utils/csv-utils';
 import { generateUUID } from './utils/hotkey-utils';
-import { DEFAULT_BUTTON_SIZE, generateImage, saveImage } from './utils/image-utils';
+import {
+  addPaddingToImage,
+  DEFAULT_BUTTON_SIZE,
+  generateImage,
+  saveImage,
+} from './utils/image-utils';
 import { groupByPage } from './utils/layout-utils';
 import {
   generatePageManifest,
@@ -33,6 +30,7 @@ export interface Options {
   textColor?: string;
   fontSize?: number;
   iconsDir?: string;
+  iconPaddingPercent?: number;
   profileName?: string;
   appPath?: string;
 }
@@ -45,6 +43,7 @@ export const DEFAULT_OPTIONS: Omit<Options, 'inputPath' | 'outputPath' | 'iconsD
   bgColor: 'black',
   textColor: 'white',
   fontSize: 12,
+  iconPaddingPercent: 10,
 };
 
 export const TMP_DIR = 'out';
@@ -287,7 +286,14 @@ async function generateButtonImage(
   // Check if custom icon exists in cache
   const iconPath = iconsCache?.get(hotkey.id);
   if (iconPath) {
-    copyFileSync(iconPath, outputPath);
+    // copyFileSync(iconPath, outputPath);
+
+    const paddedSvgImg = addPaddingToImage(
+      iconPath,
+      options.iconPaddingPercent,
+      DEFAULT_BUTTON_SIZE,
+    );
+    writeFileSync(outputPath, paddedSvgImg);
     return;
   }
 
@@ -301,9 +307,10 @@ async function generateButtonImage(
   };
 
   // If color is provided, generate or use cached colored image
-  if (hotkey.color) {
-    const ctx = cacheOrCall(`fill-${hotkey.color}`, () =>
-      generateImage('fill', DEFAULT_BUTTON_SIZE, hotkey.color),
+  if (hotkey.color || options.bgColor) {
+    const color = hotkey.color || options.bgColor;
+    const ctx = cacheOrCall(`fill-${color}`, () =>
+      generateImage('fill', DEFAULT_BUTTON_SIZE, color),
     );
     saveImage(ctx, outputPath);
     return;

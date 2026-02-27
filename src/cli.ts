@@ -33,6 +33,8 @@ Optional:
   --font-size <size>          Default button font size (1-72)
                               (default: 14)
   --icons-dir <path>          Path to directory containing custom icons
+  --icon-padding <percent>    Padding around icons as a percentage of button size
+                              (default: 10)
   --help, -h                  Show this help message
 
 Examples:
@@ -60,6 +62,7 @@ async function main() {
         'text-color': { type: 'string' },
         'font-size': { type: 'string' },
         'icons-dir': { type: 'string' },
+        'icon-padding': { type: 'string' },
         help: { type: 'boolean', short: 'h' },
       },
       allowPositionals: false,
@@ -150,6 +153,15 @@ async function main() {
 
     if (values['icons-dir']) {
       options.iconsDir = values['icons-dir'];
+    }
+
+    if (values['icon-padding']) {
+      const padding = parseInt(values['icon-padding'], 10);
+      if (isNaN(padding) || padding < 0 || padding > 50) {
+        console.error('❌ Error: Icon padding must be a number between 0 and 50');
+        process.exit(1);
+      }
+      options.iconPaddingPercent = padding;
     }
 
     // Generate profile

@@ -58,6 +58,7 @@ stream-deck-profile-generator \
 | `--text-color <color>`        | Default button text color (e.g. `white`, `#FFFFFF`)                                       | `white`                              |
 | `--font-size <size>`          | Default button font size                                                                  | `14`                                 |
 | `--icons-dir <path>`          | Path to a directory containing SVG, PNG, JPG, GIF or WEBP icons. Matches on the hotkey id | _(optional)_                         |
+| `--icon-padding <percent>`    | Padding around icons as a percentage of the button size                                   | `10`                                 |
 
 ## Button Styles
 

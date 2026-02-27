@@ -1,5 +1,6 @@
 import { type CanvasRenderingContext2D, createCanvas } from 'canvas';
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { extname } from 'node:path';
 import type { ButtonStyle } from '../types/types';
 
 export const DEFAULT_BUTTON_SIZE = 144;
@@ -169,4 +170,54 @@ export function generateRainbowButton(
   ctx.fill();
 
   return ctx;
+}
+
+/**
+ * Wrap in an SVG to add padding
+ */
+export function addPaddingToImage(
+  filePath: string,
+  paddingPct: number,
+  size: number = DEFAULT_BUTTON_SIZE,
+): string {
+  const dims = 100 - paddingPct * 2;
+
+  if (filePath.endsWith('.svg')) {
+    // modify the viewBox to add padding
+    const rawSvg = readFileSync(filePath, 'utf-8');
+    return addPaddingToSvg(rawSvg, paddingPct);
+  } else {
+    // read as base64 and embed in an SVG
+    const dataUri = `data:image/${extname(filePath).slice(1)};base64,${readFileSync(filePath, 'base64')}`;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <image href="${dataUri}" x="${paddingPct}%" y="${paddingPct}%" width="${dims}%" height="${dims}%"/>
+  </svg>`;
+  }
+}
+
+export function addPaddingToSvg(svgString: string, paddingPercent = 10): string {
+  // Regex to find the viewBox attribute (handles spaces and commas)
+  const viewBoxRegex =
+    /viewBox=["']\s*([-\d.]+)[,\s]+([-\d.]+)[,\s]+([-\d.]+)[,\s]+([-\d.]+)\s*["']/i;
+
+  return svgString.replace(viewBoxRegex, (_match, minXStr, minYStr, widthStr, heightStr) => {
+    const minX = parseFloat(minXStr);
+    const minY = parseFloat(minYStr);
+    const width = parseFloat(widthStr);
+    const height = parseFloat(heightStr);
+
+    // Calculate the padding amounts
+    const padX = width * (paddingPercent / 100);
+    const padY = height * (paddingPercent / 100);
+
+    // Calculate new viewBox values
+    const newMinX = minX - padX;
+    const newMinY = minY - padY;
+    const newWidth = width + padX * 2;
+    const newHeight = height + padY * 2;
+
+    // Return the updated viewBox attribute
+    return `viewBox="${newMinX} ${newMinY} ${newWidth} ${newHeight}"`;
+  });
 }

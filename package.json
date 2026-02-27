@@ -46,7 +46,7 @@
     "inspect:example": "unzip -l examples/chrome-hotkeys-macos.streamDeckProfile",
     "generate:examples": "bun run scripts/generate-examples.ts",
     "generate:button-styles": "bun run scripts/generate-button-styles.ts",
-    "screencapture": "screencapture -R 382,200,480,340 docs/screenshots/screenshot.png",
+    "screencapture": "screencapture -R 368,200,480,340 docs/screenshots/screenshot.png",
     "lint": "bunx prettier --check .",
     "lint:fix": "bunx prettier --write .",
     "optimize-images": "bunx @343dev/optimizt diagrams/",
