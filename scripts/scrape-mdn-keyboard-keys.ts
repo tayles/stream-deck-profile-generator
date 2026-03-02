@@ -9,12 +9,8 @@
  * @see https://raw.githubusercontent.com/mdn/content/main/files/en-us/web/api/ui_events/keyboard_event_key_values/index.md
  */
 
-import {
-  ALTERNATIVE_NAMES,
-  UNICODE_SYMBOLS,
-  type KeyboardKeyInfo,
-  type KeyCodeEntry,
-} from '../src/utils/keyboard-utils';
+import { ALTERNATIVE_NAMES, UNICODE_SYMBOLS } from '../src/utils/hotkey-aliases';
+import { type KeyboardKeyInfo, type KeyCodeEntry } from '../src/utils/keyboard-utils';
 
 const MDN_RAW_URL =
   'https://raw.githubusercontent.com/mdn/content/main/files/en-us/web/api/ui_events/keyboard_event_key_values/index.md';

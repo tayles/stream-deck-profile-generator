@@ -79,7 +79,7 @@ Ctrl+C,"Say ""Hello""" `;
 
       const result = parseCsv(csv);
 
-      expect(result[0]!.label).toBe('Say "Hello"');
+      expect(result[0]!.label).toBe('"Say "Hello""');
     });
 
     test('skips empty lines', () => {

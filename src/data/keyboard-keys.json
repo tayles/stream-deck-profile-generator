@@ -440,7 +440,7 @@
         "code": "93"
       },
       "unicode": "⇟",
-      "alternativeNames": ["PgDn", "Page Down"]
+      "alternativeNames": ["PgDn"]
     },
     "PageUp": {
       "key": "PageUp",
@@ -462,7 +462,7 @@
         "code": "92"
       },
       "unicode": "⇞",
-      "alternativeNames": ["PgUp", "Page Up"]
+      "alternativeNames": ["PgUp"]
     },
     "Backspace": {
       "key": "Backspace",
@@ -2184,7 +2184,7 @@
         "code": "87"
       },
       "unicode": "⏭",
-      "alternativeNames": ["Next Track", "Skip Forward"]
+      "alternativeNames": ["Next"]
     },
     "MediaTrackPrevious": {
       "key": "MediaTrackPrevious",
@@ -2203,7 +2203,7 @@
         "code": "88"
       },
       "unicode": "⏮",
-      "alternativeNames": ["Previous Track", "Skip Back"]
+      "alternativeNames": ["Previous"]
     },
     "AudioBalanceLeft": {
       "key": "AudioBalanceLeft",
@@ -2356,8 +2356,7 @@
         "name": "KEYCODE_VOLUME_DOWN",
         "code": "25"
       },
-      "unicode": "🔉",
-      "alternativeNames": ["Volume Down", "Vol Down", "Vol-"]
+      "unicode": "🔉"
     },
     "AudioVolumeMute": {
       "key": "AudioVolumeMute",
@@ -2379,7 +2378,7 @@
         "code": "164"
       },
       "unicode": "🔇",
-      "alternativeNames": ["Mute", "Volume Mute"]
+      "alternativeNames": ["Mute"]
     },
     "AudioVolumeUp": {
       "key": "AudioVolumeUp",
@@ -2400,8 +2399,7 @@
         "name": "KEYCODE_VOLUME_UP",
         "code": "24"
       },
-      "unicode": "🔊",
-      "alternativeNames": ["Volume Up", "Vol Up", "Vol+"]
+      "unicode": "🔊"
     },
     "MicrophoneToggle": {
       "key": "MicrophoneToggle",
@@ -4294,7 +4292,7 @@
         "name": "KEYCODE_NUMPAD_DOT",
         "code": "158"
       },
-      "alternativeNames": ["Numpad .", "Numpad Decimal"]
+      "alternativeNames": ["NumpadDecimal"]
     },
     "Key11": {
       "key": "Key11",
@@ -4332,7 +4330,7 @@
         "code": "155"
       },
       "unicode": "×",
-      "alternativeNames": ["Numpad *", "Numpad Multiply"]
+      "alternativeNames": ["NumpadMultiply"]
     },
     "Add": {
       "key": "Add",
@@ -4350,7 +4348,7 @@
         "name": "KEYCODE_NUMPAD_ADD",
         "code": "157"
       },
-      "alternativeNames": ["Numpad +", "Numpad Add"]
+      "alternativeNames": ["NumpadAdd"]
     },
     "Divide": {
       "key": "Divide",
@@ -4371,7 +4369,7 @@
         "name": "KEYCODE_NUMPAD_DIVIDE",
         "code": "154"
       },
-      "alternativeNames": ["Numpad /", "Numpad Divide"]
+      "alternativeNames": ["NumpadDivide"]
     },
     "Subtract": {
       "key": "Subtract",
@@ -4390,7 +4388,7 @@
         "code": "156"
       },
       "unicode": "−",
-      "alternativeNames": ["Numpad -", "Numpad Subtract"]
+      "alternativeNames": ["NumpadSubtract"]
     },
     "Separator": {
       "key": "Separator",
@@ -4408,7 +4406,7 @@
         "name": "KEYCODE_NUMPAD_COMMA",
         "code": "159"
       },
-      "alternativeNames": ["Numpad Separator"]
+      "alternativeNames": ["NumpadSeparator"]
     }
   }
 }

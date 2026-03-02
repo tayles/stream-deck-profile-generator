@@ -153,6 +153,40 @@ This includes a `Color` column to customise individual button colors:
 stream-deck-profile-generator --input examples/rainbow-virtual-keyboard.csv --font-size 24 --label-style label
 ```
 
+## Hotkeys
+
+The parser accepts various formats and aliases. Use either a space or `+` to separate keys.
+
+Some common supported keys are:
+
+- `Meta`, `Cmd`, `Command`, `Windows`, `Win`, `⌘`, `⊞`
+- `Control`, `Ctrl`, `^`
+- `Alt`, `Option`, `⌥`
+- `Shift`, `⇧`
+- `Enter`, `Return`, `↵`
+- `Escape`, `Esc`, `⎋`
+- `Backspace`, `⌫`
+- `Tab`, `⇥`
+- `ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight`, `↑`, `↓`, `←`, `→`
+- `Space`, `␣`
+- `CapsLock`, `⇪`
+- `PageUp`, `PageDown`, `Home`, `End`, `⇞`, `⇟`, `⇱`, `⇲`
+- `MediaPlayPause`, `MediaPlayPause`, `MediaPause`, `MediaStop`, `MediaTrackPrevious`, `MediaTrackNext`, `▶`, `⏯`, `⏸`, `⏹`, `⏮`, `⏭`
+
+For example, all of the following are equivalent:
+
+- `Meta + C`
+- `Cmd C`
+- `Command C`
+- `⌘ C` - _(unicode characters supported)_
+- `Windows C`
+- `Win C`
+- `⊞ C`
+- `cmd c` - _(case insensitive)_
+- `Command + C` - _(using `+` instead of space)_
+
+See [Key values for keyboard events on MDN](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values) for a list of valid key values and [`hotkey-aliases.ts`](src/utils/hotkey-aliases.ts) for a list of supported aliases.
+
 ## Development
 
 To install dependencies:
