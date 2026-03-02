@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Keyboard Keys",
+  "description": "A map of KeyboardEvent.key values to their platform-specific key codes, scraped from MDN.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "keys": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/KeyboardKeyInfo"
+      }
+    }
+  },
+  "required": ["keys"],
+  "additionalProperties": false,
+  "$defs": {
+    "KeyCodeEntry": {
+      "type": "object",
+      "description": "A platform-specific key name and its virtual key code.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The platform-specific key name (e.g. VK_MENU, kVK_Option, Qt::Key_Alt, KEYCODE_ALT_LEFT)."
+        },
+        "code": {
+          "type": "string",
+          "description": "The virtual key code, typically a hex string (e.g. 0x12) or decimal number."
+        }
+      },
+      "required": ["name", "code"],
+      "additionalProperties": false
+    },
+    "KeyboardKeyInfo": {
+      "type": "object",
+      "description": "Information about a single keyboard key across platforms.",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The KeyboardEvent.key value (e.g. Alt, Control, F1)."
+        },
+        "description": {
+          "type": "string",
+          "description": "A plain-text description of the key's function."
+        },
+        "windows": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/KeyCodeEntry"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Windows virtual key name and code (VK_* or APPCOMMAND_* prefix)."
+        },
+        "mac": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/KeyCodeEntry"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "macOS virtual key name and code (kVK_* prefix)."
+        },
+        "qt": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/KeyCodeEntry"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Qt key name and code (Qt::Key_* prefix)."
+        },
+        "android": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/KeyCodeEntry"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Android key name and code (KEYCODE_* prefix)."
+        },
+        "unicode": {
+          "type": "string",
+          "description": "A Unicode symbol representing this key (e.g. ⌘, ⇧, ⌥, ⎋)."
+        },
+        "alternativeNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Common alternative names or aliases for this key (e.g. Option for Alt on Mac, Return for Enter)."
+        }
+      },
+      "required": ["key", "description", "windows", "mac", "qt", "android"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -69,3 +69,12 @@ await generateStreamDeckProfile({
   inputPath: 'examples/macos-hotkeys.csv',
   profileName: 'macOS Hotkeys',
 });
+
+/**
+ * Hotkey permutations for testing edge cases in parsing and formatting hotkeys
+ */
+await generateStreamDeckProfile({
+  inputPath: 'examples/hotkey-permutations.csv',
+  profileName: 'Hotkey Permutations',
+  labelStyle: 'both',
+});

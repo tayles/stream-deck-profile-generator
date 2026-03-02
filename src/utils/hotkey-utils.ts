@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import type { LabelStyle } from '../types/types';
-import { formatHotkeyCommand } from './keyboard-utils';
+import { formatHotkeys, type NormalizedHotkey } from './normalize-utils';
 
 export function generateUUID(seed: string): string {
   // Hash the seed string using SHA256 for a consistent and secure output
@@ -24,11 +24,22 @@ export function generateId(label: string): string {
   return `${label.toLowerCase().replace(/\s+/g, '-')}`;
 }
 
-export function generateLabel(label: string, hotkey: string, labelStyle: LabelStyle): string {
+export function safeFilename(label: string): string {
+  return label
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9\-]/g, '');
+}
+
+export function generateLabel(
+  label: string,
+  hotkey: NormalizedHotkey,
+  labelStyle: LabelStyle,
+): string {
   const formattedLabel = label.replaceAll(/\s+/g, '\n').trim();
 
-  // Replace modifier key names with Unicode symbols
-  const formattedHotkey = formatHotkeyCommand(hotkey);
+  // Replace modifier key names with Unicode symbols where possible
+  const formattedHotkey = formatHotkeys([...hotkey.modifiers, hotkey.key]);
 
   switch (labelStyle) {
     case 'none':

@@ -1,6 +1,6 @@
 import type { HotkeyDescriptor } from '../types/types';
 import type { CsvRow } from './csv-utils';
-import { generateId } from './hotkey-utils';
+import { generateId, safeFilename } from './hotkey-utils';
 
 /**
  * Group by pages and auto-generate pages based on the number of rows and columns. Named pages are first.
@@ -74,7 +74,7 @@ export function groupByPage(
     // If the named page fits in one page
     if (pageRows.length <= effectivePageSize) {
       pages[pageName] = pageRows.map(row => ({
-        id: row.id || generateId(row.label),
+        id: safeFilename(row.id || generateId(row.label)),
         label: row.label,
         hotkey: row.hotkey,
         color: row.color,
@@ -88,7 +88,7 @@ export function groupByPage(
         const subPageName = `${pageName} ${subPageNum}`;
 
         pages[subPageName] = subPageRows.map(row => ({
-          id: row.id || generateId(row.label),
+          id: safeFilename(row.id || generateId(row.label)),
           label: row.label,
           hotkey: row.hotkey,
           color: row.color,
@@ -107,7 +107,7 @@ export function groupByPage(
     const pageName = `Page ${pageNum}`;
 
     pages[pageName] = pageRows.map(row => ({
-      id: row.id || generateId(row.label),
+      id: safeFilename(row.id || generateId(row.label)),
       label: row.label,
       hotkey: row.hotkey,
       color: row.color,

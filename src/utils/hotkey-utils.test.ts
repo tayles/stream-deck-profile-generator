@@ -1,85 +1,90 @@
 import { describe, expect, test } from 'bun:test';
 import { generateId, generateLabel, generateUUID } from './hotkey-utils';
+import { normalizeHotkeyCommand } from './normalize-utils';
 
 describe('hotkey-utils', () => {
   describe('generateLabel', () => {
     test('replaces Control with ⌃', () => {
-      const result = generateLabel('Copy', 'Control+C', 'both');
-      expect(result).toBe('Copy\n⌃+C');
+      const result = generateLabel('Copy', normalizeHotkeyCommand('Control+C'), 'both');
+      expect(result).toBe('Copy\n⌃ C');
     });
 
     test('replaces Ctrl with ⌃', () => {
-      const result = generateLabel('Copy', 'Ctrl+C', 'both');
-      expect(result).toBe('Copy\n⌃+C');
+      const result = generateLabel('Copy', normalizeHotkeyCommand('Ctrl+C'), 'both');
+      expect(result).toBe('Copy\n⌃ C');
     });
 
     test('replaces Option with ⌥', () => {
-      const result = generateLabel('Hide', 'Option+H', 'both');
-      expect(result).toBe('Hide\n⌥+H');
+      const result = generateLabel('Hide', normalizeHotkeyCommand('Option+H'), 'both');
+      expect(result).toBe('Hide\n⌥ H');
     });
 
     test('replaces Alt with ⌥', () => {
-      const result = generateLabel('Hide', 'Alt+H', 'both');
-      expect(result).toBe('Hide\n⌥+H');
+      const result = generateLabel('Hide', normalizeHotkeyCommand('Alt+H'), 'both');
+      expect(result).toBe('Hide\n⌥ H');
     });
 
     test('replaces Shift with ⇧', () => {
-      const result = generateLabel('New', 'Shift+N', 'both');
-      expect(result).toBe('New\n⇧+N');
+      const result = generateLabel('New', normalizeHotkeyCommand('Shift+N'), 'both');
+      expect(result).toBe('New\n⇧ N');
     });
 
     test('replaces Command with ⌘', () => {
-      const result = generateLabel('Save', 'Command+S', 'both');
-      expect(result).toBe('Save\n⌘+S');
+      const result = generateLabel('Save', normalizeHotkeyCommand('Command+S'), 'both');
+      expect(result).toBe('Save\n⌘ S');
     });
 
     test('replaces Cmd with ⌘', () => {
-      const result = generateLabel('Save', 'Cmd+S', 'both');
-      expect(result).toBe('Save\n⌘+S');
+      const result = generateLabel('Save', normalizeHotkeyCommand('Cmd+S'), 'both');
+      expect(result).toBe('Save\n⌘ S');
     });
 
     test('replaces multiple modifiers', () => {
-      const result = generateLabel('Paste', 'Control+Shift+V', 'both');
-      expect(result).toBe('Paste\n⌃+⇧+V');
+      const result = generateLabel('Paste', normalizeHotkeyCommand('Control+Shift+V'), 'both');
+      expect(result).toBe('Paste\n⌃ ⇧ V');
     });
 
     test('replaces all modifiers', () => {
-      const result = generateLabel('Test', 'Control+Option+Shift+Command+P', 'both');
-      expect(result).toBe('Test\n⌃+⌥+⇧+⌘+P');
+      const result = generateLabel(
+        'Test',
+        normalizeHotkeyCommand('Control+Option+Shift+Command+P'),
+        'both',
+      );
+      expect(result).toBe('Test\n⌃ ⌥ ⇧ ⌘ P');
     });
 
     test('handles case insensitive replacement', () => {
-      const result = generateLabel('Test', 'CTRL+SHIFT+A', 'both');
-      expect(result).toBe('Test\n⌃+⇧+A');
+      const result = generateLabel('Test', normalizeHotkeyCommand('CTRL+SHIFT+A'), 'both');
+      expect(result).toBe('Test\n⌃ ⇧ A');
     });
 
     test('handles labelStyle "none"', () => {
-      const result = generateLabel('Copy', 'Ctrl+C', 'none');
+      const result = generateLabel('Copy', normalizeHotkeyCommand('Ctrl+C'), 'none');
       expect(result).toBe('');
     });
 
     test('handles labelStyle "label"', () => {
-      const result = generateLabel('Copy File', 'Ctrl+C', 'label');
+      const result = generateLabel('Copy File', normalizeHotkeyCommand('Ctrl+C'), 'label');
       expect(result).toBe('Copy\nFile');
     });
 
     test('handles labelStyle "hotkey"', () => {
-      const result = generateLabel('Copy', 'Ctrl+C', 'hotkey');
-      expect(result).toBe('⌃+C');
+      const result = generateLabel('Copy', normalizeHotkeyCommand('Ctrl+C'), 'hotkey');
+      expect(result).toBe('⌃ C');
     });
 
     test('handles labelStyle "both"', () => {
-      const result = generateLabel('Copy', 'Ctrl+C', 'both');
-      expect(result).toBe('Copy\n⌃+C');
+      const result = generateLabel('Copy', normalizeHotkeyCommand('Ctrl+C'), 'both');
+      expect(result).toBe('Copy\n⌃ C');
     });
 
     test('preserves already present Unicode symbols', () => {
-      const result = generateLabel('Copy', '⌘+C', 'hotkey');
-      expect(result).toBe('⌘+C');
+      const result = generateLabel('Copy', normalizeHotkeyCommand('⌘+C'), 'hotkey');
+      expect(result).toBe('⌘ C');
     });
 
     test('formats label with newlines', () => {
-      const result = generateLabel('Copy File Name', 'Ctrl+C', 'label');
+      const result = generateLabel('Copy File Name', normalizeHotkeyCommand('Ctrl+C'), 'label');
       expect(result).toBe('Copy\nFile\nName');
     });
   });

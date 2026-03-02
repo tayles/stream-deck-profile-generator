@@ -27,7 +27,7 @@ export function parseCsv(csv: string): CsvRow[] {
         return header.map(h => h.trim().toLowerCase());
       },
       skip_empty_lines: true,
-      trim: true,
+      trim: false,
       relax_quotes: true,
     });
   } catch (error) {
@@ -59,7 +59,7 @@ export function parseCsv(csv: string): CsvRow[] {
     const record = records[i];
 
     const row: CsvRow = {
-      hotkey: record.hotkey?.trim() || '',
+      hotkey: record.hotkey?.trim() || record.hotkey,
       label: record.label?.trim() || '',
     };
 
@@ -75,7 +75,8 @@ export function parseCsv(csv: string): CsvRow[] {
     }
 
     // Validate required fields
-    if (!row.hotkey) {
+    // allow single space for hotkey
+    if (!row.hotkey && row.hotkey !== ' ') {
       throw new Error(`Line ${i + 2}: Hotkey is required`);
     }
     if (!row.label) {

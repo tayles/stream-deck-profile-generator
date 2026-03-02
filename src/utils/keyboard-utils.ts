@@ -1,173 +1,446 @@
-// Key mappings for macOS virtual key codes
-export const KEY_MAPPINGS = {
-  // Letters (uppercase)
-  A: { vKey: 0, qtKey: 65, nativeCode: 0 },
-  B: { vKey: 11, qtKey: 66, nativeCode: 11 },
-  C: { vKey: 8, qtKey: 67, nativeCode: 8 },
-  D: { vKey: 2, qtKey: 68, nativeCode: 2 },
-  E: { vKey: 14, qtKey: 69, nativeCode: 14 },
-  F: { vKey: 3, qtKey: 70, nativeCode: 3 },
-  G: { vKey: 5, qtKey: 71, nativeCode: 5 },
-  H: { vKey: 4, qtKey: 72, nativeCode: 4 },
-  I: { vKey: 34, qtKey: 73, nativeCode: 34 },
-  J: { vKey: 38, qtKey: 74, nativeCode: 38 },
-  K: { vKey: 40, qtKey: 75, nativeCode: 40 },
-  L: { vKey: 37, qtKey: 76, nativeCode: 37 },
-  M: { vKey: 46, qtKey: 77, nativeCode: 46 },
-  N: { vKey: 45, qtKey: 78, nativeCode: 45 },
-  O: { vKey: 31, qtKey: 79, nativeCode: 31 },
-  P: { vKey: 35, qtKey: 80, nativeCode: 35 },
-  Q: { vKey: 12, qtKey: 81, nativeCode: 12 },
-  R: { vKey: 15, qtKey: 82, nativeCode: 15 },
-  S: { vKey: 1, qtKey: 83, nativeCode: 1 },
-  T: { vKey: 17, qtKey: 84, nativeCode: 17 },
-  U: { vKey: 32, qtKey: 85, nativeCode: 32 },
-  V: { vKey: 9, qtKey: 86, nativeCode: 9 },
-  W: { vKey: 13, qtKey: 87, nativeCode: 13 },
-  X: { vKey: 7, qtKey: 88, nativeCode: 7 },
-  Y: { vKey: 16, qtKey: 89, nativeCode: 16 },
-  Z: { vKey: 6, qtKey: 90, nativeCode: 6 },
+import KeyboardKeysJson from '../data/keyboard-keys.json';
+import type { Hotkey } from '../types/manifest-types';
+import type { NormalizedHotkey } from './normalize-utils';
 
-  // Numbers
-  '0': { vKey: 29, qtKey: 48, nativeCode: 29 },
-  '1': { vKey: 18, qtKey: 49, nativeCode: 18 },
-  '2': { vKey: 19, qtKey: 50, nativeCode: 19 },
-  '3': { vKey: 20, qtKey: 51, nativeCode: 20 },
-  '4': { vKey: 21, qtKey: 52, nativeCode: 21 },
-  '5': { vKey: 23, qtKey: 53, nativeCode: 23 },
-  '6': { vKey: 22, qtKey: 54, nativeCode: 22 },
-  '7': { vKey: 26, qtKey: 55, nativeCode: 26 },
-  '8': { vKey: 28, qtKey: 56, nativeCode: 28 },
-  '9': { vKey: 25, qtKey: 57, nativeCode: 25 },
+/**
+ * A map of KeyboardEvent.key values to their platform-specific key codes, scraped from MDN.
+ */
+export interface KeyboardKeys {
+  [k: string]: KeyboardKeyInfo;
+}
 
-  // Special characters and punctuation
-  SPACE: { vKey: 49, qtKey: 32, nativeCode: 49 },
-  ' ': { vKey: 49, qtKey: 32, nativeCode: 49 },
-  TAB: { vKey: 48, qtKey: 16777217, nativeCode: 48 },
-  '⇥': { vKey: 48, qtKey: 16777217, nativeCode: 48 },
-  RETURN: { vKey: 36, qtKey: 16777220, nativeCode: 36 },
-  ENTER: { vKey: 36, qtKey: 16777220, nativeCode: 36 },
-  '⏎': { vKey: 36, qtKey: 16777220, nativeCode: 36 },
-  DELETE: { vKey: 51, qtKey: 16777219, nativeCode: 51 },
-  BACKSPACE: { vKey: 51, qtKey: 16777219, nativeCode: 51 },
-  '⌫': { vKey: 51, qtKey: 16777219, nativeCode: 51 },
-  ESCAPE: { vKey: 53, qtKey: 16777216, nativeCode: 53 },
-  ESC: { vKey: 53, qtKey: 16777216, nativeCode: 53 },
-  CAPSLOCK: { vKey: 57, qtKey: 16777252, nativeCode: 57 },
-  '⇪': { vKey: 57, qtKey: 16777252, nativeCode: 57 },
+export type KeyboardKey = string;
+export type SingleChar = string;
 
-  // Punctuation and symbols
-  '-': { vKey: 27, qtKey: 45, nativeCode: 27 },
-  '=': { vKey: 24, qtKey: 61, nativeCode: 24 },
-  '+': { vKey: 24, qtKey: 61, nativeCode: 24 }, // Plus is Shift+= but uses same key code as =
-  '[': { vKey: 33, qtKey: 91, nativeCode: 33 },
-  ']': { vKey: 30, qtKey: 93, nativeCode: 30 },
-  '\\': { vKey: 42, qtKey: 92, nativeCode: 42 },
-  ';': { vKey: 41, qtKey: 59, nativeCode: 41 },
-  "'": { vKey: 39, qtKey: 39, nativeCode: 39 },
-  '`': { vKey: 50, qtKey: 96, nativeCode: 50 },
-  ',': { vKey: 43, qtKey: 44, nativeCode: 43 },
-  '.': { vKey: 47, qtKey: 46, nativeCode: 47 },
-  '/': { vKey: 44, qtKey: 47, nativeCode: 44 },
+/**
+ * Information about a single keyboard key across platforms.
+ */
+export interface KeyboardKeyInfo {
+  /**
+   * The KeyboardEvent.key value (e.g. Alt, Control, F1).
+   */
+  key: KeyboardKey;
+  /**
+   * A plain-text description of the key's function.
+   */
+  description: string;
+  /**
+   * Windows virtual key name and code (VK_* or APPCOMMAND_* prefix).
+   */
+  windows: KeyCodeEntry | null;
+  /**
+   * macOS virtual key name and code (kVK_* prefix).
+   */
+  mac: KeyCodeEntry | null;
+  /**
+   * Qt key name and code (Qt::Key_* prefix).
+   */
+  qt: KeyCodeEntry | null;
+  /**
+   * Android key name and code (KEYCODE_* prefix).
+   */
+  android: KeyCodeEntry | null;
+  /**
+   * A Unicode symbol representing this key (e.g. ⌘, ⇧, ⌥, ⎋).
+   */
+  unicode?: string;
+  /**
+   * Common alternative names or aliases for this key (e.g. Option for Alt on Mac, Return for Enter).
+   */
+  alternativeNames?: string[];
+}
+/**
+ * A platform-specific key name and its virtual key code.
+ */
+export interface KeyCodeEntry {
+  /**
+   * The platform-specific key name (e.g. VK_MENU, kVK_Option, Qt::Key_Alt, KEYCODE_ALT_LEFT).
+   */
+  name: string;
+  /**
+   * The virtual key code, typically a hex string (e.g. 0x12) or decimal number.
+   */
+  code: string;
+}
 
-  // Arrow keys
-  LEFT: { vKey: 123, qtKey: 16777234, nativeCode: 123 },
-  '←': { vKey: 123, qtKey: 16777234, nativeCode: 123 },
-  RIGHT: { vKey: 124, qtKey: 16777236, nativeCode: 124 },
-  '→': { vKey: 124, qtKey: 16777236, nativeCode: 124 },
-  UP: { vKey: 126, qtKey: 16777235, nativeCode: 126 },
-  '↑': { vKey: 126, qtKey: 16777235, nativeCode: 126 },
-  DOWN: { vKey: 125, qtKey: 16777237, nativeCode: 125 },
-  '↓': { vKey: 125, qtKey: 16777237, nativeCode: 125 },
+export const KEYBOARD_KEYS: KeyboardKeys = (KeyboardKeysJson as any).keys as KeyboardKeys;
+
+export const MODIFIER_KEYS: KeyboardKey[] = ['Control', 'Alt', 'Shift', 'Meta', 'Fn'] as const;
+
+/**
+ * Common alternative names / aliases for keyboard keys.
+ */
+export const ALTERNATIVE_NAMES: Record<KeyboardKey, string[]> = {
+  // Modifier keys
+  Alt: ['Option'],
+  AltGraph: ['AltGr'],
+  CapsLock: ['Caps'],
+  Control: ['Ctrl', '^'],
+  Meta: ['Command', 'Cmd', 'Windows', 'Win', '⊞'],
+
+  NumLock: ['Num'],
+  ScrollLock: ['ScrLk'],
+
+  // Whitespace keys
+  Enter: ['Return', '⏎'],
+  ' ': ['Space', 'Spacebar'],
+
+  // Navigation keys
+  ArrowDown: ['Down'],
+  ArrowLeft: ['Left'],
+  ArrowRight: ['Right'],
+  ArrowUp: ['Up'],
+
+  PageDown: ['PgDn'],
+  PageUp: ['PgUp'],
+
+  // Editing keys
+  Backspace: ['Bksp'],
+  Delete: ['Del'],
+  Insert: ['Ins'],
 
   // Function keys
-  F1: { vKey: 122, qtKey: 16777264, nativeCode: 122 },
-  F2: { vKey: 120, qtKey: 16777265, nativeCode: 120 },
-  F3: { vKey: 99, qtKey: 16777266, nativeCode: 99 },
-  F4: { vKey: 118, qtKey: 16777267, nativeCode: 118 },
-  F5: { vKey: 96, qtKey: 16777268, nativeCode: 96 },
-  F6: { vKey: 97, qtKey: 16777269, nativeCode: 97 },
-  F7: { vKey: 98, qtKey: 16777270, nativeCode: 98 },
-  F8: { vKey: 100, qtKey: 16777271, nativeCode: 100 },
-  F9: { vKey: 101, qtKey: 16777272, nativeCode: 101 },
-  F10: { vKey: 109, qtKey: 16777273, nativeCode: 109 },
-  F11: { vKey: 103, qtKey: 16777274, nativeCode: 103 },
-  F12: { vKey: 111, qtKey: 16777275, nativeCode: 111 },
+  F1: ['Fn1'],
+  F2: ['Fn2'],
+  F3: ['Fn3'],
+  F4: ['Fn4'],
+  F5: ['Fn5'],
+  F6: ['Fn6'],
+  F7: ['Fn7'],
+  F8: ['Fn8'],
+  F9: ['Fn9'],
+  F10: ['Fn10'],
+  F11: ['Fn11'],
+  F12: ['Fn12'],
+  F13: ['Fn13'],
+  F14: ['Fn14'],
+  F15: ['Fn15'],
+  F16: ['Fn16'],
+  F17: ['Fn17'],
+  F18: ['Fn18'],
+  F19: ['Fn19'],
+  F20: ['Fn20'],
 
-  // Keypad numbers
-  KP0: { vKey: 82, qtKey: 16777264, nativeCode: 82 },
-  KP1: { vKey: 83, qtKey: 16777265, nativeCode: 83 },
-  KP2: { vKey: 84, qtKey: 16777266, nativeCode: 84 },
-  KP3: { vKey: 85, qtKey: 16777267, nativeCode: 85 },
-  KP4: { vKey: 86, qtKey: 16777268, nativeCode: 86 },
-  KP5: { vKey: 87, qtKey: 16777269, nativeCode: 87 },
-  KP6: { vKey: 88, qtKey: 16777270, nativeCode: 88 },
-  KP7: { vKey: 89, qtKey: 16777271, nativeCode: 89 },
-  KP8: { vKey: 91, qtKey: 16777272, nativeCode: 91 },
-  KP9: { vKey: 92, qtKey: 16777273, nativeCode: 92 },
+  // UI keys
+  ContextMenu: ['Menu', 'Apps'],
+  Escape: ['Esc'],
+  PrintScreen: ['PrtSc', 'PrtScn', 'SysRq'],
+  Pause: ['Break'],
 
-  // Additional special keys
-  HOME: { vKey: 115, qtKey: 16777232, nativeCode: 115 },
-  END: { vKey: 119, qtKey: 16777233, nativeCode: 119 },
-  PAGEUP: { vKey: 116, qtKey: 16777238, nativeCode: 116 },
-  PAGEDOWN: { vKey: 121, qtKey: 16777239, nativeCode: 121 },
-  HELP: { vKey: 114, qtKey: 16777304, nativeCode: 114 },
+  // Multimedia keys
+  MediaFastForward: ['FastForward', 'FF'],
 
-  // Common key name aliases
-  PGUP: { vKey: 116, qtKey: 16777238, nativeCode: 116 },
-  PGDN: { vKey: 121, qtKey: 16777239, nativeCode: 121 },
-  DEL: { vKey: 51, qtKey: 16777219, nativeCode: 51 },
-  BS: { vKey: 51, qtKey: 16777219, nativeCode: 51 },
-  RET: { vKey: 36, qtKey: 16777220, nativeCode: 36 },
+  MediaPlayPause: ['Play/Pause'],
+  MediaRecord: ['Record', 'Rec'],
+  MediaRewind: ['Rewind', 'RW'],
+
+  MediaTrackNext: ['Next'],
+  MediaTrackPrevious: ['Previous'],
+
+  // Audio keys
+  AudioVolumeMute: ['Mute'],
+
+  // Browser keys
+
+  BrowserForward: ['Forward'],
+
+  BrowserRefresh: ['Refresh', 'Reload'],
+  BrowserSearch: ['Search'],
+
+  BrowserFavorites: ['Favorites', 'Bookmarks'],
+
+  // Application keys
+  LaunchCalculator: ['Calculator', 'Calc'],
+  LaunchMail: ['Mail', 'Email'],
+  LaunchMusicPlayer: ['Music'],
+  LaunchWebBrowser: ['Browser', 'Web'],
+
+  // Numpad keys
+  Decimal: ['NumpadDecimal'],
+  Multiply: ['NumpadMultiply'],
+  Add: ['NumpadAdd'],
+  Subtract: ['NumpadSubtract'],
+  Divide: ['NumpadDivide'],
+  Separator: ['NumpadSeparator'],
 };
 
-// Modifier mappings with symbols and aliases
-export const MODIFIER_MAPPINGS = {
-  // Control symbols and aliases
-  '⌃': 'ctrl',
-  CTRL: 'ctrl',
-  CONTROL: 'ctrl',
+export const LOOKUP_MAP: Record<string, KeyboardKey> = Object.values(KEYBOARD_KEYS).reduce(
+  (map, info) => {
+    const set = (k: string) => {
+      const lower = k.toLowerCase();
+      if (map[lower]) {
+        throw new Error(`Duplicate key mapping for "${k}": "${map[lower]}" and "${info.key}"`);
+      }
+      map[lower] = info.key;
+    };
+    set(info.key);
+    if (info.unicode) set(info.unicode);
+    if (info.alternativeNames) {
+      for (const alt of info.alternativeNames) {
+        set(alt);
+      }
+    }
+    return map;
+  },
+  {} as Record<string, KeyboardKey>,
+);
 
-  // Option/Alt symbols and aliases
-  '⌥': 'option',
-  OPT: 'option',
-  OPTION: 'option',
-  ALT: 'option',
+/**
+ * Unicode symbols for common keyboard keys.
+ * Sources: Unicode Technical Note #28, Apple HIG, ISO 9995-7
+ */
+export const UNICODE_SYMBOLS: Record<KeyboardKey, string> = {
+  // Modifier keys
+  Alt: '⌥',
+  AltGraph: '⎇',
+  CapsLock: '⇪',
+  Control: '⌃',
+  Meta: '⌘',
+  Shift: '⇧',
+  Super: '❖',
+  NumLock: '⇭',
+  ScrollLock: '⤓',
 
-  // Shift symbols and aliases
-  '⇧': 'shift',
-  SHIFT: 'shift',
+  // Whitespace keys
+  Enter: '↵',
+  Tab: '⇥',
+  ' ': '␣',
 
-  // Command symbols and aliases
-  '⌘': 'cmd',
-  CMD: 'cmd',
-  COMMAND: 'cmd',
+  // Navigation keys
+  ArrowDown: '↓',
+  ArrowLeft: '←',
+  ArrowRight: '→',
+  ArrowUp: '↑',
+  End: '⇲',
+  Home: '⇱',
+  PageDown: '⇟',
+  PageUp: '⇞',
+
+  // Editing keys
+  Backspace: '⌫',
+  Clear: '⌧',
+  Delete: '⌦',
+  Insert: '⎀',
+
+  // UI keys
+  ContextMenu: '☰',
+  Escape: '⎋',
+  Help: '?⃝',
+  Pause: '⎉',
+  PrintScreen: '⎙',
+
+  // Device keys
+  BrightnessDown: '🔅',
+  BrightnessUp: '🔆',
+  Eject: '⏏',
+  Power: '⏻',
+  PowerOff: '⭘',
+
+  // Multimedia keys
+  ChannelDown: '⏷',
+  ChannelUp: '⏶',
+  MediaFastForward: '⏩',
+  MediaPause: '⏸',
+  MediaPlay: '▶',
+  MediaPlayPause: '⏯',
+  MediaRecord: '⏺',
+  MediaRewind: '⏪',
+  MediaStop: '⏹',
+  MediaTrackNext: '⏭',
+  MediaTrackPrevious: '⏮',
+
+  // Audio keys
+  AudioVolumeDown: '🔉',
+  AudioVolumeMute: '🔇',
+  AudioVolumeUp: '🔊',
+  MicrophoneVolumeMute: '🎙',
+
+  // Media controller keys
+
+  // Browser keys
+  BrowserBack: '⏴',
+  BrowserForward: '⏵',
+  BrowserHome: '⌂',
+  BrowserSearch: '🔍',
+
+  // Application keys
+  Close: '✕',
+  Save: '💾',
+  ZoomIn: '🔎',
+
+  // Numpad keys
+  Multiply: '×',
+  // Add: '+',
+  Subtract: '−',
+  // Divide: '÷',
+  // Decimal: '.',
+  // Separator: ',',
 };
 
-// Modifier bit flags
-export const MODIFIER_FLAGS = {
-  ctrl: 1,
-  option: 2,
-  shift: 4,
-  cmd: 8,
+// Modifier bit flags (Stream Deck SDK convention)
+export const MODIFIER_FLAGS: Record<KeyboardKey, number> = {
+  Shift: 1,
+  Control: 2,
+  Alt: 4,
+  Meta: 8,
+  Fn: 4096,
 };
 
-export function formatHotkeyCommand(hotkey: string): string {
-  return hotkey
-    .replace(/\bControl\b/gi, '⌃')
-    .replace(/\bCtrl\b/gi, '⌃')
-    .replace(/\bOption\b/gi, '⌥')
-    .replace(/\bAlt\b/gi, '⌥')
-    .replace(/\bShift\b/gi, '⇧')
-    .replace(/\bCommand\b/gi, '⌘')
-    .replace(/\bCmd\b/gi, '⌘')
-    .replace(/\bEnter\b/gi, '⏎')
-    .replace(/\bReturn\b/gi, '⏎')
-    .replace(/\bBackspace\b/gi, '⌫')
-    .replace(/\bTab\b/gi, '⇥')
-    .replace(/\bCaps Lock\b/gi, '⇪')
-    .replace(/\bLeft\b/gi, '←')
-    .replace(/\bRight\b/gi, '→')
-    .replace(/\bUp\b/gi, '↑')
-    .replace(/\bDown\b/gi, '↓');
+/**
+ * macOS ANSI keyboard virtual key codes for common characters.
+ * Maps printable characters to their physical key codes on a US ANSI layout.
+ * For shifted characters (e.g. '+'), maps to the unshifted physical key ('=').
+ */
+const MAC_ANSI_KEYCODES: Record<string, { macCode: number; qtCode: number }> = {
+  // Letters
+  A: { macCode: 0x00, qtCode: 65 },
+  B: { macCode: 0x0b, qtCode: 66 },
+  C: { macCode: 0x08, qtCode: 67 },
+  D: { macCode: 0x02, qtCode: 68 },
+  E: { macCode: 0x0e, qtCode: 69 },
+  F: { macCode: 0x03, qtCode: 70 },
+  G: { macCode: 0x05, qtCode: 71 },
+  H: { macCode: 0x04, qtCode: 72 },
+  I: { macCode: 0x22, qtCode: 73 },
+  J: { macCode: 0x26, qtCode: 74 },
+  K: { macCode: 0x28, qtCode: 75 },
+  L: { macCode: 0x25, qtCode: 76 },
+  M: { macCode: 0x2e, qtCode: 77 },
+  N: { macCode: 0x2d, qtCode: 78 },
+  O: { macCode: 0x1f, qtCode: 79 },
+  P: { macCode: 0x23, qtCode: 80 },
+  Q: { macCode: 0x0c, qtCode: 81 },
+  R: { macCode: 0x0f, qtCode: 82 },
+  S: { macCode: 0x01, qtCode: 83 },
+  T: { macCode: 0x11, qtCode: 84 },
+  U: { macCode: 0x20, qtCode: 85 },
+  V: { macCode: 0x09, qtCode: 86 },
+  W: { macCode: 0x0d, qtCode: 87 },
+  X: { macCode: 0x07, qtCode: 88 },
+  Y: { macCode: 0x10, qtCode: 89 },
+  Z: { macCode: 0x06, qtCode: 90 },
+  // Digits
+  '0': { macCode: 0x1d, qtCode: 48 },
+  '1': { macCode: 0x12, qtCode: 49 },
+  '2': { macCode: 0x13, qtCode: 50 },
+  '3': { macCode: 0x14, qtCode: 51 },
+  '4': { macCode: 0x15, qtCode: 52 },
+  '5': { macCode: 0x17, qtCode: 53 },
+  '6': { macCode: 0x16, qtCode: 54 },
+  '7': { macCode: 0x1a, qtCode: 55 },
+  '8': { macCode: 0x1c, qtCode: 56 },
+  '9': { macCode: 0x19, qtCode: 57 },
+  // Symbols (unshifted physical key)
+  '-': { macCode: 0x1b, qtCode: 45 },
+  '=': { macCode: 0x18, qtCode: 61 },
+  '[': { macCode: 0x21, qtCode: 91 },
+  ']': { macCode: 0x1e, qtCode: 93 },
+  '\\': { macCode: 0x2a, qtCode: 92 },
+  ';': { macCode: 0x29, qtCode: 59 },
+  "'": { macCode: 0x27, qtCode: 39 },
+  '`': { macCode: 0x32, qtCode: 96 },
+  ',': { macCode: 0x2b, qtCode: 44 },
+  '.': { macCode: 0x2f, qtCode: 46 },
+  '/': { macCode: 0x2c, qtCode: 47 },
+  // Shifted characters → map to their physical (unshifted) key
+  '+': { macCode: 0x18, qtCode: 61 }, // = key
+  _: { macCode: 0x1b, qtCode: 45 }, // - key
+  '!': { macCode: 0x12, qtCode: 49 }, // 1 key
+  '@': { macCode: 0x13, qtCode: 50 }, // 2 key
+  '#': { macCode: 0x14, qtCode: 51 }, // 3 key
+  $: { macCode: 0x15, qtCode: 52 }, // 4 key
+  '%': { macCode: 0x17, qtCode: 53 }, // 5 key
+  '&': { macCode: 0x1a, qtCode: 55 }, // 7 key
+  '*': { macCode: 0x1c, qtCode: 56 }, // 8 key
+  '(': { macCode: 0x19, qtCode: 57 }, // 9 key
+  ')': { macCode: 0x1d, qtCode: 48 }, // 0 key
+  '{': { macCode: 0x21, qtCode: 91 }, // [ key
+  '}': { macCode: 0x1e, qtCode: 93 }, // ] key
+  '|': { macCode: 0x2a, qtCode: 92 }, // \ key
+  ':': { macCode: 0x29, qtCode: 59 }, // ; key
+  '"': { macCode: 0x27, qtCode: 39 }, // ' key
+  '~': { macCode: 0x32, qtCode: 96 }, // ` key
+  '<': { macCode: 0x2b, qtCode: 44 }, // , key
+  '>': { macCode: 0x2f, qtCode: 46 }, // . key
+  '?': { macCode: 0x2c, qtCode: 47 }, // / key
+};
+
+/**
+ * Convert a hex string
+ *
+ * @example
+ *   0x01000022 -> 16777250
+ */
+export function parseHex(code: string): number {
+  return parseInt(code, 16);
+}
+
+export function generateHotkey(hotkey: NormalizedHotkey): Hotkey {
+  const { modifiers, key } = hotkey;
+
+  // Generate key modifiers inline
+  const keyModifiers = modifiers.reduce((flags, modifier) => {
+    return flags | (MODIFIER_FLAGS[modifier] || 0);
+  }, 0);
+
+  // Generate key codes from available data
+  const keyMapping = key ? KEYBOARD_KEYS[key] : null;
+  const charCodes =
+    key?.length === 1 ? (MAC_ANSI_KEYCODES[key.toUpperCase()] ?? MAC_ANSI_KEYCODES[key]) : null;
+
+  let nativeCode: number;
+  let qtKeyCode: number;
+  let vKeyCode: number;
+
+  if (!key) {
+    // Modifier-only: no key pressed
+    nativeCode = -1;
+    qtKeyCode = 33554431;
+    vKeyCode = -1;
+  } else if (keyMapping?.mac?.code) {
+    // Named key in JSON with mac code
+    nativeCode = parseHex(keyMapping.mac.code);
+    qtKeyCode = keyMapping.qt?.code ? parseHex(keyMapping.qt.code) : 33554431;
+    vKeyCode = nativeCode;
+  } else if (charCodes) {
+    // Single character with known macOS ANSI keycode
+    nativeCode = charCodes.macCode;
+    qtKeyCode = charCodes.qtCode;
+    vKeyCode = charCodes.macCode;
+  } else {
+    // Fallback for unknown keys
+    nativeCode = key.length === 1 ? 0 : -1;
+    qtKeyCode = key.length === 1 ? key.charCodeAt(0) : 33554431;
+    vKeyCode = key.length === 1 ? 0 : -1;
+  }
+
+  return {
+    KeyCmd: modifiers.includes('Meta'),
+    KeyCtrl: modifiers.includes('Control'),
+    KeyModifiers: keyModifiers,
+    KeyOption: modifiers.includes('Alt'),
+    KeyShift: modifiers.includes('Shift'),
+    NativeCode: nativeCode,
+    QTKeyCode: qtKeyCode,
+    VKeyCode: vKeyCode,
+  };
+}
+
+export function generateHotkeys(hotkey: NormalizedHotkey): Hotkey[] {
+  // First hotkey contains the actual key combination
+  const mainHotkey = generateHotkey(hotkey);
+
+  // Remaining 3 hotkeys are empty placeholders
+  const emptyHotkey: Hotkey = {
+    KeyCmd: false,
+    KeyCtrl: false,
+    KeyModifiers: 0,
+    KeyOption: false,
+    KeyShift: false,
+    NativeCode: -1,
+    QTKeyCode: 33554431,
+    VKeyCode: -1,
+  };
+
+  return [mainHotkey, emptyHotkey, emptyHotkey, emptyHotkey];
 }

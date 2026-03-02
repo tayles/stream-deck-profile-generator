@@ -64,7 +64,10 @@ Ctrl+C,Copy`;
 
     test('handles multiple pages', async () => {
       // Generate 20 rows to create multiple pages (15 per page for mk device)
-      const rows = Array.from({ length: 20 }, (_, i) => `Ctrl+${i},Action ${i}`).join('\n');
+      const letters = 'ABCDEFGHIJKLMNOPQRST';
+      const rows = Array.from({ length: 20 }, (_, i) => `Ctrl+${letters[i]},Action ${i}`).join(
+        '\n',
+      );
       const csv = `Hotkey,Label\n${rows}`;
 
       writeFileSync(inputFile, csv);

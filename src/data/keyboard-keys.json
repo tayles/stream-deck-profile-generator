@@ -1,0 +1,4414 @@
+{
+  "$schema": "./keyboard-keys.schema.json",
+  "keys": {
+    "Alt": {
+      "key": "Alt",
+      "description": "The Alt (Alternative) key.",
+      "windows": {
+        "name": "VK_MENU",
+        "code": "0x12"
+      },
+      "mac": {
+        "name": "kVK_Option",
+        "code": "0x3A"
+      },
+      "qt": {
+        "name": "Qt::Key_Alt",
+        "code": "0x01000023"
+      },
+      "android": {
+        "name": "KEYCODE_ALT_LEFT",
+        "code": "57"
+      },
+      "unicode": "⌥",
+      "alternativeNames": ["Option"]
+    },
+    "AltGraph": {
+      "key": "AltGraph",
+      "description": "The AltGr or AltGraph (Alternate Graphics) key. Enables the ISO Level 3 shift modifier (where Shift is the level 2 modifier).",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_AltGr",
+        "code": ""
+      },
+      "android": null,
+      "unicode": "⎇",
+      "alternativeNames": ["AltGr"]
+    },
+    "CapsLock": {
+      "key": "CapsLock",
+      "description": "The Caps Lock key. Toggles the capital character lock on and off for subsequent input.",
+      "windows": {
+        "name": "VK_CAPITAL",
+        "code": "0x14"
+      },
+      "mac": {
+        "name": "kVK_CapsLock",
+        "code": "0x39"
+      },
+      "qt": {
+        "name": "Qt::Key_CapsLock",
+        "code": "0x01000024"
+      },
+      "android": {
+        "name": "KEYCODE_CAPS_LOCK",
+        "code": "115"
+      },
+      "unicode": "⇪",
+      "alternativeNames": ["Caps"]
+    },
+    "Control": {
+      "key": "Control",
+      "description": "The Control, Ctrl, or Ctl key. Allows typing control characters.",
+      "windows": {
+        "name": "VK_CONTROL",
+        "code": "0x11"
+      },
+      "mac": {
+        "name": "kVK_Control",
+        "code": "0x3B"
+      },
+      "qt": {
+        "name": "Qt::Key_Control",
+        "code": "0x01000021"
+      },
+      "android": {
+        "name": "KEYCODE_CTRL_LEFT",
+        "code": "113"
+      },
+      "unicode": "⌃",
+      "alternativeNames": ["Ctrl", "^"]
+    },
+    "Fn": {
+      "key": "Fn",
+      "description": "The Fn (Function modifier) key. Used to allow generating function key (F1–F15, for instance) characters on keyboards without a dedicated function key area. Often handled in hardware so that events aren't generated for this key.",
+      "windows": null,
+      "mac": {
+        "name": "kVK_Function",
+        "code": "0x3F"
+      },
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_FUNCTION",
+        "code": "119"
+      }
+    },
+    "FnLock": {
+      "key": "FnLock",
+      "description": "The FnLock or F-Lock (Function Lock) key.Toggles the function key mode described by \"Fn\" on and off. Often handled in hardware so that events aren't generated for this key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Hyper": {
+      "key": "Hyper",
+      "description": "The Hyper key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hyper_L",
+        "code": "0x01000056"
+      },
+      "android": null
+    },
+    "Meta": {
+      "key": "Meta",
+      "description": "The Meta key. Allows issuing special command inputs. This is the Windows logo key, or the Command or ⌘ key on Mac keyboards.",
+      "windows": {
+        "name": "VK_LWIN",
+        "code": "0x5B"
+      },
+      "mac": {
+        "name": "kVK_Command",
+        "code": "0x37"
+      },
+      "qt": {
+        "name": "Qt::Key_Meta",
+        "code": "0x01000022"
+      },
+      "android": {
+        "name": "KEYCODE_META_LEFT",
+        "code": "117"
+      },
+      "unicode": "⌘",
+      "alternativeNames": ["Command", "Cmd", "Windows", "Win", "⊞"]
+    },
+    "NumLock": {
+      "key": "NumLock",
+      "description": "The NumLock (Number Lock) key. Toggles the numeric keypad between number entry some other mode (often directional arrows).",
+      "windows": {
+        "name": "VK_NUMLOCK",
+        "code": "0x90"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_NumLock",
+        "code": "0x01000025"
+      },
+      "android": {
+        "name": "KEYCODE_NUM_LOCK",
+        "code": "143"
+      },
+      "unicode": "⇭",
+      "alternativeNames": ["Num"]
+    },
+    "ScrollLock": {
+      "key": "ScrollLock",
+      "description": "The Scroll Lock key. Toggles between scrolling and cursor movement modes.",
+      "windows": {
+        "name": "VK_SCROLL",
+        "code": "0x91"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ScrollLock",
+        "code": "0x01000026"
+      },
+      "android": {
+        "name": "KEYCODE_SCROLL_LOCK",
+        "code": "116"
+      },
+      "unicode": "⤓",
+      "alternativeNames": ["ScrLk"]
+    },
+    "Shift": {
+      "key": "Shift",
+      "description": "The Shift key. Modifies keystrokes to allow typing upper (or other) case letters, and to support typing punctuation and other special characters.",
+      "windows": {
+        "name": "VK_SHIFT",
+        "code": "0x10"
+      },
+      "mac": {
+        "name": "kVK_Shift",
+        "code": "0x38"
+      },
+      "qt": {
+        "name": "Qt::Key_Shift",
+        "code": "0x01000020"
+      },
+      "android": {
+        "name": "KEYCODE_SHIFT_LEFT",
+        "code": "59"
+      },
+      "unicode": "⇧"
+    },
+    "Super": {
+      "key": "Super",
+      "description": "The Super key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Super_L",
+        "code": "0x01000053"
+      },
+      "android": null,
+      "unicode": "❖"
+    },
+    "Symbol": {
+      "key": "Symbol",
+      "description": "The Symbol modifier key (found on certain virtual keyboards).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_SYM",
+        "code": "63"
+      }
+    },
+    "SymbolLock": {
+      "key": "SymbolLock",
+      "description": "The Symbol Lock key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Enter": {
+      "key": "Enter",
+      "description": "The Enter or ↵ key (sometimes labeled Return).",
+      "windows": {
+        "name": "VK_RETURN",
+        "code": "0x0D"
+      },
+      "mac": {
+        "name": "kVK_Return",
+        "code": "0x24"
+      },
+      "qt": {
+        "name": "Qt::Key_Return",
+        "code": "0x01000004"
+      },
+      "android": {
+        "name": "KEYCODE_ENTER",
+        "code": "66"
+      },
+      "unicode": "↵",
+      "alternativeNames": ["Return", "⏎"]
+    },
+    "Tab": {
+      "key": "Tab",
+      "description": "The Horizontal Tab key, Tab.",
+      "windows": {
+        "name": "VK_TAB",
+        "code": "0x09"
+      },
+      "mac": {
+        "name": "kVK_Tab",
+        "code": "0x30"
+      },
+      "qt": {
+        "name": "Qt::Key_Tab",
+        "code": "0x01000001"
+      },
+      "android": {
+        "name": "KEYCODE_TAB",
+        "code": "61"
+      },
+      "unicode": "⇥"
+    },
+    " ": {
+      "key": " ",
+      "description": "The space key, Space Bar.",
+      "windows": {
+        "name": "VK_SPACE",
+        "code": "0x20"
+      },
+      "mac": {
+        "name": "kVK_Space",
+        "code": "0x31"
+      },
+      "qt": {
+        "name": "Qt::Key_Space",
+        "code": "0x20"
+      },
+      "android": {
+        "name": "KEYCODE_SPACE",
+        "code": "62"
+      },
+      "unicode": "␣",
+      "alternativeNames": ["Space", "Spacebar"]
+    },
+    "ArrowDown": {
+      "key": "ArrowDown",
+      "description": "The down arrow key.",
+      "windows": {
+        "name": "VK_DOWN",
+        "code": "0x28"
+      },
+      "mac": {
+        "name": "kVK_DownArrow",
+        "code": "0x7D"
+      },
+      "qt": {
+        "name": "Qt::Key_Down",
+        "code": "0x01000015"
+      },
+      "android": {
+        "name": "KEYCODE_DPAD_DOWN",
+        "code": "20"
+      },
+      "unicode": "↓",
+      "alternativeNames": ["Down"]
+    },
+    "ArrowLeft": {
+      "key": "ArrowLeft",
+      "description": "The left arrow key.",
+      "windows": {
+        "name": "VK_LEFT",
+        "code": "0x25"
+      },
+      "mac": {
+        "name": "kVK_LeftArrow",
+        "code": "0x7B"
+      },
+      "qt": {
+        "name": "Qt::Key_Left",
+        "code": "0x01000012"
+      },
+      "android": {
+        "name": "KEYCODE_DPAD_LEFT",
+        "code": "21"
+      },
+      "unicode": "←",
+      "alternativeNames": ["Left"]
+    },
+    "ArrowRight": {
+      "key": "ArrowRight",
+      "description": "The right arrow key.",
+      "windows": {
+        "name": "VK_RIGHT",
+        "code": "0x27"
+      },
+      "mac": {
+        "name": "kVK_RightArrow",
+        "code": "0x7C"
+      },
+      "qt": {
+        "name": "Qt::Key_Right",
+        "code": "0x01000014"
+      },
+      "android": {
+        "name": "KEYCODE_DPAD_RIGHT",
+        "code": "22"
+      },
+      "unicode": "→",
+      "alternativeNames": ["Right"]
+    },
+    "ArrowUp": {
+      "key": "ArrowUp",
+      "description": "The up arrow key.",
+      "windows": {
+        "name": "VK_UP",
+        "code": "0x26"
+      },
+      "mac": {
+        "name": "kVK_UpArrow",
+        "code": "0x7E"
+      },
+      "qt": {
+        "name": "Qt::Key_Up",
+        "code": "0x01000013"
+      },
+      "android": {
+        "name": "KEYCODE_DPAD_UP",
+        "code": "19"
+      },
+      "unicode": "↑",
+      "alternativeNames": ["Up"]
+    },
+    "End": {
+      "key": "End",
+      "description": "The End key. Moves to the end of content.",
+      "windows": {
+        "name": "VK_END",
+        "code": "0x23"
+      },
+      "mac": {
+        "name": "kVK_End",
+        "code": "0x77"
+      },
+      "qt": {
+        "name": "Qt::Key_End",
+        "code": "0x01000011"
+      },
+      "android": {
+        "name": "KEYCODE_MOVE_END",
+        "code": "123"
+      },
+      "unicode": "⇲"
+    },
+    "Home": {
+      "key": "Home",
+      "description": "The Home key. Moves to the start of content.",
+      "windows": {
+        "name": "VK_HOME",
+        "code": "0x24"
+      },
+      "mac": {
+        "name": "kVK_Home",
+        "code": "0x73"
+      },
+      "qt": {
+        "name": "Qt::Key_Home",
+        "code": "0x01000010"
+      },
+      "android": {
+        "name": "KEYCODE_MOVE_HOME",
+        "code": "122"
+      },
+      "unicode": "⇱"
+    },
+    "PageDown": {
+      "key": "PageDown",
+      "description": "The Page Down (or PgDn) key. Scrolls down or displays the next page of content.",
+      "windows": {
+        "name": "VK_NEXT",
+        "code": "0x22"
+      },
+      "mac": {
+        "name": "kVK_PageDown",
+        "code": "0x79"
+      },
+      "qt": {
+        "name": "Qt::Key_PageDown",
+        "code": "0x01000017"
+      },
+      "android": {
+        "name": "KEYCODE_PAGE_DOWN",
+        "code": "93"
+      },
+      "unicode": "⇟",
+      "alternativeNames": ["PgDn", "Page Down"]
+    },
+    "PageUp": {
+      "key": "PageUp",
+      "description": "The Page Up (or PgUp) key. Scrolls up or displays the previous page of content.",
+      "windows": {
+        "name": "VK_PRIOR",
+        "code": "0x21"
+      },
+      "mac": {
+        "name": "kVK_PageUp",
+        "code": "0x74"
+      },
+      "qt": {
+        "name": "Qt::Key_PageUp",
+        "code": "0x01000016"
+      },
+      "android": {
+        "name": "KEYCODE_PAGE_UP",
+        "code": "92"
+      },
+      "unicode": "⇞",
+      "alternativeNames": ["PgUp", "Page Up"]
+    },
+    "Backspace": {
+      "key": "Backspace",
+      "description": "The Backspace key. This key is labeled Delete on Mac keyboards.",
+      "windows": {
+        "name": "VK_BACK",
+        "code": "0x08"
+      },
+      "mac": {
+        "name": "kVK_Delete",
+        "code": "0x33"
+      },
+      "qt": {
+        "name": "Qt::Key_Backspace",
+        "code": "0x01000003"
+      },
+      "android": {
+        "name": "KEYCODE_DEL",
+        "code": "67"
+      },
+      "unicode": "⌫",
+      "alternativeNames": ["Bksp"]
+    },
+    "Clear": {
+      "key": "Clear",
+      "description": "The numeric keypad's Clear key.",
+      "windows": null,
+      "mac": {
+        "name": "kVK_ANSI_KeypadClear",
+        "code": "0x47"
+      },
+      "qt": {
+        "name": "Qt::Key_Clear",
+        "code": "0x0100000B"
+      },
+      "android": {
+        "name": "KEYCODE_CLEAR",
+        "code": "28"
+      },
+      "unicode": "⌧"
+    },
+    "Copy": {
+      "key": "Copy",
+      "description": "The Copy key (on certain extended keyboards).",
+      "windows": {
+        "name": "APPCOMMAND_COPY",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Copy",
+        "code": "0x010000CF"
+      },
+      "android": null
+    },
+    "CrSel": {
+      "key": "CrSel",
+      "description": "The Cursor Select key, CrSel.",
+      "windows": {
+        "name": "VK_CRSEL",
+        "code": "0xF7"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Cut": {
+      "key": "Cut",
+      "description": "The Cut key (on certain extended keyboards).",
+      "windows": {
+        "name": "APPCOMMAND_CUT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Cut",
+        "code": "0x010000D0"
+      },
+      "android": null
+    },
+    "Delete": {
+      "key": "Delete",
+      "description": "The Delete key, Del.",
+      "windows": {
+        "name": "VK_DELETE",
+        "code": "0x2E"
+      },
+      "mac": {
+        "name": "kVK_ForwardDelete",
+        "code": "0x75"
+      },
+      "qt": {
+        "name": "Qt::Key_Delete",
+        "code": "0x01000007"
+      },
+      "android": {
+        "name": "KEYCODE_FORWARD_DEL",
+        "code": "112"
+      },
+      "unicode": "⌦",
+      "alternativeNames": ["Del"]
+    },
+    "EraseEof": {
+      "key": "EraseEof",
+      "description": "Erase to End of Field. Deletes all characters from the current cursor position to the end of the current field.",
+      "windows": {
+        "name": "VK_EREOF",
+        "code": "0xF9"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ExSel": {
+      "key": "ExSel",
+      "description": "The ExSel (Extend Selection) key.",
+      "windows": {
+        "name": "VK_EXSEL",
+        "code": "0xF8"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Insert": {
+      "key": "Insert",
+      "description": "The Insert key, Ins. Toggles between inserting and overwriting text.",
+      "windows": {
+        "name": "VK_INSERT",
+        "code": "0x2D"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Insert",
+        "code": "0x01000006"
+      },
+      "android": {
+        "name": "KEYCODE_INSERT",
+        "code": "124"
+      },
+      "unicode": "⎀",
+      "alternativeNames": ["Ins"]
+    },
+    "Paste": {
+      "key": "Paste",
+      "description": "Paste from the clipboard.",
+      "windows": {
+        "name": "APPCOMMAND_PASTE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Paste",
+        "code": "0x010000E2"
+      },
+      "android": null
+    },
+    "Redo": {
+      "key": "Redo",
+      "description": "Redo the last action.",
+      "windows": {
+        "name": "APPCOMMAND_REDO",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Undo": {
+      "key": "Undo",
+      "description": "Undo the last action.",
+      "windows": {
+        "name": "APPCOMMAND_UNDO",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Accept": {
+      "key": "Accept",
+      "description": "The Accept, Commit, or OK key or button. Accepts the currently selected option or input method sequence conversion.",
+      "windows": {
+        "name": "VK_ACCEPT",
+        "code": "0x1E"
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_DPAD_CENTER",
+        "code": "23"
+      }
+    },
+    "Again": {
+      "key": "Again",
+      "description": "The Again key. Redoes or repeats a previous action.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Attn": {
+      "key": "Attn",
+      "description": "The Attn (Attention) key.",
+      "windows": {
+        "name": "VK_OEM_ATTN",
+        "code": "0xF0"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Cancel": {
+      "key": "Cancel",
+      "description": "The Cancel key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ContextMenu": {
+      "key": "ContextMenu",
+      "description": "Shows the context menu. Typically found between the Windows (or OS) key and the Control key on the right side of the keyboard.",
+      "windows": {
+        "name": "VK_APPS",
+        "code": "0x5D"
+      },
+      "mac": {
+        "name": "kVK_ContextualMenu",
+        "code": "0x6E"
+      },
+      "qt": {
+        "name": "Qt::Key_Menu",
+        "code": "0x01000055"
+      },
+      "android": {
+        "name": "KEYCODE_MENU",
+        "code": "82"
+      },
+      "unicode": "☰",
+      "alternativeNames": ["Menu", "Apps"]
+    },
+    "Escape": {
+      "key": "Escape",
+      "description": "The Esc (Escape) key. Typically used as an exit, cancel, or \"escape this operation\" button. Historically, the Escape character was used to signal the start of a special control sequence of characters called an \"escape sequence.\"",
+      "windows": {
+        "name": "VK_ESCAPE",
+        "code": "0x1B"
+      },
+      "mac": {
+        "name": "kVK_Escape",
+        "code": "0x35"
+      },
+      "qt": {
+        "name": "Qt::Key_Escape",
+        "code": "0x01000000"
+      },
+      "android": {
+        "name": "KEYCODE_ESCAPE",
+        "code": "111"
+      },
+      "unicode": "⎋",
+      "alternativeNames": ["Esc"]
+    },
+    "Execute": {
+      "key": "Execute",
+      "description": "The Execute key.",
+      "windows": {
+        "name": "VK_EXECUTE",
+        "code": "0x2B"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Execute",
+        "code": "0x01020003"
+      },
+      "android": null
+    },
+    "Find": {
+      "key": "Find",
+      "description": "The Find key. Opens an interface (typically a dialog box) for performing a find/search operation.",
+      "windows": {
+        "name": "APPCOMMAND_FIND",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Finish": {
+      "key": "Finish",
+      "description": "The Finish key.",
+      "windows": {
+        "name": "VK_OEM_FINISH",
+        "code": "0xF1"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Help": {
+      "key": "Help",
+      "description": "The Help key. Opens or toggles the display of help information.",
+      "windows": {
+        "name": "VK_HELP",
+        "code": "0x2F"
+      },
+      "mac": {
+        "name": "kVK_Help",
+        "code": "0x72"
+      },
+      "qt": {
+        "name": "Qt::Key_Help",
+        "code": "0x01000058"
+      },
+      "android": {
+        "name": "KEYCODE_HELP",
+        "code": "259"
+      },
+      "unicode": "?⃝"
+    },
+    "Pause": {
+      "key": "Pause",
+      "description": "The Pause key. Pauses the current application or state, if applicable. Note: This shouldn't be confused with the \"MediaPause\" key value, which is used for media controllers, rather than to control applications and processes.",
+      "windows": {
+        "name": "VK_PAUSE",
+        "code": "0x13"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Pause",
+        "code": "0x01000008"
+      },
+      "android": {
+        "name": "KEYCODE_BREAK",
+        "code": "121"
+      },
+      "unicode": "⎉",
+      "alternativeNames": ["Break"]
+    },
+    "Play": {
+      "key": "Play",
+      "description": "The Play key. Resumes a previously paused application, if applicable. Note: This shouldn't be confused with the \"MediaPlay\" key value, which is used for media controllers, rather than to control applications and processes.",
+      "windows": {
+        "name": "VK_PLAY",
+        "code": "0xFA"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Play",
+        "code": "0x01020005"
+      },
+      "android": null
+    },
+    "Props": {
+      "key": "Props",
+      "description": "The Props (Properties) key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Select": {
+      "key": "Select",
+      "description": "The Select key.",
+      "windows": {
+        "name": "VK_SELECT",
+        "code": "0x29"
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_BUTTON_SELECT",
+        "code": "109"
+      }
+    },
+    "ZoomIn": {
+      "key": "ZoomIn",
+      "description": "The ZoomIn key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ZoomIn",
+        "code": "0x010000F6"
+      },
+      "android": {
+        "name": "KEYCODE_ZOOM_IN",
+        "code": "168"
+      },
+      "unicode": "🔎"
+    },
+    "ZoomOut": {
+      "key": "ZoomOut",
+      "description": "The ZoomOut key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ZoomOut",
+        "code": "0x010000F7"
+      },
+      "android": {
+        "name": "KEYCODE_ZOOM_OUT",
+        "code": "169"
+      }
+    },
+    "BrightnessDown": {
+      "key": "BrightnessDown",
+      "description": "The Brightness Down key. Typically used to reduce the brightness of the display.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MonBrightnessDown",
+        "code": "0x010000B3"
+      },
+      "android": {
+        "name": "KEYCODE_BRIGHTNESS_DOWN",
+        "code": "220"
+      },
+      "unicode": "🔅"
+    },
+    "BrightnessUp": {
+      "key": "BrightnessUp",
+      "description": "The Brightness Up key. Typically increases the brightness of the display.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MonBrightnessUp",
+        "code": "0x010000B2"
+      },
+      "android": {
+        "name": "KEYCODE_BRIGHTNESS_UP",
+        "code": "221"
+      },
+      "unicode": "🔆"
+    },
+    "Eject": {
+      "key": "Eject",
+      "description": "The Eject key. Ejects removable media (or toggles an optical storage device tray open and closed).",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Eject",
+        "code": "0x010000B9"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_EJECT",
+        "code": "129"
+      },
+      "unicode": "⏏"
+    },
+    "LogOff": {
+      "key": "LogOff",
+      "description": "The LogOff key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LogOff",
+        "code": "0x010000D9"
+      },
+      "android": null
+    },
+    "Power": {
+      "key": "Power",
+      "description": "The Power button or key, to toggle power on and off. Note: Not all systems pass this key through to the user agent.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_POWER",
+        "code": "26"
+      },
+      "unicode": "⏻"
+    },
+    "PowerOff": {
+      "key": "PowerOff",
+      "description": "The PowerOff or PowerDown key. Shuts off the system.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_PowerDown",
+        "code": "0x0100010B"
+      },
+      "android": null,
+      "unicode": "⭘"
+    },
+    "PrintScreen": {
+      "key": "PrintScreen",
+      "description": "The PrintScreen or PrtScr key. Sometimes SnapShot. Captures the screen and prints it or saves it to disk.",
+      "windows": {
+        "name": "VK_SNAPSHOT",
+        "code": "0x2C"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Print",
+        "code": "0x01000009"
+      },
+      "android": {
+        "name": "KEYCODE_SYSRQ",
+        "code": "120"
+      },
+      "unicode": "⎙",
+      "alternativeNames": ["PrtSc", "PrtScn", "SysRq"]
+    },
+    "Hibernate": {
+      "key": "Hibernate",
+      "description": "The Hibernate key. This saves the state of the computer to disk and then shuts down; the computer can be returned to its previous state by restoring the saved state information.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hibernate",
+        "code": "0x01000108"
+      },
+      "android": null
+    },
+    "Standby": {
+      "key": "Standby",
+      "description": "The Standby key. (Also known as Suspend or Sleep.) This turns off the display and puts the computer in a low power consumption mode, without completely powering off.",
+      "windows": {
+        "name": "VK_SLEEP",
+        "code": "0x5F"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Standby",
+        "code": "0x01000093"
+      },
+      "android": {
+        "name": "KEYCODE_SLEEP",
+        "code": "223"
+      }
+    },
+    "WakeUp": {
+      "key": "WakeUp",
+      "description": "The WakeUp key. Used to wake the computer from the hibernation or standby modes.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_WakeUp",
+        "code": "0x010000B8"
+      },
+      "android": {
+        "name": "KEYCODE_WAKEUP",
+        "code": "224"
+      }
+    },
+    "AllCandidates": {
+      "key": "AllCandidates",
+      "description": "The All Candidates key, which starts multi-candidate mode, in which multiple candidates are displayed for the ongoing input.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MultipleCandidate",
+        "code": "0x0100113D"
+      },
+      "android": null
+    },
+    "Alphanumeric": {
+      "key": "Alphanumeric",
+      "description": "The Alphanumeric key.",
+      "windows": {
+        "name": "VK_OEM_ATTN",
+        "code": "0xF0"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Eisu_Shift",
+        "code": "0x0100112f"
+      },
+      "android": null
+    },
+    "CodeInput": {
+      "key": "CodeInput",
+      "description": "The Code Input key, which enables code input mode, which lets the user enter characters by typing their code points (their Unicode character numbers, typically).",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Codeinput",
+        "code": "0x01001137"
+      },
+      "android": null
+    },
+    "Compose": {
+      "key": "Compose",
+      "description": "The Compose key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Multi_key",
+        "code": "0x01001120"
+      },
+      "android": null
+    },
+    "Convert": {
+      "key": "Convert",
+      "description": "The Convert key, which instructs the IME to convert the current input method sequence into the resulting character.",
+      "windows": {
+        "name": "VK_CONVERT",
+        "code": "0x1C"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Henkan",
+        "code": "0x01001123"
+      },
+      "android": {
+        "name": "KEYCODE_HENKAN",
+        "code": "214"
+      }
+    },
+    "Dead": {
+      "key": "Dead",
+      "description": "A dead \"combining\" key; that is, a key which is used in tandem with other keys to generate accented and other modified characters. If pressed by itself, it doesn't generate a character. If you wish to identify which specific dead key was pressed (in cases where more than one exists), you can do so by examining the {{domxref(\"KeyboardEvent\")}}'s associated {{domxref(\"Element/compositionupdate_event\", \"compositionupdate\")}} event's {{domxref(\"CompositionEvent.data\", \"data\")}} property.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FinalMode": {
+      "key": "FinalMode",
+      "description": "The Final (Final Mode) key is used on some Asian keyboards to enter final mode when using IMEs.",
+      "windows": {
+        "name": "VK_FINAL",
+        "code": "0x18"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "GroupFirst": {
+      "key": "GroupFirst",
+      "description": "Switches to the first character group on an ISO/IEC 9995 keyboard. Each key may have multiple groups of characters, each in its own column. Pressing this key instructs the device to interpret key presses as coming from the first column on subsequent keystrokes.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "GroupLast": {
+      "key": "GroupLast",
+      "description": "Switches to the last character group on an ISO/IEC 9995 keyboard.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "GroupNext": {
+      "key": "GroupNext",
+      "description": "Switches to the next character group on an ISO/IEC 9995 keyboard.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_LANGUAGE_SWITCH",
+        "code": "204"
+      }
+    },
+    "GroupPrevious": {
+      "key": "GroupPrevious",
+      "description": "Switches to the previous character group on an ISO/IEC 9995 keyboard.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ModeChange": {
+      "key": "ModeChange",
+      "description": "The Mode Change key. Toggles or cycles among input modes of IMEs.",
+      "windows": {
+        "name": "VK_MODECHANGE",
+        "code": "0x1F"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Mode_switch",
+        "code": "0x0100117E"
+      },
+      "android": {
+        "name": "KEYCODE_SWITCH_CHARSET",
+        "code": "95"
+      }
+    },
+    "NextCandidate": {
+      "key": "NextCandidate",
+      "description": "The Next Candidate function key. Selects the next possible match for the ongoing input.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "NonConvert": {
+      "key": "NonConvert",
+      "description": "The NonConvert (\"Don't convert\") key. This accepts the current input method sequence without running conversion when using an IME.",
+      "windows": {
+        "name": "VK_NONCONVERT",
+        "code": "0x1D"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Muhenkan",
+        "code": "0x01001122"
+      },
+      "android": {
+        "name": "KEYCODE_MUHENKAN",
+        "code": "213"
+      }
+    },
+    "PreviousCandidate": {
+      "key": "PreviousCandidate",
+      "description": "The Previous Candidate key. Selects the previous possible match for the ongoing input.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_PreviousCandidate",
+        "code": "0x0100113E"
+      },
+      "android": null
+    },
+    "Process": {
+      "key": "Process",
+      "description": "The Process key. Instructs the IME to process the conversion.",
+      "windows": {
+        "name": "VK_PROCESSKEY",
+        "code": "0xE5"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "SingleCandidate": {
+      "key": "SingleCandidate",
+      "description": "The Single Candidate key. Enables single candidate mode (as opposed to multi-candidate mode); in this mode, only one candidate is displayed at a time.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_SingleCandidate",
+        "code": "0x0100113C"
+      },
+      "android": null
+    },
+    "HangulMode": {
+      "key": "HangulMode",
+      "description": "The Hangul (Korean character set) mode key, which toggles between Hangul and English entry modes.",
+      "windows": {
+        "name": "VK_HANGUL",
+        "code": "0x15"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hangul",
+        "code": "0x01001131"
+      },
+      "android": null
+    },
+    "HanjaMode": {
+      "key": "HanjaMode",
+      "description": "Selects the Hanja mode, for converting Hangul characters to the more specific Hanja characters.",
+      "windows": {
+        "name": "VK_HANJA",
+        "code": "0x19"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hangul_Hanja",
+        "code": "0x01001134"
+      },
+      "android": null
+    },
+    "JunjaMode": {
+      "key": "JunjaMode",
+      "description": "Selects the Junja mode, in which Korean is represented using single-byte Latin characters.",
+      "windows": {
+        "name": "VK_JUNJA",
+        "code": "0x17"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hangul_Jeonja",
+        "code": "0x01001138"
+      },
+      "android": null
+    },
+    "Eisu": {
+      "key": "Eisu",
+      "description": "The Eisu key. This key's purpose is defined by the IME, but may be used to close the IME.",
+      "windows": null,
+      "mac": {
+        "name": "kVK_JIS_Eisu",
+        "code": "0x66"
+      },
+      "qt": {
+        "name": "Qt::Key_Eisu_toggle",
+        "code": "0x01001130"
+      },
+      "android": {
+        "name": "KEYCODE_EISU",
+        "code": "212"
+      }
+    },
+    "Hankaku": {
+      "key": "Hankaku",
+      "description": "The Hankaku (half-width characters) key.",
+      "windows": {
+        "name": "VK_OEM_AUTO",
+        "code": "0xF3"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hankaku",
+        "code": "0x01001129"
+      },
+      "android": null
+    },
+    "Hiragana": {
+      "key": "Hiragana",
+      "description": "The Hiragana key; selects Kana characters mode.",
+      "windows": {
+        "name": "VK_OEM_COPY",
+        "code": "0xF2"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hiragana",
+        "code": "0x01001125"
+      },
+      "android": null
+    },
+    "HiraganaKatakana": {
+      "key": "HiraganaKatakana",
+      "description": "Toggles between the Hiragana and Katakana writing systems.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hiragana_Katakana",
+        "code": "0x01001127"
+      },
+      "android": {
+        "name": "KEYCODE_KATAKANA_HIRAGANA",
+        "code": "215"
+      }
+    },
+    "KanaMode": {
+      "key": "KanaMode",
+      "description": "The Kana Mode (Kana Lock) key.",
+      "windows": {
+        "name": "VK_KANA",
+        "code": "0x15"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Kana_Lock",
+        "code": "0x0100112D"
+      },
+      "android": null
+    },
+    "KanjiMode": {
+      "key": "KanjiMode",
+      "description": "The Kanji Mode key. Enables entering Japanese text using the ideographic characters of Chinese origin.",
+      "windows": {
+        "name": "VK_KANJI",
+        "code": ""
+      },
+      "mac": {
+        "name": "kVK_JIS_Kana",
+        "code": "0x68"
+      },
+      "qt": {
+        "name": "Qt::Key_Kanji",
+        "code": "0x01001121"
+      },
+      "android": {
+        "name": "KEYCODE_KANA",
+        "code": "218"
+      }
+    },
+    "Katakana": {
+      "key": "Katakana",
+      "description": "The Katakana key.",
+      "windows": {
+        "name": "VK_OEM_FINISH",
+        "code": "0xF1"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Katakana",
+        "code": "0x01001126"
+      },
+      "android": null
+    },
+    "Romaji": {
+      "key": "Romaji",
+      "description": "The Romaji key; selects the Roman character set.",
+      "windows": {
+        "name": "VK_OEM_BACKTAB",
+        "code": "0xF5"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Romaji",
+        "code": "0x01001124"
+      },
+      "android": null
+    },
+    "Zenkaku": {
+      "key": "Zenkaku",
+      "description": "The Zenkaku (full width) characters key.",
+      "windows": {
+        "name": "VK_OEM_ENLW",
+        "code": "0xF4"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Zenkaku",
+        "code": "0x01001128"
+      },
+      "android": null
+    },
+    "ZenkakuHankaku": {
+      "key": "ZenkakuHankaku",
+      "description": "The Zenkaku/Hankaku (full width/half width) toggle key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Zenkaku_Hankaku",
+        "code": "0x0100112A"
+      },
+      "android": {
+        "name": "KEYCODE_ZENKAKU_HANKAKU",
+        "code": "211"
+      }
+    },
+    "F1": {
+      "key": "F1",
+      "description": "The first general-purpose function key, F1.",
+      "windows": {
+        "name": "VK_F1",
+        "code": "0x70"
+      },
+      "mac": {
+        "name": "kVK_F1",
+        "code": "0x7A"
+      },
+      "qt": {
+        "name": "Qt::Key_F1",
+        "code": "0x01000030"
+      },
+      "android": {
+        "name": "KEYCODE_F1",
+        "code": "131"
+      },
+      "alternativeNames": ["Fn1"]
+    },
+    "F2": {
+      "key": "F2",
+      "description": "The F2 key.",
+      "windows": {
+        "name": "VK_F2",
+        "code": "0x71"
+      },
+      "mac": {
+        "name": "kVK_F2",
+        "code": "0x78"
+      },
+      "qt": {
+        "name": "Qt::Key_F2",
+        "code": "0x01000031"
+      },
+      "android": {
+        "name": "KEYCODE_F2",
+        "code": "132"
+      },
+      "alternativeNames": ["Fn2"]
+    },
+    "F3": {
+      "key": "F3",
+      "description": "The F3 key.",
+      "windows": {
+        "name": "VK_F3",
+        "code": "0x72"
+      },
+      "mac": {
+        "name": "kVK_F3",
+        "code": "0x63"
+      },
+      "qt": {
+        "name": "Qt::Key_F3",
+        "code": "0x01000032"
+      },
+      "android": {
+        "name": "KEYCODE_F3",
+        "code": "133"
+      },
+      "alternativeNames": ["Fn3"]
+    },
+    "F4": {
+      "key": "F4",
+      "description": "The F4 key.",
+      "windows": {
+        "name": "VK_F4",
+        "code": "0x73"
+      },
+      "mac": {
+        "name": "kVK_F4",
+        "code": "0x76"
+      },
+      "qt": {
+        "name": "Qt::Key_F4",
+        "code": "0x01000033"
+      },
+      "android": {
+        "name": "KEYCODE_F4",
+        "code": "134"
+      },
+      "alternativeNames": ["Fn4"]
+    },
+    "F5": {
+      "key": "F5",
+      "description": "The F5 key.",
+      "windows": {
+        "name": "VK_F5",
+        "code": "0x74"
+      },
+      "mac": {
+        "name": "kVK_F5",
+        "code": "0x60"
+      },
+      "qt": {
+        "name": "Qt::Key_F5",
+        "code": "0x01000034"
+      },
+      "android": {
+        "name": "KEYCODE_F5",
+        "code": "135"
+      },
+      "alternativeNames": ["Fn5"]
+    },
+    "F6": {
+      "key": "F6",
+      "description": "The F6 key.",
+      "windows": {
+        "name": "VK_F6",
+        "code": "0x75"
+      },
+      "mac": {
+        "name": "kVK_F6",
+        "code": "0x61"
+      },
+      "qt": {
+        "name": "Qt::Key_F6",
+        "code": "0x01000035"
+      },
+      "android": {
+        "name": "KEYCODE_F6",
+        "code": "136"
+      },
+      "alternativeNames": ["Fn6"]
+    },
+    "F7": {
+      "key": "F7",
+      "description": "The F7 key.",
+      "windows": {
+        "name": "VK_F7",
+        "code": "0x76"
+      },
+      "mac": {
+        "name": "kVK_F7",
+        "code": "0x62"
+      },
+      "qt": {
+        "name": "Qt::Key_F7",
+        "code": "0x01000036"
+      },
+      "android": {
+        "name": "KEYCODE_F7",
+        "code": "137"
+      },
+      "alternativeNames": ["Fn7"]
+    },
+    "F8": {
+      "key": "F8",
+      "description": "The F8 key.",
+      "windows": {
+        "name": "VK_F8",
+        "code": "0x77"
+      },
+      "mac": {
+        "name": "kVK_F8",
+        "code": "0x64"
+      },
+      "qt": {
+        "name": "Qt::Key_F8",
+        "code": "0x01000037"
+      },
+      "android": {
+        "name": "KEYCODE_F8",
+        "code": "138"
+      },
+      "alternativeNames": ["Fn8"]
+    },
+    "F9": {
+      "key": "F9",
+      "description": "The F9 key.",
+      "windows": {
+        "name": "VK_F9",
+        "code": "0x78"
+      },
+      "mac": {
+        "name": "kVK_F9",
+        "code": "0x65"
+      },
+      "qt": {
+        "name": "Qt::Key_F9",
+        "code": "0x01000038"
+      },
+      "android": {
+        "name": "KEYCODE_F9",
+        "code": "139"
+      },
+      "alternativeNames": ["Fn9"]
+    },
+    "F10": {
+      "key": "F10",
+      "description": "The F10 key.",
+      "windows": {
+        "name": "VK_F10",
+        "code": "0x79"
+      },
+      "mac": {
+        "name": "kVK_F10",
+        "code": "0x6D"
+      },
+      "qt": {
+        "name": "Qt::Key_F10",
+        "code": "0x01000039"
+      },
+      "android": {
+        "name": "KEYCODE_F10",
+        "code": "140"
+      },
+      "alternativeNames": ["Fn10"]
+    },
+    "F11": {
+      "key": "F11",
+      "description": "The F11 key.",
+      "windows": {
+        "name": "VK_F11",
+        "code": "0x7A"
+      },
+      "mac": {
+        "name": "kVK_F11",
+        "code": "0x67"
+      },
+      "qt": {
+        "name": "Qt::Key_F11",
+        "code": "0x0100003A"
+      },
+      "android": {
+        "name": "KEYCODE_F11",
+        "code": "141"
+      },
+      "alternativeNames": ["Fn11"]
+    },
+    "F12": {
+      "key": "F12",
+      "description": "The F12 key.",
+      "windows": {
+        "name": "VK_F12",
+        "code": "0x7B"
+      },
+      "mac": {
+        "name": "kVK_F12",
+        "code": "0x6F"
+      },
+      "qt": {
+        "name": "Qt::Key_F12",
+        "code": "0x0100003B"
+      },
+      "android": {
+        "name": "KEYCODE_F12",
+        "code": "142"
+      },
+      "alternativeNames": ["Fn12"]
+    },
+    "F13": {
+      "key": "F13",
+      "description": "The F13 key.",
+      "windows": {
+        "name": "VK_F13",
+        "code": "0x7C"
+      },
+      "mac": {
+        "name": "kVK_F13",
+        "code": "0x69"
+      },
+      "qt": {
+        "name": "Qt::Key_F13",
+        "code": "0x0100003C"
+      },
+      "android": {
+        "name": "KEYCODE_F13",
+        "code": ""
+      },
+      "alternativeNames": ["Fn13"]
+    },
+    "F14": {
+      "key": "F14",
+      "description": "The F14 key.",
+      "windows": {
+        "name": "VK_F14",
+        "code": "0x7D"
+      },
+      "mac": {
+        "name": "kVK_F14",
+        "code": "0x6B"
+      },
+      "qt": {
+        "name": "Qt::Key_F14",
+        "code": "0x0100003D"
+      },
+      "android": {
+        "name": "KEYCODE_F14",
+        "code": ""
+      },
+      "alternativeNames": ["Fn14"]
+    },
+    "F15": {
+      "key": "F15",
+      "description": "The F15 key.",
+      "windows": {
+        "name": "VK_F15",
+        "code": "0x7E"
+      },
+      "mac": {
+        "name": "kVK_F15",
+        "code": "0x71"
+      },
+      "qt": {
+        "name": "Qt::Key_F15",
+        "code": "0x0100003E"
+      },
+      "android": {
+        "name": "KEYCODE_F15",
+        "code": ""
+      },
+      "alternativeNames": ["Fn15"]
+    },
+    "F16": {
+      "key": "F16",
+      "description": "The F16 key.",
+      "windows": {
+        "name": "VK_F16",
+        "code": "0x7F"
+      },
+      "mac": {
+        "name": "kVK_F16",
+        "code": "0x6A"
+      },
+      "qt": {
+        "name": "Qt::Key_F16",
+        "code": "0x0100003F"
+      },
+      "android": {
+        "name": "KEYCODE_F16",
+        "code": ""
+      },
+      "alternativeNames": ["Fn16"]
+    },
+    "F17": {
+      "key": "F17",
+      "description": "The F17 key.",
+      "windows": {
+        "name": "VK_F17",
+        "code": "0x80"
+      },
+      "mac": {
+        "name": "kVK_F17",
+        "code": "0x40"
+      },
+      "qt": {
+        "name": "Qt::Key_F17",
+        "code": "0x01000040"
+      },
+      "android": {
+        "name": "KEYCODE_F17",
+        "code": ""
+      },
+      "alternativeNames": ["Fn17"]
+    },
+    "F18": {
+      "key": "F18",
+      "description": "The F18 key.",
+      "windows": {
+        "name": "VK_F18",
+        "code": "0x81"
+      },
+      "mac": {
+        "name": "kVK_F18",
+        "code": "0x4F"
+      },
+      "qt": {
+        "name": "Qt::Key_F18",
+        "code": "0x01000041"
+      },
+      "android": {
+        "name": "KEYCODE_F18",
+        "code": ""
+      },
+      "alternativeNames": ["Fn18"]
+    },
+    "F19": {
+      "key": "F19",
+      "description": "The F19 key.",
+      "windows": {
+        "name": "VK_F19",
+        "code": "0x82"
+      },
+      "mac": {
+        "name": "kVK_F19",
+        "code": "0x50"
+      },
+      "qt": {
+        "name": "Qt::Key_F19",
+        "code": "0x01000042"
+      },
+      "android": {
+        "name": "KEYCODE_F19",
+        "code": ""
+      },
+      "alternativeNames": ["Fn19"]
+    },
+    "F20": {
+      "key": "F20",
+      "description": "The F20 key.",
+      "windows": {
+        "name": "VK_F20",
+        "code": "0x83"
+      },
+      "mac": {
+        "name": "kVK_F20",
+        "code": "0x5A"
+      },
+      "qt": {
+        "name": "Qt::Key_F20",
+        "code": "0x01000043"
+      },
+      "android": {
+        "name": "KEYCODE_F20",
+        "code": ""
+      },
+      "alternativeNames": ["Fn20"]
+    },
+    "Soft1": {
+      "key": "Soft1",
+      "description": "The first general-purpose virtual function key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Context1",
+        "code": "0x01100000"
+      },
+      "android": null
+    },
+    "Soft2": {
+      "key": "Soft2",
+      "description": "The second general-purpose virtual function key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Context2",
+        "code": "0x01100001"
+      },
+      "android": null
+    },
+    "Soft3": {
+      "key": "Soft3",
+      "description": "The third general-purpose virtual function key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Context3",
+        "code": "0x01100002"
+      },
+      "android": null
+    },
+    "Soft4": {
+      "key": "Soft4",
+      "description": "The fourth general-purpose virtual function key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Context4",
+        "code": "0x01100003"
+      },
+      "android": null
+    },
+    "AppSwitch": {
+      "key": "AppSwitch",
+      "description": "Presents a list of recently-used applications which lets the user change apps quickly.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_APP_SWITCH",
+        "code": "187"
+      }
+    },
+    "Call": {
+      "key": "Call",
+      "description": "The Call key. Dials the number which has been entered.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Call",
+        "code": "0x01100004"
+      },
+      "android": {
+        "name": "KEYCODE_CALL",
+        "code": "5"
+      }
+    },
+    "Camera": {
+      "key": "Camera",
+      "description": "The Camera key. Activates the camera.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Camera",
+        "code": "0x01100020"
+      },
+      "android": {
+        "name": "KEYCODE_CAMERA",
+        "code": "27"
+      }
+    },
+    "CameraFocus": {
+      "key": "CameraFocus",
+      "description": "The Focus key. Focuses the camera.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_CameraFocus",
+        "code": "0x01100021"
+      },
+      "android": {
+        "name": "KEYCODE_FOCUS",
+        "code": "80"
+      }
+    },
+    "EndCall": {
+      "key": "EndCall",
+      "description": "The End Call or Hang Up button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Hangup",
+        "code": "0x01100005"
+      },
+      "android": {
+        "name": "KEYCODE_ENDCALL",
+        "code": "6"
+      }
+    },
+    "GoBack": {
+      "key": "GoBack",
+      "description": "The Back button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_BACK",
+        "code": "4"
+      }
+    },
+    "GoHome": {
+      "key": "GoHome",
+      "description": "The Home button. Returns the user to the phone's main screen (usually an application launcher).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_HOME",
+        "code": "3"
+      }
+    },
+    "HeadsetHook": {
+      "key": "HeadsetHook",
+      "description": "The Headset Hook key. This is typically actually a button on the headset which is used to hang up calls and play or pause media.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ToggleCallHangup",
+        "code": "0x01100007"
+      },
+      "android": {
+        "name": "KEYCODE_HEADSETHOOK",
+        "code": "79"
+      }
+    },
+    "LastNumberRedial": {
+      "key": "LastNumberRedial",
+      "description": "The Redial button. Redials the last-called number.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LastNumberRedial",
+        "code": "0x01100009"
+      },
+      "android": null
+    },
+    "Notification": {
+      "key": "Notification",
+      "description": "The Notification key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NOTIFICATION",
+        "code": "83"
+      }
+    },
+    "MannerMode": {
+      "key": "MannerMode",
+      "description": "A button which cycles among the notification modes: silent, vibrate, ring, and so forth.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MANNER_MODE",
+        "code": "205"
+      }
+    },
+    "VoiceDial": {
+      "key": "VoiceDial",
+      "description": "The Voice Dial key. Initiates voice dialing.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_VoiceDial",
+        "code": "0x01100008"
+      },
+      "android": {
+        "name": "KEYCODE_VOICE_ASSIST",
+        "code": "231"
+      }
+    },
+    "ChannelDown": {
+      "key": "ChannelDown",
+      "description": "Switches to the previous channel.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_CHANNEL_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ChannelDown",
+        "code": "0x01000119"
+      },
+      "android": {
+        "name": "KEYCODE_CHANNEL_DOWN",
+        "code": "167"
+      },
+      "unicode": "⏷"
+    },
+    "ChannelUp": {
+      "key": "ChannelUp",
+      "description": "Switches to the next channel.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_CHANNEL_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ChannelUp",
+        "code": "0x01000118"
+      },
+      "android": {
+        "name": "KEYCODE_CHANNEL_UP",
+        "code": "166"
+      },
+      "unicode": "⏶"
+    },
+    "MediaFastForward": {
+      "key": "MediaFastForward",
+      "description": "Starts, continues, or increases the speed of fast forwarding the media.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_FAST_FORWARD",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MEDIA_FAST_FORWARD",
+        "code": "90"
+      },
+      "unicode": "⏩",
+      "alternativeNames": ["FastForward", "FF"]
+    },
+    "MediaPause": {
+      "key": "MediaPause",
+      "description": "Pauses the currently playing media.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_PAUSE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaPause",
+        "code": "0x1000085"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_PAUSE",
+        "code": "127"
+      },
+      "unicode": "⏸"
+    },
+    "MediaPlay": {
+      "key": "MediaPlay",
+      "description": "Starts or continues playing media at normal speed, if not already doing so. Has no effect otherwise.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_PLAY",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MEDIA_PLAY",
+        "code": "126"
+      },
+      "unicode": "▶"
+    },
+    "MediaPlayPause": {
+      "key": "MediaPlayPause",
+      "description": "Toggles between playing and pausing the current media.",
+      "windows": {
+        "name": "VK_MEDIA_PLAY_PAUSE",
+        "code": "0xB3"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaTogglePlayPause",
+        "code": "0x1000086"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_PLAY_PAUSE",
+        "code": "85"
+      },
+      "unicode": "⏯",
+      "alternativeNames": ["Play/Pause"]
+    },
+    "MediaRecord": {
+      "key": "MediaRecord",
+      "description": "Starts or resumes recording media.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_RECORD",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaRecord",
+        "code": "0x01000084"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_RECORD",
+        "code": "130"
+      },
+      "unicode": "⏺",
+      "alternativeNames": ["Record", "Rec"]
+    },
+    "MediaRewind": {
+      "key": "MediaRewind",
+      "description": "Starts, continues, or increases the speed of rewinding the media.",
+      "windows": {
+        "name": "APPCOMMAND_MEDIA_REWIND",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_AudioRewind",
+        "code": "0x010000C5"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_REWIND",
+        "code": "89"
+      },
+      "unicode": "⏪",
+      "alternativeNames": ["Rewind", "RW"]
+    },
+    "MediaStop": {
+      "key": "MediaStop",
+      "description": "Stops the current media activity (such as playing, recording, pausing, forwarding, or rewinding). Has no effect if the media is currently stopped already.",
+      "windows": {
+        "name": "VK_MEDIA_STOP",
+        "code": "0xB2"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaStop",
+        "code": "0x01000081"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_STOP",
+        "code": "86"
+      },
+      "unicode": "⏹"
+    },
+    "MediaTrackNext": {
+      "key": "MediaTrackNext",
+      "description": "Seeks to the next media or program track.",
+      "windows": {
+        "name": "VK_MEDIA_NEXT_TRACK",
+        "code": "0xB0"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaNext",
+        "code": "0x01000083"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_NEXT",
+        "code": "87"
+      },
+      "unicode": "⏭",
+      "alternativeNames": ["Next Track", "Skip Forward"]
+    },
+    "MediaTrackPrevious": {
+      "key": "MediaTrackPrevious",
+      "description": "Seeks to the previous media or program track.",
+      "windows": {
+        "name": "VK_MEDIA_PREV_TRACK",
+        "code": "0xB1"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaPrevious",
+        "code": "0x01000082"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_PREVIOUS",
+        "code": "88"
+      },
+      "unicode": "⏮",
+      "alternativeNames": ["Previous Track", "Skip Back"]
+    },
+    "AudioBalanceLeft": {
+      "key": "AudioBalanceLeft",
+      "description": "Adjusts audio balance toward the left.",
+      "windows": {
+        "name": "VK_AUDIO_BALANCE_LEFT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioBalanceRight": {
+      "key": "AudioBalanceRight",
+      "description": "Adjusts audio balance toward the right.",
+      "windows": {
+        "name": "VK_AUDIO_BALANCE_RIGHT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioBassDown": {
+      "key": "AudioBassDown",
+      "description": "Decreases the amount of bass.",
+      "windows": {
+        "name": "APPCOMMAND_BASS_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioBassBoostDown": {
+      "key": "AudioBassBoostDown",
+      "description": "Reduces bass boosting or cycles downward through bass boost modes or states.",
+      "windows": {
+        "name": "VK_BASS_BOOST_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioBassBoostToggle": {
+      "key": "AudioBassBoostToggle",
+      "description": "Toggles bass boosting on and off.",
+      "windows": {
+        "name": "APPCOMMAND_BASS_BOOST",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioBassBoostUp": {
+      "key": "AudioBassBoostUp",
+      "description": "Increases the amount of bass boosting, or cycles upward through a set of bass boost modes or states.",
+      "windows": {
+        "name": "VK_BASS_BOOST_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioBassUp": {
+      "key": "AudioBassUp",
+      "description": "Increases the amount of bass.",
+      "windows": {
+        "name": "APPCOMMAND_BASS_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioFaderFront": {
+      "key": "AudioFaderFront",
+      "description": "Adjusts the audio fader toward the front.",
+      "windows": {
+        "name": "VK_FADER_FRONT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioFaderRear": {
+      "key": "AudioFaderRear",
+      "description": "Adjusts the audio fader toward the rear.",
+      "windows": {
+        "name": "VK_FADER_REAR",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioSurroundModeNext": {
+      "key": "AudioSurroundModeNext",
+      "description": "Selects the next available surround sound mode.",
+      "windows": {
+        "name": "VK_SURROUND_MODE_NEXT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioTrebleDown": {
+      "key": "AudioTrebleDown",
+      "description": "Decreases the amount of treble.",
+      "windows": {
+        "name": "APPCOMMAND_TREBLE_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioTrebleUp": {
+      "key": "AudioTrebleUp",
+      "description": "Increases the amount of treble.",
+      "windows": {
+        "name": "APPCOMMAND_TREBLE_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "AudioVolumeDown": {
+      "key": "AudioVolumeDown",
+      "description": "Decreases the audio volume.",
+      "windows": {
+        "name": "VK_VOLUME_DOWN",
+        "code": "0xAE"
+      },
+      "mac": {
+        "name": "kVK_VolumeDown",
+        "code": "0x49"
+      },
+      "qt": {
+        "name": "Qt::Key_VolumeDown",
+        "code": "0x01000070"
+      },
+      "android": {
+        "name": "KEYCODE_VOLUME_DOWN",
+        "code": "25"
+      },
+      "unicode": "🔉",
+      "alternativeNames": ["Volume Down", "Vol Down", "Vol-"]
+    },
+    "AudioVolumeMute": {
+      "key": "AudioVolumeMute",
+      "description": "Mutes the audio.",
+      "windows": {
+        "name": "VK_VOLUME_MUTE",
+        "code": "0xAD"
+      },
+      "mac": {
+        "name": "kVK_Mute",
+        "code": "0x4A"
+      },
+      "qt": {
+        "name": "Qt::Key_VolumeMute",
+        "code": "0x01000071"
+      },
+      "android": {
+        "name": "KEYCODE_VOLUME_MUTE",
+        "code": "164"
+      },
+      "unicode": "🔇",
+      "alternativeNames": ["Mute", "Volume Mute"]
+    },
+    "AudioVolumeUp": {
+      "key": "AudioVolumeUp",
+      "description": "Increases the audio volume.",
+      "windows": {
+        "name": "VK_VOLUME_UP",
+        "code": "0xAF"
+      },
+      "mac": {
+        "name": "kVK_VolumeUp",
+        "code": "0x48"
+      },
+      "qt": {
+        "name": "Qt::Key_VolumeUp",
+        "code": "0x01000072"
+      },
+      "android": {
+        "name": "KEYCODE_VOLUME_UP",
+        "code": "24"
+      },
+      "unicode": "🔊",
+      "alternativeNames": ["Volume Up", "Vol Up", "Vol+"]
+    },
+    "MicrophoneToggle": {
+      "key": "MicrophoneToggle",
+      "description": "Toggles the microphone on and off.",
+      "windows": {
+        "name": "APPCOMMAND_MIC_ON_OFF_TOGGLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "MicrophoneVolumeDown": {
+      "key": "MicrophoneVolumeDown",
+      "description": "Decreases the microphone's input volume.",
+      "windows": {
+        "name": "APPCOMMAND_MICROPHONE_VOLUME_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MicVolumeDown",
+        "code": "0x0100011E"
+      },
+      "android": null
+    },
+    "MicrophoneVolumeMute": {
+      "key": "MicrophoneVolumeMute",
+      "description": "Mutes the microphone input.",
+      "windows": {
+        "name": "APPCOMMAND_MICROPHONE_VOLUME_MUTE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MicMute",
+        "code": "0x01000113"
+      },
+      "android": {
+        "name": "KEYCODE_MUTE",
+        "code": "91"
+      },
+      "unicode": "🎙"
+    },
+    "MicrophoneVolumeUp": {
+      "key": "MicrophoneVolumeUp",
+      "description": "Increases the microphone's input volume.",
+      "windows": {
+        "name": "APPCOMMAND_MICROPHONE_VOLUME_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MicVolumeUp",
+        "code": "0x0100011D"
+      },
+      "android": null
+    },
+    "TV": {
+      "key": "TV",
+      "description": "Switches into TV viewing mode.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV",
+        "code": "170"
+      }
+    },
+    "TV3DMode": {
+      "key": "TV3DMode",
+      "description": "Toggles 3D TV mode on and off.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_3D_MODE",
+        "code": "206"
+      }
+    },
+    "TVAntennaCable": {
+      "key": "TVAntennaCable",
+      "description": "Toggles between antenna and cable inputs.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_ANTENNA_CABLE",
+        "code": "242"
+      }
+    },
+    "TVAudioDescription": {
+      "key": "TVAudioDescription",
+      "description": "Toggles audio description mode on and off.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_AUDIO_DESCRIPTION",
+        "code": "252"
+      }
+    },
+    "TVAudioDescriptionMixDown": {
+      "key": "TVAudioDescriptionMixDown",
+      "description": "Decreases the audio description's mixing volume; reduces the volume of the audio descriptions relative to the program sound.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_AUDIO_DESCRIPTION_MIX_DOWN",
+        "code": "254"
+      }
+    },
+    "TVAudioDescriptionMixUp": {
+      "key": "TVAudioDescriptionMixUp",
+      "description": "Increases the audio description's mixing volume; increases the volume of the audio descriptions relative to the program sound.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_AUDIO_DESCRIPTION_MIX_UP",
+        "code": "253"
+      }
+    },
+    "TVContentsMenu": {
+      "key": "TVContentsMenu",
+      "description": "Displays or hides the media contents available for playback (this may be a channel guide showing the currently airing programs, or a list of media files to play).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_CONTENTS_MENU",
+        "code": "256"
+      }
+    },
+    "TVDataService": {
+      "key": "TVDataService",
+      "description": "Displays or hides the TV's data service menu.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_DATA_SERVICE",
+        "code": "230"
+      }
+    },
+    "TVInput": {
+      "key": "TVInput",
+      "description": "Cycles the input mode on an external TV.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT",
+        "code": "178"
+      }
+    },
+    "TVInputComponent1": {
+      "key": "TVInputComponent1",
+      "description": "Switches to the input \"Component 1.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_COMPONENT_1",
+        "code": "249"
+      }
+    },
+    "TVInputComponent2": {
+      "key": "TVInputComponent2",
+      "description": "Switches to the input \"Component 2.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_COMPONENT_2",
+        "code": "250"
+      }
+    },
+    "TVInputComposite1": {
+      "key": "TVInputComposite1",
+      "description": "Switches to the input \"Composite 1.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_COMPOSITE_1",
+        "code": "247"
+      }
+    },
+    "TVInputComposite2": {
+      "key": "TVInputComposite2",
+      "description": "Switches to the input \"Composite 2.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_COMPOSITE_2",
+        "code": "248"
+      }
+    },
+    "TVInputHDMI1": {
+      "key": "TVInputHDMI1",
+      "description": "Switches to the input \"HDMI 1.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_HDMI_1",
+        "code": "243"
+      }
+    },
+    "TVInputHDMI2": {
+      "key": "TVInputHDMI2",
+      "description": "Switches to the input \"HDMI 2.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_HDMI_2",
+        "code": "244"
+      }
+    },
+    "TVInputHDMI3": {
+      "key": "TVInputHDMI3",
+      "description": "Switches to the input \"HDMI 3.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_HDMI_3",
+        "code": "245"
+      }
+    },
+    "TVInputHDMI4": {
+      "key": "TVInputHDMI4",
+      "description": "Switches to the input \"HDMI 4.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_HDMI_4",
+        "code": "246"
+      }
+    },
+    "TVInputVGA1": {
+      "key": "TVInputVGA1",
+      "description": "Switches to the input \"VGA 1.\"",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_INPUT_VGA_1",
+        "code": "251"
+      }
+    },
+    "TVMediaContext": {
+      "key": "TVMediaContext",
+      "description": "The Media Context menu key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_MEDIA_CONTEXT_MENU",
+        "code": "257"
+      }
+    },
+    "TVNetwork": {
+      "key": "TVNetwork",
+      "description": "Toggle the TV's network connection on and off.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_NETWORK",
+        "code": "241"
+      }
+    },
+    "TVNumberEntry": {
+      "key": "TVNumberEntry",
+      "description": "Put the TV into number entry mode.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_NUMBER_ENTRY",
+        "code": "234"
+      }
+    },
+    "TVPower": {
+      "key": "TVPower",
+      "description": "The device's power button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_POWER",
+        "code": "177"
+      }
+    },
+    "TVRadioService": {
+      "key": "TVRadioService",
+      "description": "Radio button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_RADIO_SERVICE",
+        "code": "232"
+      }
+    },
+    "TVSatellite": {
+      "key": "TVSatellite",
+      "description": "Satellite button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_SATELLITE",
+        "code": "237"
+      }
+    },
+    "TVSatelliteBS": {
+      "key": "TVSatelliteBS",
+      "description": "Broadcast Satellite button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_SATELLITE_BS",
+        "code": "238"
+      }
+    },
+    "TVSatelliteCS": {
+      "key": "TVSatelliteCS",
+      "description": "Communication Satellite button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_SATELLITE_CS",
+        "code": "239"
+      }
+    },
+    "TVSatelliteToggle": {
+      "key": "TVSatelliteToggle",
+      "description": "Toggles among available satellites.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_SATELLITE_SERVICE",
+        "code": "240"
+      }
+    },
+    "TVTerrestrialAnalog": {
+      "key": "TVTerrestrialAnalog",
+      "description": "Selects analog terrestrial television service (analog cable or antenna reception).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_TERRESTRIAL_ANALOG",
+        "code": "235"
+      }
+    },
+    "TVTerrestrialDigital": {
+      "key": "TVTerrestrialDigital",
+      "description": "Selects digital terrestrial television service (digital cable or antenna reception).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_TERRESTRIAL_DIGITAL",
+        "code": "236"
+      }
+    },
+    "TVTimer": {
+      "key": "TVTimer",
+      "description": "Timer programming button.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_TIMER_PROGRAMMING",
+        "code": "258"
+      }
+    },
+    "AVRInput": {
+      "key": "AVRInput",
+      "description": "Changes the input mode on an external audio/video receiver (AVR) unit.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_AVR_INPUT",
+        "code": "182"
+      }
+    },
+    "AVRPower": {
+      "key": "AVRPower",
+      "description": "Toggles the power on an external AVR unit.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_AVR_POWER",
+        "code": "181"
+      }
+    },
+    "ColorF0Red": {
+      "key": "ColorF0Red",
+      "description": "General-purpose media function key, color-coded red. This has index 0 among the colored keys.",
+      "windows": {
+        "name": "VK_COLORED_KEY_0",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PROG_RED",
+        "code": "183"
+      }
+    },
+    "ColorF1Green": {
+      "key": "ColorF1Green",
+      "description": "General-purpose media function key, color-coded green. This has index 1 among the colored keys.",
+      "windows": {
+        "name": "VK_COLORED_KEY_1",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PROG_GREEN",
+        "code": "184"
+      }
+    },
+    "ColorF2Yellow": {
+      "key": "ColorF2Yellow",
+      "description": "General-purpose media function key, color-coded yellow. This has index 2 among the colored keys.",
+      "windows": {
+        "name": "VK_COLORED_KEY_2",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PROG_YELLOW",
+        "code": "185"
+      }
+    },
+    "ColorF3Blue": {
+      "key": "ColorF3Blue",
+      "description": "General-purpose media function key, color-coded blue. This has index 3 among the colored keys.",
+      "windows": {
+        "name": "VK_COLORED_KEY_3",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PROG_BLUE",
+        "code": "186"
+      }
+    },
+    "ColorF4Grey": {
+      "key": "ColorF4Grey",
+      "description": "General-purpose media function key, color-coded grey. This has index 4 among the colored keys.",
+      "windows": {
+        "name": "VK_COLORED_KEY_4",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PROG_GREY",
+        "code": ""
+      }
+    },
+    "ColorF5Brown": {
+      "key": "ColorF5Brown",
+      "description": "General-purpose media function key, color-coded brown. This has index 5 among the colored keys.",
+      "windows": {
+        "name": "VK_COLORED_KEY_5",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PROG_BROWN",
+        "code": ""
+      }
+    },
+    "ClosedCaptionToggle": {
+      "key": "ClosedCaptionToggle",
+      "description": "Toggles closed captioning on and off.",
+      "windows": {
+        "name": "VK_CC",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_CAPTIONS",
+        "code": "175"
+      }
+    },
+    "Dimmer": {
+      "key": "Dimmer",
+      "description": "Adjusts the brightness of the device by toggling between two brightness levels or by cycling among multiple brightness levels.",
+      "windows": {
+        "name": "VK_DIMMER",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "DisplaySwap": {
+      "key": "DisplaySwap",
+      "description": "Cycles among video sources.",
+      "windows": {
+        "name": "VK_DISPLAY_SWAP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "DVR": {
+      "key": "DVR",
+      "description": "Switches the input source to the Digital Video Recorder (DVR).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_DVR",
+        "code": "173"
+      }
+    },
+    "Exit": {
+      "key": "Exit",
+      "description": "The Exit button, which exits the current application or menu.",
+      "windows": {
+        "name": "VK_EXIT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Exit",
+        "code": "0x0102000a"
+      },
+      "android": null
+    },
+    "FavoriteClear0": {
+      "key": "FavoriteClear0",
+      "description": "Clears the program or content stored in the first favorites list slot.",
+      "windows": {
+        "name": "VK_CLEAR_FAVORITE_0",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteClear1": {
+      "key": "FavoriteClear1",
+      "description": "Clears the program or content stored in the second favorites list slot.",
+      "windows": {
+        "name": "VK_CLEAR_FAVORITE_1",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteClear2": {
+      "key": "FavoriteClear2",
+      "description": "Clears the program or content stored in the third favorites list slot.",
+      "windows": {
+        "name": "VK_CLEAR_FAVORITE_2",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteClear3": {
+      "key": "FavoriteClear3",
+      "description": "Clears the program or content stored in the fourth favorites list slot.",
+      "windows": {
+        "name": "VK_CLEAR_FAVORITE_3",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteRecall0": {
+      "key": "FavoriteRecall0",
+      "description": "Selects (recalls) the program or content stored in the first favorites list slot.",
+      "windows": {
+        "name": "VK_RECALL_FAVORITE_0",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteRecall1": {
+      "key": "FavoriteRecall1",
+      "description": "Selects (recalls) the program or content stored in the second favorites list slot.",
+      "windows": {
+        "name": "VK_RECALL_FAVORITE_1",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteRecall2": {
+      "key": "FavoriteRecall2",
+      "description": "Selects (recalls) the program or content stored in the third favorites list slot.",
+      "windows": {
+        "name": "VK_RECALL_FAVORITE_2",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteRecall3": {
+      "key": "FavoriteRecall3",
+      "description": "Selects (recalls) the program or content stored in the fourth favorites list slot.",
+      "windows": {
+        "name": "VK_RECALL_FAVORITE_3",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteStore0": {
+      "key": "FavoriteStore0",
+      "description": "Stores the current program or content into the first favorites list slot.",
+      "windows": {
+        "name": "VK_STORE_FAVORITE_0",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteStore1": {
+      "key": "FavoriteStore1",
+      "description": "Stores the current program or content into the second favorites list slot.",
+      "windows": {
+        "name": "VK_STORE_FAVORITE_1",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteStore2": {
+      "key": "FavoriteStore2",
+      "description": "Stores the current program or content into the third favorites list slot.",
+      "windows": {
+        "name": "VK_STORE_FAVORITE_2",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "FavoriteStore3": {
+      "key": "FavoriteStore3",
+      "description": "Stores the current program or content into the fourth favorites list slot.",
+      "windows": {
+        "name": "VK_STORE_FAVORITE_3",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Guide": {
+      "key": "Guide",
+      "description": "Toggles the display of the program or content guide.",
+      "windows": {
+        "name": "VK_GUIDE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Guide",
+        "code": "0x0100011A"
+      },
+      "android": {
+        "name": "KEYCODE_GUIDE",
+        "code": "172"
+      }
+    },
+    "GuideNextDay": {
+      "key": "GuideNextDay",
+      "description": "If the guide is currently displayed, this button tells the guide to display the next day's content.",
+      "windows": {
+        "name": "VK_NEXT_DAY",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "GuidePreviousDay": {
+      "key": "GuidePreviousDay",
+      "description": "If the guide is currently displayed, this button tells the guide to display the previous day's content.",
+      "windows": {
+        "name": "VK_PREV_DAY",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Info": {
+      "key": "Info",
+      "description": "Toggles the display of information about the currently selected content, program, or media.",
+      "windows": {
+        "name": "VK_INFO",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Info",
+        "code": "0x0100011B"
+      },
+      "android": {
+        "name": "KEYCODE_INFO",
+        "code": "165"
+      }
+    },
+    "InstantReplay": {
+      "key": "InstantReplay",
+      "description": "Tells the device to perform an instant replay (typically some form of jumping back a short amount of time then playing it again, possibly but not usually in slow motion).",
+      "windows": {
+        "name": "VK_INSTANT_REPLAY",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Link": {
+      "key": "Link",
+      "description": "Opens content linked to the current program, if available and possible.",
+      "windows": {
+        "name": "VK_LINK",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ListProgram": {
+      "key": "ListProgram",
+      "description": "Lists the current program.",
+      "windows": {
+        "name": "VK_LIST",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "LiveContent": {
+      "key": "LiveContent",
+      "description": "Toggles a display listing currently available live content or programs.",
+      "windows": {
+        "name": "VK_LIVE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Lock": {
+      "key": "Lock",
+      "description": "Locks or unlocks the currently selected content or program.",
+      "windows": {
+        "name": "VK_LOCK",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "MediaApps": {
+      "key": "MediaApps",
+      "description": "Presents a list of media applications, such as photo viewers, audio and video players, and games.",
+      "windows": {
+        "name": "VK_APPS",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "MediaAudioTrack": {
+      "key": "MediaAudioTrack",
+      "description": "The Audio Track key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_AudioCycleTrack",
+        "code": "0x01000106"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_AUDIO_TRACK",
+        "code": "222"
+      }
+    },
+    "MediaLast": {
+      "key": "MediaLast",
+      "description": "Jumps back to the last-viewed content, program, or other media.",
+      "windows": {
+        "name": "VK_LAST",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MediaLast",
+        "code": "0x0100FFFF"
+      },
+      "android": {
+        "name": "KEYCODE_LAST_CHANNEL",
+        "code": "229"
+      }
+    },
+    "MediaSkipBackward": {
+      "key": "MediaSkipBackward",
+      "description": "Skips backward to the previous content or program.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MEDIA_SKIP_BACKWARD",
+        "code": ""
+      }
+    },
+    "MediaSkipForward": {
+      "key": "MediaSkipForward",
+      "description": "Skips forward to the next content or program.",
+      "windows": {
+        "name": "VK_SKIP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MEDIA_SKIP_FORWARD",
+        "code": ""
+      }
+    },
+    "MediaStepBackward": {
+      "key": "MediaStepBackward",
+      "description": "Steps backward to the previous content or program.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MEDIA_STEP_BACKWARD",
+        "code": ""
+      }
+    },
+    "MediaStepForward": {
+      "key": "MediaStepForward",
+      "description": "Steps forward to the next content or program.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_MEDIA_SKIP_FORWARD",
+        "code": ""
+      }
+    },
+    "MediaTopMenu": {
+      "key": "MediaTopMenu",
+      "description": "Top Menu button. Opens the media's main menu (e.g., for a DVD or Blu-Ray disc).",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_TopMenu",
+        "code": "0x0100010A"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_TOP_MENU",
+        "code": ""
+      }
+    },
+    "NavigateIn": {
+      "key": "NavigateIn",
+      "description": "Navigates into a submenu or option.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NAVIGATE_IN",
+        "code": ""
+      }
+    },
+    "NavigateNext": {
+      "key": "NavigateNext",
+      "description": "Navigates to the next item.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NAVIGATE_NEXT",
+        "code": ""
+      }
+    },
+    "NavigateOut": {
+      "key": "NavigateOut",
+      "description": "Navigates out of the current screen or menu.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NAVIGATE_OUT",
+        "code": ""
+      }
+    },
+    "NavigatePrevious": {
+      "key": "NavigatePrevious",
+      "description": "Navigates to the previous item.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NAVIGATE_PREVIOUS",
+        "code": ""
+      }
+    },
+    "NextFavoriteChannel": {
+      "key": "NextFavoriteChannel",
+      "description": "Cycles to the next channel in the favorites list.",
+      "windows": {
+        "name": "VK_NEXT_FAVORITE_CHANNEL",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "NextUserProfile": {
+      "key": "NextUserProfile",
+      "description": "Cycles to the next saved user profile, if this feature is supported and multiple profiles exist.",
+      "windows": {
+        "name": "VK_USER",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "OnDemand": {
+      "key": "OnDemand",
+      "description": "Opens the user interface for selecting on demand content or programs to watch.",
+      "windows": {
+        "name": "VK_ON_DEMAND",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Pairing": {
+      "key": "Pairing",
+      "description": "Starts the process of pairing the remote with a device to be controlled.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_PAIRING",
+        "code": "225"
+      }
+    },
+    "PinPDown": {
+      "key": "PinPDown",
+      "description": "A button to move the picture-in-picture view downward.",
+      "windows": {
+        "name": "VK_PINP_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "PinPMove": {
+      "key": "PinPMove",
+      "description": "A button to control moving the picture-in-picture view.",
+      "windows": {
+        "name": "VK_PINP_MOVE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "PinPToggle": {
+      "key": "PinPToggle",
+      "description": "Toggles display of the picture-in-picture view on and off.",
+      "windows": {
+        "name": "VK_PINP_TOGGLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "PinPUp": {
+      "key": "PinPUp",
+      "description": "A button to move the picture-in-picture view upward.",
+      "windows": {
+        "name": "VK_PINP_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "PlaySpeedDown": {
+      "key": "PlaySpeedDown",
+      "description": "Decreases the media playback rate.",
+      "windows": {
+        "name": "VK_PLAY_SPEED_DOWN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "PlaySpeedReset": {
+      "key": "PlaySpeedReset",
+      "description": "Returns the media playback rate to normal.",
+      "windows": {
+        "name": "VK_PLAY_SPEED_RESET",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "PlaySpeedUp": {
+      "key": "PlaySpeedUp",
+      "description": "Increases the media playback rate.",
+      "windows": {
+        "name": "VK_PLAY_SPEED_UP",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "RandomToggle": {
+      "key": "RandomToggle",
+      "description": "Toggles random media (also known as \"shuffle mode\") on and off.",
+      "windows": {
+        "name": "VK_RANDOM_TOGGLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "RcLowBattery": {
+      "key": "RcLowBattery",
+      "description": "A code sent when the remote control's battery is low. This doesn't actually correspond to a physical key at all.",
+      "windows": {
+        "name": "VK_RC_LOW_BATTERY",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "RecordSpeedNext": {
+      "key": "RecordSpeedNext",
+      "description": "Cycles among the available media recording speeds.",
+      "windows": {
+        "name": "VK_RECORD_SPEED_NEXT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "RfBypass": {
+      "key": "RfBypass",
+      "description": "Toggles radio frequency (RF) input bypass mode on and off. RF bypass mode passes RF input directly to the RF output without any processing or filtering.",
+      "windows": {
+        "name": "VK_RF_BYPASS",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ScanChannelsToggle": {
+      "key": "ScanChannelsToggle",
+      "description": "Toggles the channel scan mode on and off. This is a mode which flips through channels automatically until the user stops the scan.",
+      "windows": {
+        "name": "VK_SCAN_CHANNELS_TOGGLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ScreenModeNext": {
+      "key": "ScreenModeNext",
+      "description": "Cycles through the available screen display modes.",
+      "windows": {
+        "name": "VK_SCREEN_MODE_NEXT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Settings": {
+      "key": "Settings",
+      "description": "Toggles display of the device's settings screen on and off.",
+      "windows": {
+        "name": "VK_SETTINGS",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Settings",
+        "code": "0x0100011C"
+      },
+      "android": {
+        "name": "KEYCODE_SETTINGS",
+        "code": ""
+      }
+    },
+    "SplitScreenToggle": {
+      "key": "SplitScreenToggle",
+      "description": "Toggles split screen display mode on and off.",
+      "windows": {
+        "name": "VK_SPLIT_SCREEN_TOGGLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_SplitScreen",
+        "code": "0x010000ED"
+      },
+      "android": null
+    },
+    "STBInput": {
+      "key": "STBInput",
+      "description": "Cycles among input modes on an external set-top box (STB).",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_STB_INPUT",
+        "code": "180"
+      }
+    },
+    "STBPower": {
+      "key": "STBPower",
+      "description": "Toggles on and off an external STB.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_STB_POWER",
+        "code": "179"
+      }
+    },
+    "Subtitle": {
+      "key": "Subtitle",
+      "description": "Toggles the display of subtitles on and off if they're available.",
+      "windows": {
+        "name": "VK_SUBTITLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_CAPTIONS",
+        "code": "175"
+      }
+    },
+    "Teletext": {
+      "key": "Teletext",
+      "description": "Toggles display of teletext, if available.",
+      "windows": {
+        "name": "VK_TELETEXT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_TV_TELETEXT",
+        "code": "233"
+      }
+    },
+    "VideoModeNext": {
+      "key": "VideoModeNext",
+      "description": "Cycles through the available video modes.",
+      "windows": {
+        "name": "VK_VIDEO_MODE_NEXT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Wink": {
+      "key": "Wink",
+      "description": "Causes the device to identify itself in some fashion, such as by flashing a light, briefly changing the brightness of indicator lights, or emitting a tone.",
+      "windows": {
+        "name": "VK_WINK",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "ZoomToggle": {
+      "key": "ZoomToggle",
+      "description": "Toggles between fullscreen and scaled content display, or otherwise change the magnification level.",
+      "windows": {
+        "name": "VK_ZOOM",
+        "code": "0xFB"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Zoom",
+        "code": "0x01020006"
+      },
+      "android": {
+        "name": "KEYCODE_TV_ZOOM_MODE",
+        "code": "255"
+      }
+    },
+    "SpeechCorrectionList": {
+      "key": "SpeechCorrectionList",
+      "description": "Presents a list of possible corrections for a word which was incorrectly identified.",
+      "windows": {
+        "name": "APPCOMMAND_CORRECTION_LIST",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "SpeechInputToggle": {
+      "key": "SpeechInputToggle",
+      "description": "Toggles between dictation mode and command/control mode. This lets the speech engine know whether to interpret spoken words as input text or as commands.",
+      "windows": {
+        "name": "APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Close": {
+      "key": "Close",
+      "description": "Closes the current document or message. Must not exit the application.",
+      "windows": {
+        "name": "APPCOMMAND_CLOSE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Close",
+        "code": "0x010000CE"
+      },
+      "android": {
+        "name": "KEYCODE_MEDIA_CLOSE",
+        "code": "128"
+      },
+      "unicode": "✕"
+    },
+    "New": {
+      "key": "New",
+      "description": "Creates a new document or message.",
+      "windows": {
+        "name": "APPCOMMAND_NEW",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_New",
+        "code": "0x01000120"
+      },
+      "android": null
+    },
+    "Open": {
+      "key": "Open",
+      "description": "Opens an existing document or message.",
+      "windows": {
+        "name": "APPCOMMAND_OPEN",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Open",
+        "code": "0x01000121"
+      },
+      "android": null
+    },
+    "Print": {
+      "key": "Print",
+      "description": "Prints the current document or message.",
+      "windows": {
+        "name": "APPCOMMAND_PRINT",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Print",
+        "code": "0x01000009"
+      },
+      "android": null
+    },
+    "Save": {
+      "key": "Save",
+      "description": "Saves the current document or message.",
+      "windows": {
+        "name": "APPCOMMAND_SAVE",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Save",
+        "code": "0x010000EA"
+      },
+      "android": null,
+      "unicode": "💾"
+    },
+    "SpellCheck": {
+      "key": "SpellCheck",
+      "description": "Starts spell checking the current document.",
+      "windows": {
+        "name": "APPCOMMAND_SPELL_CHECK",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Spell",
+        "code": "0x010000EC"
+      },
+      "android": null
+    },
+    "MailForward": {
+      "key": "MailForward",
+      "description": "Opens the user interface to forward a message.",
+      "windows": {
+        "name": "APPCOMMAND_FORWARD_MAIL",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_MailForward",
+        "code": "0x010000FB"
+      },
+      "android": null
+    },
+    "MailReply": {
+      "key": "MailReply",
+      "description": "Opens the user interface to reply to a message.",
+      "windows": {
+        "name": "APPCOMMAND_REPLY_TO_MAIL",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Reply",
+        "code": "0x010000E5"
+      },
+      "android": null
+    },
+    "MailSend": {
+      "key": "MailSend",
+      "description": "Sends the current message.",
+      "windows": {
+        "name": "APPCOMMAND_SEND_MAIL",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Send",
+        "code": "0x010000EB"
+      },
+      "android": null
+    },
+    "LaunchCalculator": {
+      "key": "LaunchCalculator",
+      "description": "The Calculator key, often labeled with an icon. This is often used as a generic application launcher key (APPCOMMAND_LAUNCH_APP2).",
+      "windows": {
+        "name": "APPCOMMAND_LAUNCH_APP2",
+        "code": ""
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Calculator",
+        "code": "0x010000CB"
+      },
+      "android": {
+        "name": "KEYCODE_CALCULATOR",
+        "code": "210"
+      },
+      "alternativeNames": ["Calculator", "Calc"]
+    },
+    "LaunchCalendar": {
+      "key": "LaunchCalendar",
+      "description": "The Calendar key. Often labeled with an icon.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Calendar",
+        "code": "0x010000E4"
+      },
+      "android": {
+        "name": "KEYCODE_CALENDAR",
+        "code": "208"
+      }
+    },
+    "LaunchContacts": {
+      "key": "LaunchContacts",
+      "description": "The Contacts key.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_CONTACTS",
+        "code": "207"
+      }
+    },
+    "LaunchMail": {
+      "key": "LaunchMail",
+      "description": "The Mail key. Often labeled with an icon.",
+      "windows": {
+        "name": "VK_LAUNCH_MAIL",
+        "code": "0xB4"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchMail",
+        "code": "0x010000A0"
+      },
+      "android": {
+        "name": "KEYCODE_ENVELOPE",
+        "code": "65"
+      },
+      "alternativeNames": ["Mail", "Email"]
+    },
+    "LaunchMediaPlayer": {
+      "key": "LaunchMediaPlayer",
+      "description": "The Media Player key.",
+      "windows": {
+        "name": "VK_LAUNCH_MEDIA_SELECT",
+        "code": "0xB5"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchMedia",
+        "code": "0x010000A1"
+      },
+      "android": null
+    },
+    "LaunchMusicPlayer": {
+      "key": "LaunchMusicPlayer",
+      "description": "The Music Player key. Often labeled with an icon.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Music",
+        "code": "0x010000FD"
+      },
+      "android": {
+        "name": "KEYCODE_MUSIC",
+        "code": "209"
+      },
+      "alternativeNames": ["Music"]
+    },
+    "LaunchMyComputer": {
+      "key": "LaunchMyComputer",
+      "description": "The My Computer key on Windows keyboards. This is often used as a generic application launcher key (APPCOMMAND_LAUNCH_APP1).",
+      "windows": {
+        "name": "APPCOMMAND_LAUNCH_APP1",
+        "code": ""
+      },
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "LaunchPhone": {
+      "key": "LaunchPhone",
+      "description": "The Phone key. Opens the phone dialer application (if one is present).",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Phone",
+        "code": "0x010000E3"
+      },
+      "android": null
+    },
+    "LaunchScreenSaver": {
+      "key": "LaunchScreenSaver",
+      "description": "The Screen Saver key.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_ScreenSaver",
+        "code": "0x010000BA"
+      },
+      "android": null
+    },
+    "LaunchSpreadsheet": {
+      "key": "LaunchSpreadsheet",
+      "description": "The Spreadsheet key. This key may be labeled with an icon.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Excel",
+        "code": "0x010000D4"
+      },
+      "android": null
+    },
+    "LaunchWebBrowser": {
+      "key": "LaunchWebBrowser",
+      "description": "The Web Browser key. This key is frequently labeled with an icon.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_WWW",
+        "code": "0x010000BB"
+      },
+      "android": {
+        "name": "KEYCODE_EXPLORER",
+        "code": "64"
+      },
+      "alternativeNames": ["Browser", "Web"]
+    },
+    "LaunchWebCam": {
+      "key": "LaunchWebCam",
+      "description": "The WebCam key. Opens the webcam application.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_WebCam",
+        "code": "0x010000FA"
+      },
+      "android": null
+    },
+    "LaunchWordProcessor": {
+      "key": "LaunchWordProcessor",
+      "description": "The Word Processor key. This may be an icon of a specific word processor application, or a generic document icon.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Word",
+        "code": "0x010000F4"
+      },
+      "android": null
+    },
+    "LaunchApplication1": {
+      "key": "LaunchApplication1",
+      "description": "The first generic application launcher button.",
+      "windows": {
+        "name": "VK_LAUNCH_APP1",
+        "code": "0xB6"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch0",
+        "code": "0x010000A2"
+      },
+      "android": null
+    },
+    "LaunchApplication2": {
+      "key": "LaunchApplication2",
+      "description": "The second generic application launcher button.",
+      "windows": {
+        "name": "VK_LAUNCH_APP2",
+        "code": "0xB7"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch1",
+        "code": "0x010000A3"
+      },
+      "android": null
+    },
+    "LaunchApplication3": {
+      "key": "LaunchApplication3",
+      "description": "The third generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch2",
+        "code": "0x010000A4"
+      },
+      "android": null
+    },
+    "LaunchApplication4": {
+      "key": "LaunchApplication4",
+      "description": "The fourth generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch3",
+        "code": "0x010000A5"
+      },
+      "android": null
+    },
+    "LaunchApplication5": {
+      "key": "LaunchApplication5",
+      "description": "The fifth generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch4",
+        "code": "0x010000A6"
+      },
+      "android": null
+    },
+    "LaunchApplication6": {
+      "key": "LaunchApplication6",
+      "description": "The sixth generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch5",
+        "code": "0x010000A7"
+      },
+      "android": null
+    },
+    "LaunchApplication7": {
+      "key": "LaunchApplication7",
+      "description": "The seventh generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch6",
+        "code": "0x010000A8"
+      },
+      "android": null
+    },
+    "LaunchApplication8": {
+      "key": "LaunchApplication8",
+      "description": "The eighth generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch7",
+        "code": "0x010000A9"
+      },
+      "android": null
+    },
+    "LaunchApplication9": {
+      "key": "LaunchApplication9",
+      "description": "The ninth generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch8",
+        "code": "0x010000AA"
+      },
+      "android": null
+    },
+    "LaunchApplication10": {
+      "key": "LaunchApplication10",
+      "description": "The 10th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Launch9",
+        "code": "0x010000AB"
+      },
+      "android": null
+    },
+    "LaunchApplication11": {
+      "key": "LaunchApplication11",
+      "description": "The 11th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchA",
+        "code": "0x010000AC"
+      },
+      "android": null
+    },
+    "LaunchApplication12": {
+      "key": "LaunchApplication12",
+      "description": "The 12th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchB",
+        "code": "0x010000AD"
+      },
+      "android": null
+    },
+    "LaunchApplication13": {
+      "key": "LaunchApplication13",
+      "description": "The 13th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchC",
+        "code": "0x010000AE"
+      },
+      "android": null
+    },
+    "LaunchApplication14": {
+      "key": "LaunchApplication14",
+      "description": "The 14th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchD",
+        "code": "0x010000AF"
+      },
+      "android": null
+    },
+    "LaunchApplication15": {
+      "key": "LaunchApplication15",
+      "description": "The 15th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchE",
+        "code": "0x010000B0"
+      },
+      "android": null
+    },
+    "LaunchApplication16": {
+      "key": "LaunchApplication16",
+      "description": "The 16th generic application launcher button.",
+      "windows": null,
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_LaunchF",
+        "code": "0x010000B1"
+      },
+      "android": null
+    },
+    "BrowserBack": {
+      "key": "BrowserBack",
+      "description": "Navigates to the previous content or page in the current Web view's history.",
+      "windows": {
+        "name": "VK_BROWSER_BACK",
+        "code": "0xA6"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Back",
+        "code": "0x01000061"
+      },
+      "android": {
+        "name": "KEYCODE_BACK",
+        "code": "4"
+      },
+      "unicode": "⏴"
+    },
+    "BrowserFavorites": {
+      "key": "BrowserFavorites",
+      "description": "Opens the user's list of bookmarks/favorites.",
+      "windows": {
+        "name": "VK_BROWSER_FAVORITES",
+        "code": "0xAB"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Favorites",
+        "code": "0x01000091"
+      },
+      "android": {
+        "name": "KEYCODE_BOOKMARK",
+        "code": "174"
+      },
+      "alternativeNames": ["Favorites", "Bookmarks"]
+    },
+    "BrowserForward": {
+      "key": "BrowserForward",
+      "description": "Navigates to the next content or page in the current Web view's history.",
+      "windows": {
+        "name": "VK_BROWSER_FORWARD",
+        "code": "0xA7"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Forward",
+        "code": "0x01000062"
+      },
+      "android": {
+        "name": "KEYCODE_FORWARD",
+        "code": "125"
+      },
+      "unicode": "⏵",
+      "alternativeNames": ["Forward"]
+    },
+    "BrowserHome": {
+      "key": "BrowserHome",
+      "description": "Navigates to the user's preferred home page.",
+      "windows": {
+        "name": "VK_BROWSER_HOME",
+        "code": "0xAC"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_HomePage",
+        "code": "0x01000090"
+      },
+      "android": {
+        "name": "KEYCODE_HOME",
+        "code": "3"
+      },
+      "unicode": "⌂"
+    },
+    "BrowserRefresh": {
+      "key": "BrowserRefresh",
+      "description": "Refreshes the current page or content.",
+      "windows": {
+        "name": "VK_BROWSER_REFRESH",
+        "code": "0xA8"
+      },
+      "mac": null,
+      "qt": null,
+      "android": null,
+      "alternativeNames": ["Refresh", "Reload"]
+    },
+    "BrowserSearch": {
+      "key": "BrowserSearch",
+      "description": "Activates the user's preferred search engine or the search interface within their browser.",
+      "windows": {
+        "name": "VK_BROWSER_SEARCH",
+        "code": "0xAA"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Search",
+        "code": "0x01000092"
+      },
+      "android": {
+        "name": "KEYCODE_SEARCH",
+        "code": "84"
+      },
+      "unicode": "🔍",
+      "alternativeNames": ["Search"]
+    },
+    "BrowserStop": {
+      "key": "BrowserStop",
+      "description": "Stops loading the currently displayed Web view or content.",
+      "windows": {
+        "name": "VK_BROWSER_STOP",
+        "code": "0xA9"
+      },
+      "mac": null,
+      "qt": {
+        "name": "Qt::Key_Search",
+        "code": "0x01000063"
+      },
+      "android": null
+    },
+    "Decimal": {
+      "key": "Decimal",
+      "description": "The decimal point key (typically . or , depending on the region). In newer browsers, this value to be the character generated by the decimal key (one of those two characters).",
+      "windows": {
+        "name": "VK_DECIMAL",
+        "code": "0x6E"
+      },
+      "mac": {
+        "name": "kVK_ANSI_KeypadDecimal",
+        "code": "0x41"
+      },
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NUMPAD_DOT",
+        "code": "158"
+      },
+      "alternativeNames": ["Numpad .", "Numpad Decimal"]
+    },
+    "Key11": {
+      "key": "Key11",
+      "description": "The 11 key found on certain media numeric keypads.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Key12": {
+      "key": "Key12",
+      "description": "The 12 key found on certain media numeric keypads.",
+      "windows": null,
+      "mac": null,
+      "qt": null,
+      "android": null
+    },
+    "Multiply": {
+      "key": "Multiply",
+      "description": "The numeric keypad's multiplication key, *.",
+      "windows": {
+        "name": "VK_MULTIPLY",
+        "code": "0x6A"
+      },
+      "mac": {
+        "name": "kVK_ANSI_KeypadMultiply",
+        "code": "0x43"
+      },
+      "qt": {
+        "name": "Qt::Key_Multiply",
+        "code": "0x0D7"
+      },
+      "android": {
+        "name": "KEYCODE_NUMPAD_MULTIPLY",
+        "code": "155"
+      },
+      "unicode": "×",
+      "alternativeNames": ["Numpad *", "Numpad Multiply"]
+    },
+    "Add": {
+      "key": "Add",
+      "description": "The numeric keypad's addition key, +.",
+      "windows": {
+        "name": "VK_ADD",
+        "code": "0x6B"
+      },
+      "mac": {
+        "name": "kVK_ANSI_KeypadPlus",
+        "code": "0x45"
+      },
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NUMPAD_ADD",
+        "code": "157"
+      },
+      "alternativeNames": ["Numpad +", "Numpad Add"]
+    },
+    "Divide": {
+      "key": "Divide",
+      "description": "The numeric keypad's division key, /.",
+      "windows": {
+        "name": "VK_DIVIDE",
+        "code": "0x6F"
+      },
+      "mac": {
+        "name": "kVK_ANSI_KeypadDivide",
+        "code": "0x4B"
+      },
+      "qt": {
+        "name": "Qt::Key_Slash",
+        "code": "0x2F"
+      },
+      "android": {
+        "name": "KEYCODE_NUMPAD_DIVIDE",
+        "code": "154"
+      },
+      "alternativeNames": ["Numpad /", "Numpad Divide"]
+    },
+    "Subtract": {
+      "key": "Subtract",
+      "description": "The numeric keypad's subtraction key, -.",
+      "windows": {
+        "name": "VK_SUBTRACT",
+        "code": "0x6D"
+      },
+      "mac": {
+        "name": "kVK_ANSI_KeypadMinus",
+        "code": "0x4E"
+      },
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NUMPAD_SUBTRACT",
+        "code": "156"
+      },
+      "unicode": "−",
+      "alternativeNames": ["Numpad -", "Numpad Subtract"]
+    },
+    "Separator": {
+      "key": "Separator",
+      "description": "The numeric keypad's places separator character. (In the United States this is a comma, but elsewhere it is frequently a period.)",
+      "windows": {
+        "name": "VK_SEPARATOR",
+        "code": "0x6C"
+      },
+      "mac": {
+        "name": "kVK_JIS_KeypadComma",
+        "code": "0x5F"
+      },
+      "qt": null,
+      "android": {
+        "name": "KEYCODE_NUMPAD_COMMA",
+        "code": "159"
+      },
+      "alternativeNames": ["Numpad Separator"]
+    }
+  }
+}

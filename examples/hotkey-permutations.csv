@@ -1,0 +1,175 @@
+Hotkey,Label
+⌘ A,Meta: unicode ⌘
+Command A,Meta: Command alias
+Cmd A,Meta: Cmd alias
+Meta A,Meta: Meta alias
+Win A,Meta: Win alias
+Windows A,Meta: Windows alias
+⊞ A,Meta: ⊞ alias
+⌃ A,Control: unicode ⌃
+Control A,Control: full name
+Ctrl A,Control: Ctrl alias
+^ A,Control: ^ alias
+⌥ A,Alt: unicode ⌥
+Alt A,Alt: Alt
+Option A,Alt: Option alias
+⇧ A,Shift: unicode ⇧
+Shift A,Shift: full name
+⌘ a,Meta + lowercase a (auto-uppercased)
+⌘ A,Meta + uppercase A
+⌘ 0,Meta + digit 0
+⌘ 1,Meta + digit 1
+⌘ 9,Meta + digit 9
+⌘ F1,Meta + F1
+⌘ F12,Meta + F12
+⌘ +,Meta + plus key
+⌘ -,Meta + minus key
+⌘ =,Meta + equals key
+⌘ [,Meta + open bracket
+⌘ ],Meta + close bracket
+⌘ /,Meta + slash
+⌘ \,Meta + backslash
+⌘ .,Meta + period
+"⌘ ,",Meta + comma
+⌘ ;,Meta + semicolon
+⌘ ',Meta + apostrophe
+⌘  ,Meta + space (space char)
+⌘ Space,Meta + Space alias
+⌘ Tab,Meta + Tab
+⌘ Enter,Meta + Enter
+⌘ Return,Meta + Return alias
+⌘ Escape,Meta + Escape
+⌘ Esc,Meta + Esc alias
+⌘ Backspace,Meta + Backspace
+⌘ Bksp,Meta + Bksp alias
+⌘ Delete,Meta + Delete
+⌘ Del,Meta + Del alias
+⌘ ArrowLeft,Meta + ArrowLeft
+⌘ ArrowRight,Meta + ArrowRight
+⌘ ArrowUp,Meta + ArrowUp
+⌘ ArrowDown,Meta + ArrowDown
+⌘ Left,Meta + Left alias
+⌘ Right,Meta + Right alias
+⌘ Up,Meta + Up alias
+⌘ Down,Meta + Down alias
+⌘ Home,Meta + Home
+⌘ End,Meta + End
+⌘ PageUp,Meta + PageUp
+⌘ PageDown,Meta + PageDown
+⌘ PgUp,Meta + PgUp alias
+⌘ PgDn,Meta + PgDn alias
+⌘ ⇧ A,Meta + Shift + A (unicode)
+⌘ ⌥ A,Meta + Alt + A (unicode)
+⌘ ⌃ A,Meta + Control + A (unicode)
+⌘ ⇧ ⌥ A,Meta + Shift + Alt + A (unicode)
+⌃ ⇧ A,Control + Shift + A (unicode)
+⌃ ⌥ A,Control + Alt + A (unicode)
+⇧ ⌥ A,Shift + Alt + A (unicode)
+Command+Shift+A,Meta + Shift: plus-separated names
+Ctrl+Alt+Delete,Ctrl + Alt + Delete: classic
+Ctrl+Shift+Z,Ctrl + Shift + Z: plus-separated
+Meta+Alt+Shift+Control+A,all four modifiers
+⌘+T,Meta + T: plus separator with unicode
+⌘+⇧+T,Meta + Shift + T: all plus-separated unicode
+Ctrl Z,Control + Z: space-separated names
+Option+⌘+H,Alt + Meta + H: mixed name/unicode
+F1,Function key F1
+F2,Function key F2
+F3,Function key F3
+F4,Function key F4
+F5,Function key F5
+F6,Function key F6
+F7,Function key F7
+F8,Function key F8
+F9,Function key F9
+F10,Function key F10
+F11,Function key F11
+F12,Function key F12
+F13,Function key F13
+F14,Function key F14
+F15,Function key F15
+F16,Function key F16
+F17,Function key F17
+F18,Function key F18
+F19,Function key F19
+F20,Function key F20
+Fn1,F1 alias Fn1
+Fn12,F12 alias Fn12
+⇧ F5,Shift + F5
+⌃ F4,Control + F4
+⌘ F5,Meta + F5
+Escape,Escape alone
+Esc,Esc alias
+Enter,Enter alone
+Return,Return alias
+Tab,Tab alone
+ ,Space (space char alone)
+Space,Space alias
+Spacebar,Spacebar alias
+Backspace,Backspace alone
+Delete,Delete alone
+Insert,Insert alone
+Ins,Insert alias Ins
+Home,Home alone
+End,End alone
+PageUp,PageUp alone
+PageDown,PageDown alone
+PgUp,PageUp alias PgUp
+PgDn,PageDown alias PgDn
+ArrowUp,ArrowUp alone
+ArrowDown,ArrowDown alone
+ArrowLeft,ArrowLeft alone
+ArrowRight,ArrowRight alone
+Up,Up alias
+Down,Down alias
+Left,Left alias
+Right,Right alias
+↑,ArrowUp unicode ↑
+↓,ArrowDown unicode ↓
+←,ArrowLeft unicode ←
+→,ArrowRight unicode →
+A,Single uppercase A
+z,Single lowercase z
+0,Single digit 0
+9,Single digit 9
++,Plus key alone
+-,Minus key alone
+=,Equals key alone
+/,Slash key alone
+.,Period key alone
+",",Comma key alone
+;,Semicolon key alone
+',Apostrophe key alone
+[,Open bracket alone
+],Close bracket alone
+MediaPlayPause,Media: Play/Pause
+Play/Pause,Media: Play/Pause alias
+MediaTrackNext,Media: Next Track
+MediaTrackPrevious,Media: Previous Track
+MediaFastForward,Media: Fast Forward
+FastForward,Media: Fast Forward alias
+MediaRewind,Media: Rewind
+Rewind,Media: Rewind alias
+AudioVolumeUp,Audio: Volume Up
+AudioVolumeDown,Audio: Volume Down
+AudioVolumeMute,Audio: Mute
+Mute,Audio: Mute alias
+BrowserRefresh,Browser: Refresh
+Refresh,Browser: Refresh alias
+BrowserSearch,Browser: Search
+Search,Browser: Search alias
+BrowserForward,Browser: Forward
+Forward,Browser: Forward alias
+LaunchCalculator,App: Calculator
+Calculator,App: Calculator alias
+LaunchMail,App: Mail
+Mail,App: Mail alias
+CapsLock,CapsLock alone
+NumLock,NumLock alone
+ScrollLock,ScrollLock alone
+PrintScreen,PrintScreen alone
+PrtSc,PrintScreen alias PrtSc
+Pause,Pause alone
+Break,Pause alias Break
+ContextMenu,ContextMenu alone
+Menu,ContextMenu alias Menu

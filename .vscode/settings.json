@@ -3,5 +3,11 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "files.trimFinalNewlines": false,
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["src/data/keyboard-keys.json"],
+      "url": "./src/data/keyboard-keys.schema.json"
+    }
+  ]
 }
