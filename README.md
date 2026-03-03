@@ -226,3 +226,7 @@ To generate button style images:
 ```shell
 bun run generate:button-styles
 ```
+
+## Maintainers
+
+- [David Taylor](https://github.com/tayles)
