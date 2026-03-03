@@ -1,27 +1,37 @@
 {
   "name": "stream-deck-profile-generator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Generate custom Stream Deck profiles for any application by importing a CSV of hotkeys / keyboard shortcuts",
   "keywords": [
-    "stream deck",
+    "csv",
+    "editor",
     "elgato",
-    "profile",
     "generator",
     "hotkeys",
     "keyboard shortcuts",
-    "csv"
+    "profile",
+    "shortcuts",
+    "stream deck"
   ],
   "homepage": "https://github.com/tayles/stream-deck-profile-generator",
   "bugs": {
     "url": "https://github.com/tayles/stream-deck-profile-generator/issues"
   },
+  "license": "MIT",
+  "author": "tayles",
   "repository": {
     "type": "git",
     "url": "https://github.com/tayles/stream-deck-profile-generator.git"
   },
-  "license": "MIT",
-  "author": "tayles",
+  "bin": {
+    "stream-deck-profile-generator": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -31,48 +41,44 @@
     },
     "./package.json": "./package.json"
   },
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "bin": {
-    "stream-deck-profile-generator": "./dist/cli.js"
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "bunup",
+    "dev": "bunup --watch",
+    "release": "bumpp --commit --push --tag",
+    "lint": "oxlint --type-aware --type-check",
+    "lint:fix": "bun run lint --fix",
+    "fmt": "oxfmt --check",
+    "fmt:fix": "oxfmt",
+    "fix": "bun run fmt:fix && bun run lint:fix",
+    "check": "bun run fmt && bun run lint",
+    "check:ci": "bun run fmt && bun run lint --format=github",
+    "preview-changelog": "bunx changelogithub --dry",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "test:ci": "bun test --coverage --coverage-reporter=lcov",
+    "test:watch": "bun test --watch",
     "generate": "bun run src/cli.ts",
     "generate:example": "bun run src/cli.ts --input examples/chrome-hotkeys-macos.csv",
     "inspect:example": "unzip -l examples/chrome-hotkeys-macos.streamDeckProfile",
     "generate:examples": "bun run scripts/generate-examples.ts",
     "generate:button-styles": "bun run scripts/generate-button-styles.ts",
-    "screencapture": "screencapture -R 368,200,480,340 docs/screenshots/screenshot.png",
-    "lint": "bunx prettier --check .",
-    "lint:fix": "bunx prettier --write .",
-    "optimize-images": "bunx @343dev/optimizt diagrams/",
-    "prepare": "bun simple-git-hooks",
-    "preview-changelog": "bunx changelogithub --dry",
-    "test": "bun test",
-    "test:coverage": "bun test --coverage",
-    "test:watch": "bun test --watch",
-    "type-check": "tsc --noEmit"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "bun run lint && bun run type-check"
+    "screencapture": "screencapture -R 368,200,480,340 docs/screenshots/screenshot.png"
   },
   "dependencies": {
     "archiver": "^7.0.1",
     "canvas": "^3.2.1",
-    "commander": "^14.0.3",
     "csv-parse": "^6.1.0"
   },
   "devDependencies": {
     "@types/archiver": "^7.0.0",
     "@types/bun": "latest",
-    "@types/node": "^25.3.2",
+    "@types/node": "^25.3.3",
+    "bumpp": "^10.4.1",
     "bunup": "^0.16.31",
-    "prettier-plugin-organize-imports": "^4.3.0",
-    "simple-git-hooks": "^2.13.1"
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
+    "oxlint-tsgolint": "^0.15.0",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -81,8 +87,5 @@
     "typescript": {
       "optional": true
     }
-  },
-  "engines": {
-    "bun": ">=1.0.0"
   }
 }

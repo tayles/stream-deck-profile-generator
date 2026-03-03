@@ -1,9 +1,16 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
   "files.trimFinalNewlines": false,
   "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+
+  // oxlint
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  },
+  "oxc.typeAware": true,
+
   "json.schemas": [
     {
       "fileMatch": ["src/data/keyboard-keys.json"],
