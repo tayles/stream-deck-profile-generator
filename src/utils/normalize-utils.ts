@@ -1,14 +1,8 @@
-import {
-  KEYBOARD_KEYS,
-  type KeyboardKey,
-  LOOKUP_MAP,
-  MODIFIER_KEYS,
-  type SingleChar,
-} from './keyboard-utils';
+import { KEYBOARD_KEYS, type KeyboardKey, LOOKUP_MAP, MODIFIER_KEYS } from './keyboard-utils';
 
 export interface NormalizedHotkey {
   modifiers: KeyboardKey[];
-  key: KeyboardKey | SingleChar;
+  key: KeyboardKey;
 }
 
 /**

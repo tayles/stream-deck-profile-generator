@@ -1,6 +1,8 @@
-import type { CanvasRenderingContext2D } from 'canvas';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
+
+import type { CanvasRenderingContext2D } from 'canvas';
+
 import { DEVICES, type DeviceId } from './types/device-types';
 import type { ButtonStyle, LabelPosition, LabelStyle } from './types/types';
 import { parseCsv } from './utils/csv-utils';

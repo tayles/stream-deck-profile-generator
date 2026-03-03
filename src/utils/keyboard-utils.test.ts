@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+
 import type { Hotkey } from '../types/manifest-types';
 import { generateHotkey, generateHotkeys } from './keyboard-utils';
 import { normalizeHotkeyCommand } from './normalize-utils';

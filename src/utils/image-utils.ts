@@ -1,6 +1,8 @@
-import { type CanvasRenderingContext2D, createCanvas } from 'canvas';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { extname } from 'node:path';
+
+import { type CanvasRenderingContext2D, createCanvas } from 'canvas';
+
 import type { ButtonStyle } from '../types/types';
 
 export const DEFAULT_BUTTON_SIZE = 144;
@@ -16,13 +18,12 @@ export function generateImage(
     case 'fill':
       return ctx;
     case 'basic':
+    default:
       return generateBasicGradientButton(ctx, size);
     case 'border':
       return generateBorderButton(ctx, size);
     case 'rainbow':
       return generateRainbowButton(ctx, size);
-    default:
-      throw new Error(`Unknown button style: ${buttonStyle}`);
   }
 }
 

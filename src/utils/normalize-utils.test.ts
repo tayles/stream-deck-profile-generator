@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+
 import { formatHotkeys, normalizeHotkeyCommand, type NormalizedHotkey } from './normalize-utils';
 
 // ---------------------------------------------------------------------------

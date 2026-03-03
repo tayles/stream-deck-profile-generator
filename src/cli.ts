@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { parseArgs } from 'node:util';
+
 import { generateStreamDeckProfile, type Options } from './lib';
 import { DEVICES, type DeviceId } from './types/device-types';
 import { BUTTON_STYLES, LABEL_POSITIONS, LABEL_STYLES } from './types/types';
@@ -173,4 +174,4 @@ async function main() {
   }
 }
 
-main();
+await main();

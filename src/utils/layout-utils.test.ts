@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+
 import { groupByPage } from './layout-utils';
 
 describe('layout-utils', () => {

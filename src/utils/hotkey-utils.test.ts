@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+
 import { generateId, generateLabel, generateUUID } from './hotkey-utils';
 import { normalizeHotkeyCommand } from './normalize-utils';
 

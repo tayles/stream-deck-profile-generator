@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test } from 'bun:test';
 import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+
 import { generateStreamDeckProfile, TMP_DIR, type Options } from './lib';
 
 describe('lib', () => {
@@ -157,7 +158,7 @@ Ctrl+V,Paste,#00FF00`;
         outputPath: outputFile,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow('Input file not found');
+      expect(generateStreamDeckProfile(options)).rejects.toThrow('Input file not found');
     });
 
     test('throws error for empty CSV', async () => {
@@ -168,7 +169,7 @@ Ctrl+V,Paste,#00FF00`;
         outputPath: outputFile,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow();
+      expect(generateStreamDeckProfile(options)).rejects.toThrow();
     });
 
     test('throws error for CSV with no data rows', async () => {
@@ -179,7 +180,7 @@ Ctrl+V,Paste,#00FF00`;
         outputPath: outputFile,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow('CSV file is empty');
+      expect(generateStreamDeckProfile(options)).rejects.toThrow('CSV file is empty');
     });
 
     test('throws error for invalid device ID', async () => {
@@ -194,7 +195,7 @@ Ctrl+C,Copy`;
         deviceId: 'invalid' as any,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow('Invalid device ID');
+      expect(generateStreamDeckProfile(options)).rejects.toThrow('Invalid device ID');
     });
 
     test('throws error for invalid font size', async () => {
@@ -209,7 +210,7 @@ Ctrl+C,Copy`;
         fontSize: 100,
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow(
+      expect(generateStreamDeckProfile(options)).rejects.toThrow(
         'fontSize must be between 1 and 72',
       );
     });
@@ -249,7 +250,7 @@ Ctrl+C,Copy`;
         iconsDir: join(testDir, 'nonexistent-icons'),
       };
 
-      await expect(generateStreamDeckProfile(options)).rejects.toThrow('Icons directory not found');
+      expect(generateStreamDeckProfile(options)).rejects.toThrow('Icons directory not found');
     });
 
     test('cleans up temporary directory after generation', async () => {

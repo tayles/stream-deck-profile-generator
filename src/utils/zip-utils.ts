@@ -1,7 +1,8 @@
-import archiver from 'archiver';
 import { createWriteStream } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
+
+import archiver from 'archiver';
 
 /**
  * Generate a zip file containing the given directory
@@ -43,6 +44,6 @@ export async function generateZip(inputPath: string, outputPath: string): Promis
     });
 
     // Finalize the archive
-    archive.finalize();
+    void archive.finalize();
   });
 }

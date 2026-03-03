@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+
 import type { LabelStyle } from '../types/types';
 import { formatHotkeys, type NormalizedHotkey } from './normalize-utils';
 
@@ -28,7 +29,7 @@ export function safeFilename(label: string): string {
   return label
     .toLowerCase()
     .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9\-]/g, '');
+    .replace(/[^a-z0-9-]/g, '');
 }
 
 export function generateLabel(
