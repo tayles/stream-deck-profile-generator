@@ -1,5 +1,7 @@
 # Stream Deck Profile Generator
 
+![stream-deck-profile-generator](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/stream-deck-profile-generator-hero.png)
+
 Generate custom Stream Deck profiles for any application by importing a CSV of hotkeys / keyboard shortcuts.
 
 ## Usage
@@ -62,14 +64,14 @@ stream-deck-profile-generator \
 
 ## Button Styles
 
-Button styles are defined in [button-styles/](button-styles/):
+Button styles are defined in [docs/button-styles/](docs/button-styles/):
 
-| Preview                               | Style     | Description                                                     |
-| ------------------------------------- | --------- | --------------------------------------------------------------- |
-| ![basic](button-styles/basic.png)     | `basic`   | Button with a dark gradient background color                    |
-| ![border](button-styles/border.png)   | `border`  | Button with a border around the label                           |
-| ![rainbow](button-styles/rainbow.png) | `rainbow` | Button with a rainbow border                                    |
-| ![fill](button-styles/filled.png)     | `fill`    | Button with a filled background color (defined by `--bg-color`) |
+| Preview                                                                                                                | Style     | Description                                                     |
+| ---------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------- |
+| ![basic](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/button-styles/basic.png)     | `basic`   | Button with a dark gradient background color                    |
+| ![border](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/button-styles/border.png)   | `border`  | Button with a border around the label                           |
+| ![rainbow](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/button-styles/rainbow.png) | `rainbow` | Button with a rainbow border                                    |
+| ![fill](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/button-styles/filled.png)     | `fill`    | Button with a filled background color (defined by `--bg-color`) |
 
 ## Examples
 
@@ -82,7 +84,7 @@ Some example profiles are available in the [examples/](examples/) directory.
 
 #### Basic Button Style
 
-![Basic](docs/screenshots/chrome-hotkeys-macos-basic-preview.png)
+![Basic](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/chrome-hotkeys-macos-basic-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --profile-name "Chrome Hotkeys (macOS)" --app-path "/Applications/Google Chrome.app"
@@ -90,7 +92,7 @@ stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --profil
 
 #### Border Button Style
 
-![Border](docs/screenshots/chrome-hotkeys-macos-border-preview.png)
+![Border](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/chrome-hotkeys-macos-border-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --button-style border
@@ -98,7 +100,7 @@ stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --button
 
 #### Rainbow Button Style
 
-![Rainbow](docs/screenshots/chrome-hotkeys-macos-rainbow-preview.png)
+![Rainbow](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/chrome-hotkeys-macos-rainbow-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --button-style rainbow
@@ -106,7 +108,7 @@ stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --button
 
 #### Fill Button Style (Custom Colors)
 
-![Fill](docs/screenshots/chrome-hotkeys-macos-fill-preview.png)
+![Fill](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/chrome-hotkeys-macos-fill-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/chrome-hotkeys-macos.csv --bg-color purple --text-color yellow
@@ -121,7 +123,7 @@ This includes an `Id` column to match against icon filenames in the `--icon-path
 
 This example uses [Twemoji](https://github.com/twitter/twemoji) SVG icons from [boywithkeyboard-archive/twemoji_svg](https://github.com/boywithkeyboard-archive/twemoji_svg):
 
-![Icons](docs/screenshots/chrome-hotkeys-windows-icons-preview.png)
+![Icons](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/chrome-hotkeys-windows-icons-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/chrome-hotkeys-windows.csv --icons-dir ~/path/to/twemoji_svg/files --label-style label
@@ -134,7 +136,7 @@ stream-deck-profile-generator --input examples/chrome-hotkeys-windows.csv --icon
 
 If there are more than 2 pages, Previous/Next navigation buttons will be automatically added to each page in the bottom right corner. This example also demonstrates using a `Page` column to group buttons onto different pages:
 
-![Navigation](docs/screenshots/macos-hotkeys-preview.png)
+![Navigation](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/macos-hotkeys-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/macos-hotkeys.csv
@@ -147,7 +149,7 @@ stream-deck-profile-generator --input examples/macos-hotkeys.csv
 
 This includes a `Color` column to customise individual button colors:
 
-![Fill](docs/screenshots/rainbow-virtual-keyboard-preview.png)
+![Fill](https://raw.githubusercontent.com/tayles/stream-deck-profile-generator/main/docs/screenshots/rainbow-virtual-keyboard-preview.png)
 
 ```shell
 stream-deck-profile-generator --input examples/rainbow-virtual-keyboard.csv --font-size 24 --label-style label
@@ -205,6 +207,12 @@ To test:
 
 ```shell
 bun test
+```
+
+To run linting and formatting checks (with auto-fixing):
+
+```shell
+bun fix
 ```
 
 To regenerate example profiles:
